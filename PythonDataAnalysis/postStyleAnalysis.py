@@ -24,7 +24,7 @@ iWearDB = pyodbc.connect(
 
 cursor = iWearDB.cursor()
 
-for row in cursorToList("SELECT memInform.account, memInform.gender, memInform.birth, memInform.height, memInform.weight, post.word, post.photo, post.styleNo, post.accessoriesNo, post.clothesNo, post.coatNo, post.pantsNo, post.shoesNo FROM dbo.memInform as memInform left join dbo.post as post on memInform.account=post.account"):
+for row in cursorToList("SELECT memInform.account, memInform.gender, memInform.birth, memInform.height, memInform.weight, post.word, post.photo, post.styleNo, post.accessoriesNo, post.clothesNo, post.coatNo, post.pantsNo, post.shoesNo FROM dbo.memInform AS memInform LEFT JOIN dbo.post AS post ON memInform.account=post.account"):
     MyJieba_hant.MyJieba_hant(context=row[5])
 
 listPostStyleOption=['styleNo','accessoriesNo','clothesNo','coatNo','pantsNo','shoesNo']
@@ -34,7 +34,7 @@ def getWeights(cusNo):
 
     arr=[]
     for i in range(len(listPostStyleOption)):
-        SQLCmd="select "+listPostStyleOption[i]+", count(*) as cnt from post where account= '"+cusNo+"' Group by "+listPostStyleOption[i]+";"
+        SQLCmd="SELECT "+listPostStyleOption[i]+", COUNT(*) AS cnt FROM post WHERE account= '"+cusNo+"' GROUP BY "+listPostStyleOption[i]+";"
 
         styleSum=0
         rowMax=0
