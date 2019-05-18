@@ -30,11 +30,11 @@ for row in cursorToList("SELECT memInform.account, memInform.gender, memInform.b
 listPostStyleOption=['styleNo','accessoriesNo','clothesNo','coatNo','pantsNo','shoesNo']
 listPercent=[30,10,15,15,15,15]
 
-def getWeights(cus_no):
+def getWeights(cusNo):
 
     arr=[]
     for i in range(len(listPostStyleOption)):
-        SQLCmd="select "+listPostStyleOption[i]+", count(*) as cnt from post where account= '"+cus_no+"' Group by "+listPostStyleOption[i]+";"
+        SQLCmd="select "+listPostStyleOption[i]+", count(*) as cnt from post where account= '"+cusNo+"' Group by "+listPostStyleOption[i]+";"
 
         styleSum=0
         rowMax=0
