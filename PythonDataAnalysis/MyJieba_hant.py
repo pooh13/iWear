@@ -1,5 +1,7 @@
 import jieba_hant
+
 from collections import Counter
+
 def MyJieba_hant(context):
     print("原文內容："+context)
     sentence=([t for t in jieba_hant.cut(context, cut_all=False)])

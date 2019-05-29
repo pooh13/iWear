@@ -1,4 +1,10 @@
-import  pyodbc
+import SQLServerDBLink
+
+# SQLServerDBLinkMyDB
+# iWearDB = SQLServerDBLink.SQLServerDBLinkMyDB()
+
+# SQLServerDBLink241DB
+iWearDB = SQLServerDBLink.SQLServerDBLink241DB()
 
 def cursorToList(cusNoPostCntSortSQLCmd):
     cursor.execute(cusNoPostCntSortSQLCmd)
@@ -12,26 +18,6 @@ def cursorToList(cusNoPostCntSortSQLCmd):
         listResult.append(listCut)
     return listResult
 
-# IP: 220.135.161.251
-iWearDB = pyodbc.connect(
-    'DRIVER={SQL Server}; SERVER=220.135.161.251,1433; DATABASE=108-510; UID=sa; PWD=sqlserver',
-    ENGINE = "sql_server.pyodbc",
-    NAME= "108-510",
-    HOST="220.135.161.251,1433",
-    USER="sa",
-    PASSWORD="sqlserver",
-)
-
-# IP: 140.131.114.241
-# iWearDB = pyodbc.connect(
-#     'DRIVER={SQL Server}; SERVER=140.131.114.241,1433; DATABASE=108-510; UID=sa; PWD=sqlserver',
-#     ENGINE = "sql_server.pyodbc",
-#     NAME= "108-510",
-#     HOST="140.131.114.241,1433",
-#     USER="108iwear",
-#     PASSWORD="@108iwear",
-# )
-
 cursor = iWearDB.cursor()
 
 listPercent=[0.3,0.1,0.15,0.15,0.15,0.15]
@@ -41,6 +27,7 @@ def getPossible(cusNo):
     arrTable=['style','accessories','clothes','coat','pants','shoes']
     arrTableCol=['styleNo','accessoriesNo','clothesNo','coatNo','pantsNo','shoesNo']
     arrAllRow=[] # [[ST01,ST02],[PA01,PA02]] [[ST01,ST02,ST03],[PA01,PA02,PA03]]
+
     for table in arrTable:
         tableSQLCmd="SELECT * FROM "+table+";"
         arrTableCols=[]
@@ -90,10 +77,10 @@ def getPossible(cusNo):
         print(cusNoPostCntSortB)
 
         # 將分析結果寫成檔案 localhost DB
-        with open('analysisResultlocalDB.txt',"a",encoding='UTF-8') as printFile:
-            printFile.write(cusNoPostCntSortB+"\n")
+        # with open('analysisResultlocalDB.txt',"a",encoding='UTF-8') as printFile:
+        #     printFile.write(cusNoPostCntSortB+"\n")
 
-        # 將分析結果寫成檔案 140.131.114.241 DB
+        # 將分析結果寫成檔案 241 DB
         # with open('analysisResult241sDB.txt',"a",encoding='UTF-8') as printFile:
         #     printFile.write(cusNoPostCntSortB+"\n")
 

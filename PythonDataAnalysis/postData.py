@@ -1,5 +1,5 @@
 cnt=0
-with open('postData.sql',"a",encoding='UTF-8') as ff:
+with open('../SQLTest/postData.sql',"a",encoding='UTF-8') as ff:
     for a in range(6):
         a=a+1
         a = "%02d" % a
