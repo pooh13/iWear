@@ -1,3 +1,8 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: 'Noto Sans TC';
+}
+
 html, body{
 	/*background-color: lightyellow;*/
 	background-color: rgba(255, 255, 255, 1); 
@@ -9,7 +14,7 @@ html, body{
 .container{
 	width: 800px;
 	/*min-height: 100%;*/
-	border: 5px solid black;
+	/*border: 5px solid black;*/
 	box-sizing: border-box;
 	overflow: hidden;
 }
@@ -56,7 +61,6 @@ html, body{
 	height: 150px;
 	/*background-color: lightgreen;*/
 }
-
 /*img*/
 .userLogo{
 	border: 3px dotted black;
@@ -87,6 +91,33 @@ html, body{
 	border-radius:50%;
 	
 }
+/*input*/
+.btnFollow{
+	position: relative;
+	top: 230px;
+	left: 600px;
+	font-size: 15px;
+	font-family: 'Noto Sans TC';
+	border:none;
+}
+.btnUnFollow{
+	width: 100px;
+	height: 40px;
+	font-size: 15px;
+	font-family: 'Noto Sans TC';
+	border:none;
+}
+.btnFollowActive{
+	width: 100px;
+	height: 40px;
+	/*background-color: rgba(358, 100, 57, 218);*/
+	color: white;
+	background-color: #FF282C;
+	font-size: 15px;
+	font-family: 'Noto Sans TC';
+	border:none;
+}
+
 
 /*talbe*/
 table, tr, th {
