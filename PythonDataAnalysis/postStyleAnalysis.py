@@ -1,23 +1,18 @@
 import os
 import SQLServerDBLink
+import toList
 
 # SQLServerDBLinkMyDB
-iWearDB = SQLServerDBLink.SQLServerDBLinkMyDB()
+# iWearDB = SQLServerDBLink.SQLServerDBLinkMyDB()
 
 # SQLServerDBLink241DB
-# iWearDB = SQLServerDBLink.SQLServerDBLink241DB()
+iWearDB = SQLServerDBLink.SQLServerDBLink241DB()
 
 def cursorToList(cusNoPostCntSortSQLCmd):
     cursor.execute(cusNoPostCntSortSQLCmd)
     result = cursor.fetchall()
-    listResult=[]
-    for row in result:
-        listRow = [row]
-        string = ",".join(str(v) for v in listRow)
-        string=string.replace(" ","").replace("'","").replace("(","").replace(")","")
-        listCut = string.split(',')
-        listResult.append(listCut)
-    return listResult
+    cursorToList = toList.toList(result)
+    return cursorToList
 
 cursor = iWearDB.cursor()
 
@@ -39,6 +34,7 @@ def getPossible(cusNo):
     sum=0
     for cusNoPostCnt in cursorToList("SELECT COUNT(*) as cnt FROM post WHERE account="+cusNo+";"):
         sum=int(cusNoPostCnt[0])
+        # print(sum)
 
     # 尋找user每一種可能的比例
     cusNoPostCntSortA=""
@@ -64,19 +60,25 @@ def getPossible(cusNo):
     print(cusNoPostCntSortA)
 
     # 判斷 MyDB 是否有原有輸出檔案存在
-    filePathMyDB = "DataAnalysisResult/analysisResultMyDB.txt"
-    if os.path.isfile(filePathMyDB):
-        os.remove(filePathMyDB)
+    # filePathMyDB = "DataAnalysisResult/analysisResultMyDB.txt"
+    # if os.path.isfile(filePathMyDB):
+    #     os.remove(filePathMyDB)
 
     # 判斷 241DB 是否有原有輸出檔案存在
-    # filePath241DB = "DataAnalysisResult/analysisResult241DB.txt"
-    # if os.path.isfile(filePath241DB):
-    #     os.remove(filePath241DB)
+    filePath241DB = "DataAnalysisResult/analysisResult241DB.txt"
+    if os.path.isfile(filePath241DB):
+        os.remove(filePath241DB)
 
     # 抓取且執行 cusNoPostCntSortA 查詢結果 = arrPersonalRow
     for arrPersonalRow in cursorToList(cusNoPostCntSortA):
         cusNoPostCntSortB=""
-        # print(arrPersonalRow)
+        # >
+        # sorted(arrPersonalRow, key=lambda s: s[0])
+        print(arrPersonalRow)
+        # 依比例排序
+        # for arrAllPersonRow in arrPersonalRow:
+        #     arrAllPersonRow=list(arrAllPersonRow)+arrPersonalRow
+        #     print(arrAllPersonRow)
 
         # 轉換成同一欄位
         for PersonalRow in range(len(arrPersonalRow)):
@@ -88,11 +90,13 @@ def getPossible(cusNo):
         print(cusNoPostCntSortB)
 
         # 將分析結果寫成檔案 MyDB
-        with open('DataAnalysisResult/analysisResultMyDB.txt',"a",encoding='UTF-8') as printFile:
-            printFile.write(cusNoPostCntSortB+"\n")
+        # with open('DataAnalysisResult/analysisResultMyDB.txt',"a",encoding='UTF-8') as printFile:
+        #     printFile.write(cusNoPostCntSortB+"\n")
 
         # 將分析結果寫成檔案 241DB
-        # with open('DataAnalysisResult/analysisResult241DB.txt',"a",encoding='UTF-8') as printFile:
-        #     printFile.write(cusNoPostCntSortB+"\n")
+        with open('DataAnalysisResult/analysisResult241DB.txt',"a",encoding='UTF-8') as printFile:
+            printFile.write(cusNoPostCntSortB+"\n")
+
+
 
 getPossible("64")
