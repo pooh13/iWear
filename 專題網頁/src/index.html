@@ -10,7 +10,7 @@
 
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <!-- <link href="css/main.css" rel="stylesheet"> -->
     <link href="css/index.css" rel="stylesheet"> 
 
 
@@ -67,8 +67,14 @@
 		    });
 		});
 	</script>  
-
-
+		
+	<script type="text/javascript">
+		function jumptoCommentArea() {
+			document.getElementById('commentArea').style.display="inline";
+			document.getElementById('btnSure').style.display="inline";
+		}
+	</script>
+	
 
 
   </head>
@@ -85,6 +91,20 @@
 	  	<a href="#" class="box-slider-seta-left"><i class="fas fa-chevron-left fontawesome" ></i></a>
 	    <div class="box-slider-content">
 	      <div class="box-slider-move">
+	        <a href="#"><div class="item first"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
+	        <a href="#"><div class="item"><span></span></div></a>
 	        <a href="#"><div class="item first"><span></span></div></a>
 	        <a href="#"><div class="item"><span></span></div></a>
 	        <a href="#"><div class="item"><span></span></div></a>
@@ -120,238 +140,18 @@
 				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
 			</div>		
 			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-		
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
+				<a href=""><i class="far fa-heart like" title="like"></i></a>
+				<a href="#commentArea" onclick="jumptoCommentArea()"><i class="fas fa-highlighter"></i></a>
+				<a href=""><i class="far fa-share-square share" title="share"></i></a>
 			</div>	
 		</div>
 
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
+		<div>
+			<textarea id="commentArea" placeholder="留言............."></textarea>
+			<button id="btnSure">傳送</button>			
 		</div>
 
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
 
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
-
-		<div class="whole-article">
-			<div class="userframe">			
-				<div class="user">
-					<a href="setting.html">
-						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
-						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
-					</a>
-				</div>
-			</div>
-			<div>
-				<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="article">
-			</div>		
-			<div class="btnGroup"> 
-				<a href="#"><i class="far fa-heart like" title="like"></i></a>
-				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
-				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
-			</div>	
-		</div>
 	</div>
 
 	<div class="footerNav">
