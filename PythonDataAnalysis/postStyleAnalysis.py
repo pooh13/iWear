@@ -1,11 +1,12 @@
 import os
 import SQLServerDBLink
 import toList
+import loginChecker
 
-# SQLServerDBLinkMyDB
+# SQLServerDBLinkMyDB DB.(1/3 A)
 # iWearDB = SQLServerDBLink.SQLServerDBLinkMyDB()
 
-# SQLServerDBLink241DB
+# SQLServerDBLink241DB DB.(1/3 B)
 iWearDB = SQLServerDBLink.SQLServerDBLink241DB()
 
 def cursorToList(cusNoPostCntSortSQLCmd):
@@ -41,7 +42,7 @@ def getPossible(cusNo):
 
     # { cusNoPostCntSortCmdA=["SELECT COUNT(*) as cnt,"] } { cusNoPostCntSortCmd01=[,] }
     # { cusNoPostCntSortCmdB=[" FROM post WHERE account ="+cusNo+" GROUP BY "," ORDER BY "] }
-    cusNoPostCntSortSQLCmd=["SELECT COUNT(*) as cnt,"," FROM post WHERE account ="+cusNo+" GROUP BY "," ORDER BY "]
+    cusNoPostCntSortSQLCmd=["SELECT COUNT(*) as cnt,"," FROM post WHERE account ="+cusNo+" GROUP BY "," ORDER BY cnt desc ,"]
 
     # 加入 cusNoPostCntSortCmdA
     for cusNoPostCntSortCmdA in cusNoPostCntSortSQLCmd:
@@ -53,18 +54,19 @@ def getPossible(cusNo):
         for cusNoPostCntSortCmd01 in arrTableCol:
             cnt+=1
             cusNoPostCntSortA+=cusNoPostCntSortCmd01
-            if cnt>=len(arrTableCol):break
+            if cnt>=len(arrTableCol):
+                break
             cusNoPostCntSortA+=","
 
     # 列印出(SELECT COUNT(*) as cnt,styleNo,accessoriesNo,clothesNo,coatNo,pantsNo,shoesNo FROM post WHERE account =64 GROUP BY styleNo,accessoriesNo,clothesNo,coatNo,pantsNo,shoesNo ORDER BY styleNo,accessoriesNo,clothesNo,coatNo,pantsNo,shoesNo)
     print(cusNoPostCntSortA)
 
-    # 判斷 MyDB 是否有原有輸出檔案存在
+    # 判斷 MyDB 是否有原有輸出檔案存在 DB.(2/3 A)
     # filePathMyDB = "DataAnalysisResult/analysisResultMyDB.txt"
     # if os.path.isfile(filePathMyDB):
     #     os.remove(filePathMyDB)
 
-    # 判斷 241DB 是否有原有輸出檔案存在
+    # 判斷 241DB 是否有原有輸出檔案存在 DB.(2/3 B)
     filePath241DB = "DataAnalysisResult/analysisResult241DB.txt"
     if os.path.isfile(filePath241DB):
         os.remove(filePath241DB)
@@ -73,30 +75,28 @@ def getPossible(cusNo):
     for arrPersonalRow in cursorToList(cusNoPostCntSortA):
         cusNoPostCntSortB=""
         # >
-        # sorted(arrPersonalRow, key=lambda s: s[0])
-        print(arrPersonalRow)
-        # 依比例排序
-        # for arrAllPersonRow in arrPersonalRow:
-        #     arrAllPersonRow=list(arrAllPersonRow)+arrPersonalRow
-        #     print(arrAllPersonRow)
+        # print(arrPersonalRow)
 
         # 轉換成同一欄位
         for PersonalRow in range(len(arrPersonalRow)):
             cusNoPostCntSortB+=arrPersonalRow[PersonalRow]
             # print(cusNoPostCntSortB)
+
+        print(arrPersonalRow)
         cusNoPostCntSortB+=" 比例:"+str(int(arrPersonalRow[0])/sum)
 
         # 列印出每一種可能及比例
         print(cusNoPostCntSortB)
 
-        # 將分析結果寫成檔案 MyDB
+        # 將 DB-MyDB 分析結果寫成檔案 DB.(3/3 A)
         # with open('DataAnalysisResult/analysisResultMyDB.txt',"a",encoding='UTF-8') as printFile:
         #     printFile.write(cusNoPostCntSortB+"\n")
 
-        # 將分析結果寫成檔案 241DB
+        # 將 DB-241DB 分析結果寫成檔案 DB.(3/3 B)
         with open('DataAnalysisResult/analysisResult241DB.txt',"a",encoding='UTF-8') as printFile:
             printFile.write(cusNoPostCntSortB+"\n")
 
-
-
-getPossible("64")
+# 檢查是否已登入 iWear 平台 (需連結Django測試)
+loginResult = loginChecker.loginChecker()
+if loginResult[0]=="verified":
+    getPossible(loginResult[1])
