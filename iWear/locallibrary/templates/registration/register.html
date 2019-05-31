@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class = "flex-center" > 
+    <div class = "container" > 
+        <div class = "flex-center" > 
+            <div class = "unit-1-2 unit-1-on-mobile"> 
+                <h3 >註冊</h3><br> 
+                <form  class = "form"  action = "{% url 'iwear:register' %}"  method = "post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ user_form.as_p }}
+                    {{ mem_form.as_p }}
+
+                    <button type="submit" class="btn btn-primary btn-block">註冊</button > 
+                </form> 
+                <div class = "flex-center top-gap text-small" > 
+                    <a href = "{% url 'login' %}" >已有賬號登錄</a > 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</div> 
+{% endblock %}

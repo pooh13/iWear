@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    {% load static %}
+    <!-- CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet"> 
+    <link href="{% static 'css/buttons.css' %}" type="text/css" rel="stylesheet">
+
+    <div  class="container" > 
+        {% if message %}
+            <div class="alert alert-warning">{{ message }}</div>
+        {% endif %}
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        <form  action = ""  method = 'POST' enctype="multipart/form-data">
+            {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>使用者名稱：</td>
+                        <td type="text" width="100px" height="50px">{{ form.username }}</td>
+                    </tr>
+
+                        <tr>
+                            <td>密碼：</td>
+                            <td type="text" width="100px" height="50px">{{ form.password }}</td>
+                        </tr>
+                </table>
+                <button  type = "submit"  class = "button button--moema button--text-thick button--text-upper button--size-s myownbutton">登入</button > 
+                <input type="hidden" name="next" value="{{ next }}" />
+        </form >
+                <div class="subtitle"><a  href = "{% url 'iwear:register' %}" >立即註冊</a ></div >
+                <div class="subtitle"><a  href = "{% url 'password_reset' %}" >忘記密碼？</a ></div > 
+
+    </div > 
+
+{% endblock %}

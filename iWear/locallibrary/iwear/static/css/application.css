@@ -1,0 +1,161 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: 'Noto Sans TC';
+}
+
+html, body{
+	/*background-color: lightyellow;*/
+	background-color: rgba(255, 255, 255, 1); 
+	margin:0;
+	padding: 0;
+	height: auto;
+}
+.container{
+	width: 800px;
+	height: auto;
+	/*border: 5px solid black;*/
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+	/*margin: 0;*/
+	padding:0;
+}
+
+/*img*/
+img.head{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+
+/*button*/
+button.btnLogin, .btnRegister{
+	width: 80px;
+	height: 60px;
+	position: relative;
+	top: 15px;
+	left: 30px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	border: 3px dotted black;  
+	border-radius: 20%;
+	background-color: rgba(255, 255, 255, 1); 	
+	/*background-color: red;*/
+}
+
+/*div*/
+.frame{
+	width: 220px;
+	height: 500px;
+	background-color: white;	
+	/*position: relative;
+	top: 80px;
+	left: 250px;*/
+	margin: 0 auto;
+}
+.userIcon{
+	width: 220px;
+	height: 220px;
+/*	background-color: red;*/
+	border:5px dotted black; 
+	border-radius: 50%;
+}
+
+
+/*i*/
+i{
+	font-size: 150px;
+	position: relative;
+	left: 42px;
+	top: 25px;
+}
+
+/*a*/
+a:hover{
+	text-decoration: none;
+}
+a:hover button.btnLogin, 
+a:hover button.btnRegister{
+	background-color: rgba(181, 181, 181, 0.3);
+	cursor: grab;
+}
+
+/*RWD*/
+@media screen and (max-width: 515px) {
+	body{
+		/*background:green;	*/
+	}
+	.container{
+		width:300px;
+	}
+	.frame{
+		margin-left: 13%;
+	}
+}
+@media screen and (min-width: 515px) and (max-width: 550px) {
+	body{
+		/*background:lightgreen;	*/
+	}
+}
+@media screen and (min-width: 500px) and (max-width: 550px) {
+	body{
+		/*background:pink;	*/
+	}
+	.container{
+		width:300px;
+	}
+	.frame{
+		margin-left: 10%;
+	}
+}
+@media screen and (min-width: 550px) and (max-width: 575px) {
+	body{
+		/*background:gray;	*/
+	}
+	.container{
+		width:400px;
+	}
+	.frame{
+		margin-left: 20%;
+	}
+}
+@media screen and (min-width: 575px) and (max-width: 600px) {
+	body{
+		/*background:red;	*/
+	}
+	.container{
+		width:450px;
+	}
+	.frame{
+		margin-left: 25%;
+	}
+}
+@media screen and (min-width: 600px) and (max-width: 800px) {
+	body{
+		/*background: yellow;*/
+	}
+	.container{
+		width:500px;
+	}
+	.frame{
+		margin:0 30%;
+	}
+}
+@media screen and (min-width: 800px) and (max-width: 1000px){
+	body{
+		/*background: purple;*/
+	}
+	.container{
+		width: 650px;
+	}
+	.frame{
+		margin:0 35%;
+	}
+}
+@media screen and (min-width: 1000px) {
+	body{
+		/*background-color: blue;*/
+	}
+}
