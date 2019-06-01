@@ -22,19 +22,27 @@ html, body{
 	position: relative;
 	left: 150px;
 }
+.title{
+	margin-left:27%;
+}
+.down{
+	margin-top: 100px;
+	margin-left: 17%;
+}
 button{
 	width: 290px;
 	margin-top: 15px;
 }
 table tr td{
+	margin-top: 25px;
 	border-bottom: 15px solid white;
 }
-.inline{
+/* .inline{
 	width: 100px;
 	height: 100px;
 	display: inline;
 	background-color: yellow;
-}
+} */
 .subtitle{
 	position: relative;
 	top: 50px;

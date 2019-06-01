@@ -4,8 +4,8 @@
 }
 
 html, body{
-	/*background-color: lightyellow;*/
-	background-color: rgba(255, 255, 255, 1); 
+	/* background-color: lightyellow; */
+	background-color: rgba(255, 255, 255, 1);
 	margin:0;
 	padding: 0;
 	/*height: 100%;*/
@@ -18,8 +18,29 @@ html, body{
 	/*border: 5px solid black;*/
 	box-sizing: border-box;
 	overflow: hidden;
+	padding: 0;
+	position: relative;
+	top: -50px;
 }
-
+.frame{
+	width: 800px;
+	min-height: 180px;
+	/* background-color: yellow; */
+	/* border:5px solid black; */
+	box-sizing: border-box;
+	margin-left:16%; 
+}
+.photo{
+	width: 32%;
+	/* height: 100%; */
+	max-height: 150px;
+	overflow: hidden;
+	margin-right: 1%;
+	/* border:3px solid black; */
+	/* box-sizing: border-box; */
+	/* background-color: greenyellow; */
+	float: left;
+}
 
 /*div*/
 .top{
@@ -52,10 +73,12 @@ html, body{
 	box-sizing: border-box;
 }
 .article-search{
-	position: relative;
+	/* position: relative;
 	top: 30px;
-	left: 30px;
-	margin-bottom: 30px;
+	left: 300px;
+	margin-bottom: 30px; */
+	margin: 0 auto;
+	margin-left:300px;
 }
 .userID{
 	width: 100%;
@@ -71,9 +94,7 @@ html, body{
 }
 .articlePhoto{
 	width: 100%;
-	height: 100%;
-	max-width: 100%;
-	max-height: 100%;
+	height: auto;
 }
 
 /*p*/
@@ -119,54 +140,53 @@ html, body{
 	border:none;
 }
 
-
 /*talbe*/
 table, tr, th {
- 	border: 3px solid black;
+	border: 3px solid black;
 }
 th.article{
-	width: 95px;
-	border: none; 
-	/*border-right:5px solid black;	*/
-	/*background-color: lightyellow;*/
+   width: 95px;
+   border: none; 
+   /*border-right:5px solid black;	*/
+   /*background-color: lightyellow;*/
 }
 th.fans{
-	width: 95px;
-	border: none; 
-	/*border-right:5px solid black; */
-	/*background-color: lightgreen;*/
+   width: 95px;
+   border: none; 
+   /*border-right:5px solid black; */
+   /*background-color: lightgreen;*/
 }
 th.follow{
-	width: 100px;
-	border: none; 
-	/*background-color: lightblue;*/
+   width: 100px;
+   border: none; 
+   /*background-color: lightblue;*/
 }
 tr{
-	border:none;
+   border:none;
 }
 /*th{
-	padding: 10px;
+   padding: 10px;
 }*/
 table.article{
-	width: 700px;
-	height: 250px;
-	margin:0 auto;
-	position: relative;
-	top: -50px;
-	left: -30px;
-	/*overflow: hidden;*/
-	/*background-color: green;*/
+   width: 700px;
+   height: 250px;
+   margin:0 auto;
+   position: relative;
+   top: -50px;
+   left: -30px;
+   /*overflow: hidden;*/
+   /*background-color: green;*/
 }
 table.userFame{
-	width: 300px;
-	position: relative;
-	top:30px;
-	border: none;
+   width: 300px;
+   position: relative;
+   top:30px;
+   border: none;
 }
 
 th.imgs{
-	width: 30%;
-	height: 200px;
+   width: 30%;
+   height: 200px;
 }
 
 /*hr*/
@@ -250,9 +270,9 @@ i{
 
 /*RWD*/
 @media screen and (max-width: 500px) {
-	body{
-		/*background:green;	*/
-	}
+	/* body{
+		background:green;	
+	} */
 	.container{
 		width: 350px;
 	}
@@ -289,9 +309,9 @@ i{
 }
 
 @media screen and (min-width: 500px) and (max-width: 505px) {
-	body{
-		/*background-color: brown;*/
-	}
+	/* body{
+		background-color: brown;
+	} */
 	.container{
 		width: 400px;
 	}
@@ -330,9 +350,9 @@ i{
 	}
 }
 @media screen and (min-width: 505px) and (max-width: 550px) {
-	body{
-		/*background:pink;	*/
-	}
+	/* body{
+		background:pink;	
+	} */
 	.container{
 		width: 400px;
 	}
@@ -374,9 +394,9 @@ i{
 	}
 }
 @media screen and (min-width: 550px) and (max-width: 575px) {
-	body{
-		/*background:gray;	*/
-	}
+	/* body{
+		background:gray;	
+	} */
 	.container{
 		width: 500px;
 	}
@@ -412,9 +432,9 @@ i{
 	}
 }
 @media screen and (min-width: 575px) and (max-width: 600px) {
-	body{
-		/*background:red;	*/
-	}
+	/* body{
+		background:red;	
+	} */
 	.container{
 		width: 500px;
 	}
@@ -435,9 +455,9 @@ i{
 	}
 }
 @media screen and (min-width: 600px) and (max-width: 800px) {
-	body{
-		/*background: yellow;*/
-	}
+	/* body{
+		background: yellow;
+	} */
 	.container{
 		width: 600px;
 	}
@@ -458,9 +478,9 @@ i{
 	}
 }
 @media screen and (min-width: 800px) and (max-width: 1000px){
-	body{
-		/*background: lightgreen;*/
-	}
+	/* body{
+		background: lightgreen;
+	} */
 	.container{
 		width: 700px;
 	}
@@ -480,9 +500,9 @@ i{
 	}
 }
 @media screen and (min-width: 1000px) {
-	body{
-		/*background-color: blue;*/
-	}
+	/* body{
+		background-color: blue;
+	} */
 	table.article{
 		width: 750px;
 		margin:0 auto;

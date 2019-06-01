@@ -61,18 +61,20 @@
 		
 		<hr size="8px" align="center" width="100%" color=black>
 
+	</div>
 		<div class="article-search">
 			{% for img in posts %}
 				{%if img.photo %}
-				{% cycle "<div class='row'> <div class='col-md-4'>" "<div class='col-md-4'>" "<div class='col-md-4'>" %}
+				{% cycle "<div class='frame'> <div class='photo'>" "<div class='photo'>" "<div class='photo'>" %}
 					<img class="articlePhoto" alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
-				</div>
+				<!-- </div> -->
 				</div>
 				{% cycle "" "" "</div>" %}
 				{% endif %}
 			{% endfor %}
 		</div>
-	</div>
+		</div>
+	
 
 	<div class="footerNav">
 		<ul>

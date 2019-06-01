@@ -53,7 +53,7 @@ button.btnLogin, .btnRegister{
 	/*position: relative;
 	top: 80px;
 	left: 250px;*/
-	margin: 0 auto;
+	margin: 80px auto;
 }
 .userIcon{
 	width: 220px;

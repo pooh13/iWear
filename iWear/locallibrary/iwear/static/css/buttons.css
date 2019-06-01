@@ -480,6 +480,7 @@
 	color: #fff;
 	-webkit-transition: background-color 0.3s, gray 0.3s;
 	transition: background-color 0.3s, gray 0.3s;
+	margin-left: 10%;
 }
 .button--moema.button--inverted {
 	background: #ECEFF1;

@@ -5,7 +5,7 @@
 
 html, body{
 	/*ackground-color: lightgreen;*/
-	background-color: rgba(255, 255, 255, 1); 
+	/* background-color: rgba(255, 255, 255, 1);  */
 	margin:0;
 	padding: 0;
 	height: auto;
@@ -82,11 +82,11 @@ i.userIcon{
 	clip-path: circle(80%);
 }*/
 
-i.like:hover, i.comment:hover, i.share:hover{
-	/*color: red;*/
-	/*font-size: 40px;*/
-	/*text-decoration: none;*/
-}
+/* i.like:hover, i.comment:hover, i.share:hover{
+	color: red;
+	font-size: 40px;
+	text-decoration: none;
+} */
 /*button i{
 	position: relative;
 	top: 10px;
@@ -297,9 +297,9 @@ h1 {
   height: 80px;
   /*border:2px solid black;*/
 }
-.box-slider-seta-left i{
-	/*display: none;*/
-}
+/* .box-slider-seta-left i{
+	display: none;
+} */
 .box-slider-seta-left i hover{
 	display: blank;
 }
@@ -377,9 +377,9 @@ h1 {
  
 /*RWD*/
 @media screen and (max-width: 500px) {
-	body{
-		/*background:green;	*/
-	}
+	/* body{
+		background:green;	
+	} */
 	.container{
 		width: 350px;
 	}
@@ -389,9 +389,9 @@ h1 {
 	}
 }
 @media screen and (min-width: 500px) and (max-width: 550px) {
-	body{
-		/*background:pink;	*/
-	}
+	/* body{
+		background:pink;	
+	} */
 	.container{
 		width: 400px;
 	}
@@ -401,9 +401,9 @@ h1 {
 	}
 }
 @media screen and (min-width: 550px) and (max-width: 575px) {
-	body{
-		/*background:gray;	*/
-	}
+	/* body{
+		background:gray;	
+	} */
 	.container{
 		width: 450px;
 	}
@@ -413,9 +413,9 @@ h1 {
 	}
 }
 @media screen and (min-width: 575px) and (max-width: 600px) {
-	body{
-		/*background:red;*/
-	}
+	/* body{
+		background:red;
+	} */
 	.container{
 		width: 500px;
 	}
@@ -427,9 +427,9 @@ h1 {
 	}
 }
 @media screen and (min-width: 600px) and (max-width: 700px) {
-	body{
-		/*background-color: orange;*/
-	}
+	/* body{
+		background-color: orange;
+	} */
 	.container{
 		width: 550px;
 	}
@@ -441,9 +441,9 @@ h1 {
 	}
 }
 @media screen and (min-width: 700px) and (max-width: 800px) {
-	body{
-		/*background: yellow;*/
-	}
+	/* body{
+		background: yellow;
+	} */
 	.container{
 		width: 600px;
 	}
@@ -455,9 +455,9 @@ h1 {
 	}
 }
 @media screen and (min-width: 800px) and (max-width: 1000px){
-	body{
-	/*background-color: purple;*/
-	}
+	/* body{
+	background-color: purple;
+	} */
 	.container{
 		width: 680px;
 	}
@@ -469,9 +469,9 @@ h1 {
 	}
 }
 @media screen and (min-width: 1000px) {
-	body{
-		/*background-color: blue;*/
-	}
+	/* body{
+		background-color: blue;
+	} */
 	#gotop{
 		right: 50px;
 	}

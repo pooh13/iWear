@@ -166,9 +166,9 @@ i{
 
 /*RWD*/
 @media screen and (max-width: 515px) {
-	body{
-		/*background:green;	*/
-	}
+	/* body{
+		background:green;	
+	} */
 	.container{
 		width: 450px;
 	}
@@ -184,9 +184,9 @@ i{
 	}
 }
 @media screen and (min-width: 515px) and (max-width: 550px) {
-	body{
-		/*background:pink;	*/
-	}
+	/* body{
+		background:pink;	
+	} */
 	.container{
 		width: 450px;
 	}
@@ -202,9 +202,9 @@ i{
 	}
 }
 @media screen and (min-width: 500px) and (max-width: 550px) {
-	body{
-		/*background:lightgreen;	*/
-	}
+	/* body{
+		background:lightgreen;	
+	} */
 	.container{
 		width: 450px;
 	}
@@ -220,9 +220,9 @@ i{
 	}
 }						
 @media screen and (min-width: 550px) and (max-width: 575px) {
-	body{
-		/*background:gray;	*/
-	}
+	/* body{
+		background:gray;	
+	} */
 	.container{
 		width: 450px;
 	}
@@ -238,9 +238,9 @@ i{
 	}
 }
 @media screen and (min-width: 575px) and (max-width: 600px) {
-	body{
-		/*background:red;	*/
-	}
+	/* body{
+		background:red;	
+	} */
 	.container{
 		width: 500px;
 	}
@@ -256,9 +256,9 @@ i{
 	}
 }
 @media screen and (min-width: 600px) and (max-width: 700px) {
-	body{
-		/*background: yellow;*/
-	}
+	/* body{
+		background: yellow;
+	} */
 	.container{
 		width: 550px;
 	}
@@ -274,9 +274,9 @@ i{
 	}
 }
 @media screen and (min-width: 700px) and (max-width: 800px) {
-	body{
-		/*background: brown;*/
-	}
+	/* body{
+		background: brown;
+	} */
 	.container{
 		width: 650px;
 	}
@@ -292,9 +292,9 @@ i{
 	}
 }
 @media screen and (min-width: 800px) and (max-width: 1000px){
-	body{
-		/*background: purple;*/
-	}
+	/* body{
+		background: purple;
+	} */
 	.container{
 		width: 700px;
 	}
@@ -310,7 +310,7 @@ i{
 	}
 }
 @media screen and (min-width: 1000px) {
-	body{
-		/*background-color: blue;*/
-	}
+	/* body{
+		background-color: blue;
+	} */
 }
