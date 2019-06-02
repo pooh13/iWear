@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	{% load static %}
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/record.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
+
+	<div class="container">
+		<div class="userAdd">
+			<i class="fas fa-user userIcon">{{ request.user }}</i>
+		</div>
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+			
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+			
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+		<div class="record">
+			<div class="record-photo">
+				<img id="record-photo" src="{% static 'images/jordanBrand.png' %}" />
+			</div>
+			<div class="record-text">
+				recordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecordrecord
+			</div>
+		</div>
+
+	</div>
+
+	<div class="footerNav">
+		<ul>
+			<div class="footerli"><a href="{% url 'iwear:homepage' %}"><li><i class="fas fa-home"></i></li></a></div>
+			<div class="footerli"><a href="{% url 'iwear:search' %}"><li><i class="fas fa-search"></i></li></a></div>
+			<div class="footerli"><a href="{% url 'iwear:addEdit' %}"><li><i class="fas fa-plus"></i></li></a></div>
+			<div class="footerli"><a href="{% url 'iwear:record' %}"><li><i class="fas fa-heart"></i></li></a></div>
+			<div class="footerli"><a href="{% url 'iwear:setting' %}"><li><i class="fas fa-user"></i></li></a></div>
+		</ul>
+	</div>
+	
+{% endblock %}
