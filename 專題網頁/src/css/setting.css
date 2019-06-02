@@ -1,0 +1,499 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: 'Noto Sans TC';
+}
+
+html, body{
+	/*background-color: lightyellow;*/
+	background-color: rgba(255, 255, 255, 1); 
+	margin:0;
+	padding: 0;
+	/*height: 100%;*/
+	overflow: auto;
+}
+.container{
+	width: 800px;
+	/*min-height: 100%;*/
+	/*border: 5px solid black;*/
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+
+/*div*/
+.top{
+	width:100%;
+	height: 100px;
+	/*background-color: red;*/
+	margin-bottom: 10px;
+}
+.left{
+	width: 25%;
+	height: 200px;
+	/*background-color: green;*/
+	float: left;
+	box-sizing: border-box;
+	margin-left:5%;
+	margin-right: 5%
+}
+.middle{
+	width: 40%;
+	height: 200px;
+	/*background-color: blue;*/
+	float: left;
+	box-sizing: border-box;
+}
+.right{
+	width: 20%;
+	height: 200px;
+	/*background-color: purple;*/
+	float: left;
+	box-sizing: border-box;
+}
+.article-search{
+	position: relative;
+	top: 30px;
+	left: 30px;
+	margin-bottom: 30px;
+}
+.userID{
+	width: 100%;
+	height: 150px;
+	/*background-color: lightgreen;*/
+}
+/*img*/
+.userLogo{
+	border: 3px dotted black;
+	border-radius: 50%;
+	width:100px;
+	height:100px;
+}
+.articlePhoto{
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+/*p*/
+#userID{
+	width: 100%;
+	height: 100px;
+	position: relative;
+	top: 20px;
+	left: -1px;
+	margin-bottom: 30px;
+	/*padding-top: 5%;*/
+	text-align: center;
+	font-size: 50px;
+	background-color: white;
+	border: 3px dashed black;
+	border-radius:50%;
+	
+}
+/*input*/
+.btnFollow{
+	position: relative;
+	top: 230px;
+	left: 600px;
+	font-size: 15px;
+	font-family: 'Noto Sans TC';
+	border:none;
+}
+.btnUnFollow{
+	width: 100px;
+	height: 40px;
+	font-size: 15px;
+	font-family: 'Noto Sans TC';
+	border:none;
+}
+.btnFollowActive{
+	width: 100px;
+	height: 40px;
+	/*background-color: rgba(358, 100, 57, 218);*/
+	color: white;
+	background-color: #FF282C;
+	font-size: 15px;
+	font-family: 'Noto Sans TC';
+	border:none;
+}
+
+
+/*talbe*/
+table, tr, th {
+ 	border: 3px solid black;
+}
+th.article{
+	width: 95px;
+	border: none; 
+	/*border-right:5px solid black;	*/
+	/*background-color: lightyellow;*/
+}
+th.fans{
+	width: 95px;
+	border: none; 
+	/*border-right:5px solid black; */
+	/*background-color: lightgreen;*/
+}
+th.follow{
+	width: 100px;
+	border: none; 
+	/*background-color: lightblue;*/
+}
+tr{
+	border:none;
+}
+/*th{
+	padding: 10px;
+}*/
+table.article{
+	width: 700px;
+	height: 250px;
+	margin:0 auto;
+	position: relative;
+	top: -50px;
+	left: -30px;
+	/*overflow: hidden;*/
+	/*background-color: green;*/
+}
+table.userFame{
+	width: 300px;
+	position: relative;
+	top:30px;
+	border: none;
+}
+
+th.imgs{
+	width: 30%;
+	height: 200px;
+}
+
+/*hr*/
+hr{
+	position: relative;
+	top: 30px;
+}
+
+/*gotop*/
+.gotop{
+    position: relative;
+    top: 8px;
+    font-size: 30px;
+}
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:150px;
+    bottom:80px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:rgba(255, 255, 255, 0.6);
+    line-height:30px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    font-size: 10px;
+    border:3px dotted black;
+}
+#gotop :hover{
+    color: red;
+}
+
+/*footerNav*/
+/*---------------------------------------------------------------*/
+.footerNav{
+	width: 100%;	
+	max-width: 100%;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 1);
+	/*background-color: gray;*/
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+}
+.footerli{
+	width: 15%;
+	height: 50px;
+	float: left;
+	margin-right: 5%;
+	background-color: rgba(255, 255, 255, 1);
+	/*background-color: red;*/
+	text-align: center;
+}
+/*ul*/
+ul{
+	width: 100%;
+	/*float: left;
+	position: relative;
+	left: 25%;*/
+	text-align: center;
+}
+ul li{
+	list-style: none;
+	margin: 0 auto;
+
+}
+
+i{
+	width: 100%;
+	height: 100%;
+	color: black;
+	position: relative;
+	top: 20px;
+	font-size: 30px;
+}
+/*---------------------------------------------------------------*/
+
+/*RWD*/
+@media screen and (max-width: 500px) {
+	body{
+		/*background:green;	*/
+	}
+	.container{
+		width: 350px;
+	}
+	.userFame{
+		display: none;
+	}
+	#userID{
+		width: 100%;
+		height: auto;
+		position: relative;
+		top:50px;
+		left: 3px;
+	}
+	.left{
+		position: relative;
+		left: 90px;
+		top: 15px;
+	}
+	table.article{
+		width: 300px;
+		height: 130px;
+		margin:0 auto;
+		position: relative;
+		top: -50px;
+		left: -30px;
+	}
+	th.imgs{
+		width: 30%;
+		height:100px;
+	}
+	#gotop{
+		right: 5px;
+	}
+}
+
+@media screen and (min-width: 500px) and (max-width: 505px) {
+	body{
+		/*background-color: brown;*/
+	}
+	.container{
+		width: 400px;
+	}
+	.userFame{
+		display: none;
+	}
+	.fans{
+		width: 30%;
+	}
+	#userID{
+		width: 100%;
+		height: auto;
+		position: relative;
+		top:50px;
+		left: 5px;
+	}
+	.left{
+		position: relative;
+		left: 110px;
+		top: 20px;
+	}
+	table.article{
+		width: 350px;
+		height: 140px;
+		margin:0 auto;
+		position: relative;
+		top: -50px;
+		left: -30px;
+	}
+	th.imgs{
+		width: 30%;
+		height: 110px;
+	}
+	#gotop{
+		right: 5px;
+	}
+}
+@media screen and (min-width: 505px) and (max-width: 550px) {
+	body{
+		/*background:pink;	*/
+	}
+	.container{
+		width: 400px;
+	}
+	.userFame{
+		position: relative;
+		left: 5px;
+	}
+	.fans{
+		width: 30%;
+	}
+	#userID{
+		width: 100%;
+		height: auto;
+		position: relative;
+		top:50px;
+		left: 5px;
+	}
+	.left{
+		position: relative;
+		left: -10px;
+	}
+	table.article{
+		width: 350px;
+		height: 140px;
+		margin:0 auto;
+		position: relative;
+		top: -50px;
+		left: -30px;
+	}
+	th.imgs{
+		width: 30%;
+		height: 110px;
+	}
+	th.article{width: 50px;}
+	th.fans{width: 70px;}
+	th.follow{width: 50;}
+	#gotop{
+		right: 5px;
+	}
+}
+@media screen and (min-width: 550px) and (max-width: 575px) {
+	body{
+		/*background:gray;	*/
+	}
+	.container{
+		width: 500px;
+	}
+	.userFame{
+		position: relative;
+		left: -30px;
+	}
+	#userID{
+		width: 100%;
+		height: auto;
+		position: relative;
+		top:50px;
+		left: 5px;
+	}
+	.left{
+		position: relative;
+		left: -10px;
+	}
+	table.article{
+		width: 450px;
+		height: 150px;
+		margin:0 auto;
+		position: relative;
+		top: -50px;
+		left: -30px;
+	}
+	th.imgs{
+		width: 30%;
+		height: 150px;
+	}
+	#gotop{
+		right: 5px;
+	}
+}
+@media screen and (min-width: 575px) and (max-width: 600px) {
+	body{
+		/*background:red;	*/
+	}
+	.container{
+		width: 500px;
+	}
+	table.article{
+		width: 450px;
+		height: 150px;
+		margin:0 auto;
+		position: relative;
+		top: -50px;
+		left: -30px;
+	}
+	th.imgs{
+		width: 30%;
+		height: 150px;
+	}
+	#gotop{
+		right: 5px;
+	}
+}
+@media screen and (min-width: 600px) and (max-width: 800px) {
+	body{
+		/*background: yellow;*/
+	}
+	.container{
+		width: 600px;
+	}
+	table.article{
+		width: 550px;
+		height: 200px;
+		margin:0 auto;
+		position: relative;
+		top: -50px;
+		left: -30px;
+	}
+	th.imgs{
+		width: 30%;
+		height: 180px;
+	}
+	#gotop{
+		right: 10px;
+	}
+}
+@media screen and (min-width: 800px) and (max-width: 1000px){
+	body{
+		/*background: lightgreen;*/
+	}
+	.container{
+		width: 700px;
+	}
+	table.article{
+		width: 650px;
+		margin:0 auto;
+		position: relative;
+		top: -50px;
+		left: -30px;
+	}
+	th.imgs{
+		width: 30%;
+		height: 200px;
+	}
+	#gotop{
+		right: 30px;
+	}
+}
+@media screen and (min-width: 1000px) {
+	body{
+		/*background-color: blue;*/
+	}
+	table.article{
+		width: 750px;
+		margin:0 auto;
+		position: relative;
+		top: -50px;
+		left: -30px;
+	}
+	th.imgs{
+		width: 30%;
+		height: 250px;
+	}
+	#gotop{
+		right: 50px;
+	}
+}
