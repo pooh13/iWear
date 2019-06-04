@@ -17,6 +17,11 @@
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link href="css/setting.css" rel="stylesheet">
 
+	<!-- fancybox -->
+	<link href="css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="css/my.jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
   
 </head>
@@ -32,7 +37,7 @@
 	    
 	    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
 	    $(window).scroll(function() {
-	        if ( $(this).scrollTop() > 400){
+	        if ( $(this).scrollTop() > 30){
 	            $('#gotop').fadeIn();
 	        } else {
 	            $('#gotop').fadeOut();
@@ -90,120 +95,17 @@
 		</div>
 		
 		<!-- hr -->
-		<hr size="10" color="black" width="100%">		
+		<hr size="10" color="black" width="100%">	
 
-		<div class="article-search">
-			<table class="article">
-				<tr>
-					<th class="imgs">
-						<img src="images/jordanBrand.png" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="articlePhoto">
-					</th>
-				</tr>
-
-				<tr>
-					<th class="imgs">
-						<img  alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-					</th>
-				</tr>
-
-				<tr>
-					<th class="imgs">
-						<img src="images/training.jpg" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/training.jpg" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/training.jpg" class="articlePhoto">
-					</th>
-				</tr>
-
-				<tr>
-					<th class="imgs">
-						<img src="images/jordanBrand.png" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="articlePhoto">
-					</th>
-				</tr>
-
-				<tr>
-					<th class="imgs">
-						<img  alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-					</th>
-				</tr>
-
-				<tr>
-					<th class="imgs">
-						<img src="images/training.jpg" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/training.jpg" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/training.jpg" class="articlePhoto">
-					</th>
-				</tr>
-
-				<tr>
-					<th class="imgs">
-						<img src="images/jordanBrand.png" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/jordanBrand.png" class="articlePhoto">
-					</th>
-				</tr>
-
-				<tr>
-					<th class="imgs">
-						<img  alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/Giannis4.jpg" class="articlePhoto">
-					</th>
-				</tr>
-
-				<tr>
-					<th class="imgs">
-						<img src="images/training.jpg" class="articlePhoto">
-				    </th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/training.jpg" class="articlePhoto">
-					</th>
-					<th class="imgs">
-						<img alt="Bootstrap Image Preview" src="images/training.jpg" class="articlePhoto">
-					</th>
-				</tr>		
-			
-			</table>
+		<div class="frame">
+			<div class="articlephoto-in-div"><img src="images/Giannis4.jpg"></div>
+			<div class="articlephoto-in-div"><img src="images/training.jpg"></div>
+			<div class="articlephoto-in-div"><img src="images/jordanBrand.png"></div>
 		</div>	
+
+		
+
+		
 	</div>
 	<div class="footerNav">
 		<ul>
