@@ -18,12 +18,17 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #Add Django site authentication urls (for login, logout, password management)
     path('accounts/', include('django.contrib.auth.urls')),
-    
-    path('', include('iwear.urls')),
 ]
 
 # Use include() to add paths from the iwear application 
+from django.urls import include
+from django.urls import path
+
+urlpatterns += [
+    path('', include('iwear.urls')),
+]
 
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
