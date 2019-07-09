@@ -21,12 +21,12 @@ def homepage(request):
     html = template.render(locals())
     return HttpResponse(html)
 
-#setting.html
+#setting.html(show_user)
 @login_required
 def setting(request):
-    # mem = Meminform.objects.filter(user=request.user.id)
     mems = Meminform.objects.filter(user=request.user.id).all()
     posts = Post.objects.filter(account=request.user.id).order_by('-time')
+    times = Post.objects.filter(account=request.user.id).count()
     return render(request, 'iwear/setting.html', locals())
 
 #addShow.html
@@ -36,7 +36,7 @@ def setting(request):
 #   html = template.render(locals())
 #   return HttpResponse(html)
 
-# post_create(addShow)
+#post_create(addShow)
 #addEdit.html
 @login_required
 def post_create(request):
