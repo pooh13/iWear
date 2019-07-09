@@ -24,8 +24,14 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError('密碼不相符')
         return cleanedData
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class MemInfoForm(forms.ModelForm):
     class Meta():
+        widgets = {
+            'birth': DateInput(),
+        }
         model = Meminform
         fields = ('name', 'gender', 'birth', 'height', 'weight', 'mempic',)
 

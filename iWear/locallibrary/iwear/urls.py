@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+from iwear.views import homepage
+
 app_name = 'iwear'
 urlpatterns = [
     #path('accounts/login/', views.login, name='login'),

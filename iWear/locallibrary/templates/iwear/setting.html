@@ -49,9 +49,11 @@
 						<th class="follow">追蹤中</th>
 					</tr>
 					<tr>
-						<th class="article">99</th>
-						<th class="fans">999</th>
-						<th class="follow">99999</th>
+						
+						<th class="article">{{ times }}</th>
+					
+						<th class="fans">0</th>
+						<th class="follow">0</th>
 				
 					</tr>
 				</table>
@@ -64,7 +66,7 @@
 	</div>
 		<div class="article-search">
 			{% for img in posts %}
-				{%if img.photo %}
+				{% if img.photo %}
 				{% cycle "<div class='frame'> <div class='photo'>" "<div class='photo'>" "<div class='photo'>" %}
 					<img class="articlePhoto" alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
 				<!-- </div> -->
