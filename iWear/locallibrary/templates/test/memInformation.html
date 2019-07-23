@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="jumbotron">
+        <h2> 會員資料 </h2>
+        <a class="btn btn-primary btn-large" href="{% url 'iwear:homepage' %}">主畫面</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td> # </td>
+                <td> 會員編號 </td>
+                <td> 帳號 </td>
+                <td> 姓名 </td>
+                <td> 性別 </td>
+                <td> 生日 </td>
+                <td> 電子信箱 </td>
+                <td> 會員照片 </td>
+                <td> 身高 </td>
+                <td> 體重 </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for meminforms in mem %}
+            <tr>
+                <td> </td>
+                <td>
+                    {{ meminforms.memno }}
+                </td>
+                <td>
+                    {{ meminforms.account }}
+                </td>
+                <td>
+                    {{ meminforms.name }}
+                </td>
+                <td>
+                    {{ meminforms.gender }}
+                </td>
+                <td>
+                    {{ meminforms.birth }}
+                </td>
+                <td>
+                    {{ meminforms.mail }}
+                </td>
+                <td>
+                    {{ meminforms.mempic }}
+                </td>
+                <td>
+                    {{ meminforms.height }}
+                </td>
+                <td>
+                    {{ meminforms.weight }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

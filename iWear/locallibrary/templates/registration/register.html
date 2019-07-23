@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    {% load static %}
+	<!-- CSS -->
+    <link href="{% static 'css/register.css' %}" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vicons-font.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/buttons.css' %}" />
+
+ 
+    <div class = "container" > 
+        
+
+        <div class="title">
+            <h3>註冊</h3>
+        </div>
+
+            <form class="form" style="margin-top: 25px; margin-left: 20%;"  action="{% url 'iwear:register' %}"  method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                        <tr>
+                            <td>使用者名稱</td>
+                            <td>：{{ user_form.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>電子郵件</td>
+                            <td>：{{ user_form.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>密碼</td>
+                            <td>：{{ user_form.password }}</td>
+                        </tr>	
+                        <tr>
+                            <td>確認密碼</td>
+                            <td>：{{ user_form.password2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>：{{ mem_form.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>：{{ mem_form.gender }}</td>
+                        </tr>
+                        <tr>
+                            <td>Birth</td>
+                            <td>：{{ mem_form.birth }}</td>
+                        </tr>
+                        <tr>
+                            <td>Height</td>
+                            <td>：{{ mem_form.height }}</td>
+                        </tr>
+                        <tr>
+                            <td>Weight</td>
+                            <td>：{{ mem_form.weight }}</td>
+                        </tr>
+                        <tr>
+                            <td>頭像</td>
+                            <td>：{{ mem_form.mempic }}</td>
+                        </tr>
+                    </table>
+
+                <button type="submit" class="button button--moema button--text-thick button--text-upper button--size-s myownbutton">註冊</button > 
+            </form> 
+            <div class="down">
+            <a href = "{% url 'login' %}">已有賬號登錄</a> 
+            </div>
+    </div> 
+
+{% endblock %}
