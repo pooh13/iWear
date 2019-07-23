@@ -33,7 +33,7 @@
 
 body {
   font-family: "helveticaneuemedium";
-  background-color: white; }
+  background-color: #ffffff; }
 
 h1,
 h2,
@@ -237,7 +237,7 @@ img {
   padding: 100px 0 50px; }
 
 .section-padding-100-0 {
-  padding: 100px 0 0; }
+  padding: 50px 0 0; }
 
 .section-padding-0-100 {
   padding: 0 0 100px; }
@@ -1410,6 +1410,7 @@ textarea:focus ~ .highlight {
     -webkit-transform: scale(1.7);
     transform: scale(1.7);
     opacity: 0; } }
+
 /* The End */
 
 /*# sourceMappingURL=style.css.map */
