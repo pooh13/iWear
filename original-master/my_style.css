@@ -9,7 +9,7 @@ body{
 	margin-right: 3em;
 }
 #scrollUp{
-	background-color: lightgreen;
+	/*background-color: lightgreen;*/
 }
 
 ::-webkit-scrollbar{
@@ -21,4 +21,35 @@ p.article{
 }
 .article-frame{
 	margin-top: -6em;
+}
+.slider{
+	height: 300px!important;
+}
+a.style{
+	opacity: 0.5!important;
+	font-size: 40px!important;
+	background-color: white!important;
+	color: black!important;
+}
+.hero-slides .single-hero-slide .slide-content h2 a{
+	opacity: 0.3;
+	font-size: 20px!important;
+	background-color: white!important;
+	color: black!important;
+}
+/*div*/
+div.InOrOut{
+	width:350px;
+	height: auto;
+	font-size: 30px;
+	font-weight: 1000;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 1em;	
+	margin-bottom: 1em;
+	background-color: rgba(54, 241, 169, 0.1);
+	border-style: double;
+}
+.owl-carousel{
+	margin-bottom: 10em;
 }
