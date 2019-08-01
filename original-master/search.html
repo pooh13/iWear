@@ -30,79 +30,35 @@
         </div>
     </div>
 
-    <!-- Subscribe Modal -->
-    <div class="subscribe-newsletter-area">
-        <div class="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div class="modal-body">
-                        <h5 class="title">Subscribe to my newsletter</h5>
-                        <form action="#" class="newsletterForm" method="post">
-                            <input type="email" name="email" id="subscribesForm2" placeholder="Your e-mail here">
-                            <button type="submit" class="btn original-btn">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
-
-        <!-- Top Header Area -->
-        <div class="top-header">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                <!-- Breaking News Area -->
-                    <div class="col-12 col-sm-8">
-                        <div class="breaking-news-area">
-                            <div id="breakingNewsTicker" class="ticker">
-                                <ul>
-                                    <li><a href="#">i 穿搭</a></li>
-                                    <li><a href="#">愛上穿搭</a></li>
-                                    <li><a href="#">終於上線啦</a></li>
-                                    <li><a href="#">i 穿搭</a></li>
-                                    <li><a href="#">愛上穿搭</a></li>
-                                    <li><a href="#">終於上線啦</a></li>
-                                    <li><a href="#">i 穿搭</a></li>
-                                    <li><a href="#">愛上穿搭</a></li>
-                                    <li><a href="#">終於上線啦</a></li>
-                                </ul>
-                            </div> 
-                        </div>
-                    </div>                    
-                    <!-- Top Social Area -->
-                    <div class="col-12 col-sm-4">
-                        <div class="top-social-area">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Logo Area -->
-        <div class="logo-area text-center">
-            <div class="container h-100">
-                <div class="col-12">
-                    <a href="index.html" class="original-logo" style="font-size: 10em;position: relative;top:-0.1em;">iWear</a>
-                </div>
-            </div>
-        </div>
-
         <!-- Nav Area -->
         <div class="original-nav-area" id="stickyNav">
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
                     <!-- Classy Menu -->
                     <nav class="classy-navbar justify-content-between">
+                         <!-- Breaking News Area -->
+                    <div class="col-12 col-sm-1">
+                            <div class="breaking-news-area">
+                                <div id="breakingNewsTicker" class="ticker">
+                                    <ul>
+                                        <li><a href="#">iWear</a></li>
+                                        <li><a href="#">i穿搭</a></li>
+                                        <li><a href="#">愛穿搭</a></li>
+                                        <li><a href="#">iWear</a></li>
+                                        <li><a href="#">i穿搭</a></li>
+                                        <li><a href="#">愛穿搭</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>  
+                        <!-- Subscribe btn -->
+                        <div class="subscribe-btn">
+                            <a href="#" class="btn subscribe-btn" data-toggle="modal" data-target="#subsModal">LOGOUT</a>
+                        </div>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -117,81 +73,18 @@
                             </div>
 
                             <!-- Nav Start -->
-                            <div class="classynav mynav">
+                            <div class="classynav">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="search.html">Search</a>
-<!--                                         <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="single-post.html">Single Post</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="coming-soon.html">Coming Soon</a></li>
-                                        </ul> -->
-                                    </li>
-                             <!--        <li><a href="#">Add</a>
+                                    <li><a href="search.html">Search</a></li>
+                                    <li><a href="add.html">Add</a></li>
+                                    <li><a href="record.html">Record</a> </li>
+                                    <li><a href="profile.html">Profile</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">Catagory 1</a></li>
-                                            <li><a href="#">Catagory 1</a></li>
-                                            <li><a href="#">Catagory 1</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">Catagory 2</a></li>
-                                                    <li><a href="#">Catagory 2</a></li>
-                                                    <li><a href="#">Catagory 2</a>
-                                                        <ul class="dropdown">
-                                                            <li><a href="#">Catagory 3</a></li>
-                                                            <li><a href="#">Catagory 3</a></li>
-                                                            <li><a href="#">Catagory 3</a></li>
-                                                            <li><a href="#">Catagory 3</a></li>
-                                                            <li><a href="#">Catagory 3</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Catagory 2</a></li>
-                                                    <li><a href="#">Catagory 2</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Catagory 1</a></li>
-                                            <li><a href="#">Catagory 1</a></li>
+                                            <li><a href="fans.html">Fans</a></li>
+                                            <li><a href="follows.html">Follows</a></li>
                                         </ul>
-                                    </li> -->
-                                    <li><a href="about-us.html">Add</a></li>
-                                    <li><a href="#">Record</a>
-                                        <!-- <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Headline 1</li>
-                                                <li><a href="#">Mega Menu Item 1</a></li>
-                                                <li><a href="#">Mega Menu Item 2</a></li>
-                                                <li><a href="#">Mega Menu Item 3</a></li>
-                                                <li><a href="#">Mega Menu Item 4</a></li>
-                                                <li><a href="#">Mega Menu Item 5</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Headline 2</li>
-                                                <li><a href="#">Mega Menu Item 1</a></li>
-                                                <li><a href="#">Mega Menu Item 2</a></li>
-                                                <li><a href="#">Mega Menu Item 3</a></li>
-                                                <li><a href="#">Mega Menu Item 4</a></li>
-                                                <li><a href="#">Mega Menu Item 5</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Headline 3</li>
-                                                <li><a href="#">Mega Menu Item 1</a></li>
-                                                <li><a href="#">Mega Menu Item 2</a></li>
-                                                <li><a href="#">Mega Menu Item 3</a></li>
-                                                <li><a href="#">Mega Menu Item 4</a></li>
-                                                <li><a href="#">Mega Menu Item 5</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Headline 4</li>
-                                                <li><a href="#">Mega Menu Item 1</a></li>
-                                                <li><a href="#">Mega Menu Item 2</a></li>
-                                                <li><a href="#">Mega Menu Item 3</a></li>
-                                                <li><a href="#">Mega Menu Item 4</a></li>
-                                                <li><a href="#">Mega Menu Item 5</a></li>
-                                            </ul>
-                                        </div> -->
                                     </li>
-                                    <li><a href="contact.html">Profile</a></li>
                                 </ul>
 
                                 <!-- Search Form  -->
@@ -210,8 +103,6 @@
             </div>
         </div>
     </header>
-    <!-- ##### Header Area End ##### -->
-
     <!-- ##### Hero Area Start ##### -->
     <div class="hero-area">
         <!-- Hero Slides Area -->
@@ -411,7 +302,7 @@
                                     <ul>
                                         <li><a href="#">Home</a></li>
                                         <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Lifestyle</a></li>
+                                        <li><a href="#">Style Tag</a></li>
                                         <li><a href="#">travel</a></li>
                                         <li><a href="#">Music</a></li>
                                         <li><a href="#">Contact</a></li>
