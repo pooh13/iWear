@@ -23,15 +23,20 @@ if r.status_code == requests.codes.ok:
         arr.append(urlString)
 
     for urlString in arr:
-        print(dcard_url+urlString)
-        soup = BeautifulSoup(requests.get(dcard_url+urlString).text, 'lxml')
-        title = soup.select('div.Post_wrapper_2rR09w > div > h2')
+        completeUrl = dcard_url+urlString
+        print(completeUrl)
+        soup = BeautifulSoup(requests.get(completeUrl).text, 'lxml')
+        title = soup.select('div.Post_wrapper_2rR09w > div.Post_meta_MVFsOq > h1')
+        topic = soup.select('div.Post_wrapper_2rR09w > div.Post_content_NKEl9d > div.Post_topicList_2U8B7- > div.TopicList_root_17gqVK > ul > li')
 
         for clean in title:
+            print(clean.text+"\n"+"-"*50)
+
+        for clean in topic:
             print(clean.text)
 
-        context = soup.find("div",attrs={"class":"Post_content_NKEl9d"}).text
-        print(MyJieba_hant.MyJieba_hant(context))
-
+        # context = soup.find("div",attrs={"class":"Post_content_NKEl9d"}).text
+        # print(MyJieba_hant.MyJieba_hant(context))
+        print("\n"+"="*60)
 
 

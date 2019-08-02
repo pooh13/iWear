@@ -12,6 +12,6 @@ def MyJieba_hant(context):
         if len(x)>1 and x != '\r\n':
             cnt[x] += 1
     print("字詞出現頻率統計結果\n")
-    for (k,v) in cnt.most_common(100):
+    for (k,v) in cnt.most_common(5):
         print("%s%s %s  %d" % ("  "*(5-len(k)), k, "*"*int(v/3), v))
     print("\n"+"-"*80+"\n")

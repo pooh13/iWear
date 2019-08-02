@@ -1,4 +1,5 @@
 import os
+import SQLServerDBLink
 import cursorToList
 import loginChecker
 
@@ -70,6 +71,9 @@ def getPossible(cusNo):
         print(arrPersonalRow)
         cusNoPostCntSortB+=" 比例:"+str(int(arrPersonalRow[0])/sum)
 
+        # insert into DB ！
+        cursorToList.cursor.execute("INSERT INTO dbo.postcount(id, count, styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo) VALUES("+cusNo+", 2, 'ST02', 'AC01', 'CL01', 'CO01', 'PA01', 'SH02')")
+
         # 列印出每一種可能及比例
         print(cusNoPostCntSortB)
 
@@ -89,6 +93,9 @@ getPossible("64")
 #     getPossible(loginResult[1])
 
 # 將資料庫既有貼文抓出
-cursorToList.cursor.execute("SELECT * FROM post WHERE account!=62")
+cursorToList.cursor.execute("SELECT * FROM post WHERE account!=64")
 allPost = cursorToList.cursor.fetchall()
-print(allPost)
+
+# 依優先順序顯示貼文
+# print(allPost)
+
