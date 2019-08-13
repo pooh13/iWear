@@ -1,25 +1,27 @@
 import os
-import SQLServerDBLink
 import cursorToList
+import MyJieba_hant
 import loginChecker
 
 listPercent=[0.3,0.1,0.15,0.15,0.15,0.15]
 
-def getPossible(cusNo):
-    # 把所有種類抓出來
-    arrTable=['style','accessories','clothes','coat','pants','shoes']
-    arrTableCol=['styleNo','accessoriesNo','clothesNo','coatNo','pantsNo','shoesNo']
-    arrAllRow=[] # [[ST01,ST02],[PA01,PA02]] [[ST01,ST02,ST03],[PA01,PA02,PA03]]
+# 把所有種類抓出來
+arrTable=['style','accessories','clothes','coat','pants','shoes']
+arrTableCol=['styleNo','accessoriesNo','clothesNo','coatNo','pantsNo','shoesNo']
+arrAllRow=[] # [[ST01,ST02],[PA01,PA02]] [[ST01,ST02,ST03],[PA01,PA02,PA03]]
 
-    for table in arrTable:
-        tableSQLCmd="SELECT * FROM "+table+";"
-        arrTableCols=[]
-        for cols in cursorToList.cursorToList(tableSQLCmd):
-            arrTableCols.append(cols[0])
-        arrAllRow.append(arrTableCols)
+for table in arrTable:
+    tableSQLCmd="SELECT * FROM "+table+";"
+    arrTableCols=[]
+    for cols in cursorToList.cursorToList(tableSQLCmd):
+        arrTableCols.append(cols[0])
+    arrAllRow.append(arrTableCols)
+
+def getPossible(cusNo):
 
     sum=0
-    for cusNoPostCnt in cursorToList.cursorToList("SELECT COUNT(*) as cnt FROM post WHERE account="+cusNo+";"):
+
+    for cusNoPostCnt in cursorToList.cursorToList("SELECT COUNT(*) as cnt FROM post WHERE account= "+cusNo+";"):
         sum=int(cusNoPostCnt[0])
         # print(sum)
 
@@ -28,7 +30,7 @@ def getPossible(cusNo):
 
     # { cusNoPostCntSortCmdA=["SELECT COUNT(*) as cnt,"] } { cusNoPostCntSortCmd01=[,] }
     # { cusNoPostCntSortCmdB=[" FROM post WHERE account ="+cusNo+" GROUP BY "," ORDER BY "] }
-    cusNoPostCntSortSQLCmd=["SELECT COUNT(*) as cnt,"," FROM post WHERE account ="+cusNo+" GROUP BY "," ORDER BY cnt desc ,"]
+    cusNoPostCntSortSQLCmd = ["SELECT COUNT(*) as cnt,"," FROM post WHERE account = "+cusNo+" GROUP BY "," ORDER BY cnt desc ,"]
 
     # 加入 cusNoPostCntSortCmdA
     for cusNoPostCntSortCmdA in cusNoPostCntSortSQLCmd:
@@ -48,12 +50,12 @@ def getPossible(cusNo):
     print(cusNoPostCntSortA)
 
     # DB.(2/3 A) 判斷 MyDB 是否有原有輸出檔案存在
-    # filePathMyDB = "DataAnalysisResult/analysisResultMyDB.txt"
+    # filePathMyDB = "DataAnalysisResult/analysisResultMyDB.csv"
     # if os.path.isfile(filePathMyDB):
     #     os.remove(filePathMyDB)
 
     # DB.(2/3 B) 判斷 241DB 是否有原有輸出檔案存在
-    filePath241DB = "DataAnalysisResult/analysisResult241DB.txt"
+    filePath241DB = "DataAnalysisResult/analysisResult241DB.csv"
     if os.path.isfile(filePath241DB):
         os.remove(filePath241DB)
 
@@ -65,37 +67,61 @@ def getPossible(cusNo):
 
         # 轉換成同一欄位
         for PersonalRow in range(len(arrPersonalRow)):
-            cusNoPostCntSortB+=arrPersonalRow[PersonalRow]
+            cusNoPostCntSortB+=arrPersonalRow[PersonalRow]+","
             # print(cusNoPostCntSortB)
 
         print(arrPersonalRow)
         cusNoPostCntSortB+=" 比例:"+str(int(arrPersonalRow[0])/sum)
 
         # insert into DB ！
-        cursorToList.cursor.execute("INSERT INTO dbo.postcount(id, count, styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo) VALUES("+cusNo+", 2, 'ST02', 'AC01', 'CL01', 'CO01', 'PA01', 'SH02')")
+        # print(type(arrPersonalRow))
+        # strArrPersonalRow = str(arrPersonalRow).join(',')
+        # print(type(strArrPersonalRow))
+
+        # print(type(str(arrPersonalRow)))
+        # cursorToList.cursor.execute("INSERT INTO dbo.postcount(id, count, styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo) VALUES("+cusNo+","+str(arrPersonalRow).split(',')+")")
 
         # 列印出每一種可能及比例
         print(cusNoPostCntSortB)
 
         # DB.(3/3 A) 將 DB-MyDB 分析結果寫成檔案
-        # with open('DataAnalysisResult/analysisResultMyDB.txt',"a",encoding='UTF-8') as printFile:
+        # with open('DataAnalysisResult/analysisResultMyDB.csv',"a",encoding='UTF-8') as printFile:
         #     printFile.write(cusNoPostCntSortB+"\n")
 
         # DB.(3/3 B) 將 DB-241DB 分析結果寫成檔案
-        with open('DataAnalysisResult/analysisResult241DB.txt',"a",encoding='UTF-8') as printFile:
+        with open('DataAnalysisResult/analysisResult241DB.csv',"a",encoding='UTF-8') as printFile:
             printFile.write(cusNoPostCntSortB+"\n")
 
+    print("\n"+"="*80+"\n")
 getPossible("64")
+
+def getCusNoOwnPostJieba(cusNo):
+
+    cusNoPostContextSQLCmd = ("SELECT word FROM post WHERE account = "+cusNo+"")
+    # print(cusNoPostContextSQLCmd)
+
+    for cusNoPostContext in cursorToList.cursorToList(cusNoPostContextSQLCmd):
+        # print(str(cusNoPostContext))
+        MyJieba_hant.MyJieba_hant(str(cusNoPostContext))
+
+getCusNoOwnPostJieba("64")
+
 
 # 檢查是否已登入 iWear 平台 (需連結Django測試)
 # loginResult = loginChecker.loginChecker()
 # if loginResult[0]=="verified":
 #     getPossible(loginResult[1])
 
-# 將資料庫既有貼文抓出
-cursorToList.cursor.execute("SELECT * FROM post WHERE account!=64")
-allPost = cursorToList.cursor.fetchall()
+def getCusNoOthersPostJieba(cusNo):
 
-# 依優先順序顯示貼文
-# print(allPost)
+    # 將資料庫其他使用者既有貼文抓出
+    cursorToList.cursor.execute("SELECT * 0FROM post WHERE account!="+cusNo+"")
+    allPost = cursorToList.cursor.fetchall()
+
+    # 依優先順序顯示貼文
+    print(allPost)
+
+
+
+getCusNoOthersPostJieba("64")
 
