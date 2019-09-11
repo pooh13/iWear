@@ -40,5 +40,6 @@ class MemInfoForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta():
         model = Post
-        fields = ('photo', 'word', 'styleno', 'accessoriesno', 'clothesno', 'coatno', 'pantsno', 'shoesno',)                                                                               
+        fields = ('photo', 'word', 'styleno', 'accessoriesno', 'clothesno', 'coatno', 'pantsno', 'shoesno',)  
+                                                                        
 

@@ -11,33 +11,42 @@ from django.urls import reverse
 import datetime
 
 from .forms import UserForm, MemInfoForm, PostForm
-from .models import Accessories, Meminform, Style, Post
-# , Clothes, Coat, Pants, Shoes, Style, Meminform
-
+from .models import Accessories, Meminform, Style, Post, Follow, AuthUser
 
 # Create your views here.
 def homepage(request):
-    template = get_template('iwear/homepage.html')
+    template = get_template('iwear/index.html')
     html = template.render(locals())
     return HttpResponse(html)
+    # account = Meminform.objects.get(pk=pk)
+    # return render(request, 'iwear/homepage.html', {'account':account})
 
-#setting.html(show_user)
+#setting.html
 @login_required
-def setting(request):
+def profile(request):
+    # user_id = Meminform.objects.get(pk=pk)
     mems = Meminform.objects.filter(user=request.user.id).all()
     posts = Post.objects.filter(account=request.user.id).order_by('-time')
     times = Post.objects.filter(account=request.user.id).count()
-    return render(request, 'iwear/setting.html', locals())
+    # follows = Follow.objects.filter(memno=request.user.id).count()
+    return render(request, 'iwear/profile.html', locals())
 
-#addShow.html
-# @login_required
-# def addshow(request):
-#   template = get_template('iwear/addShow.html')
-#   html = template.render(locals())
-#   return HttpResponse(html)
 
-#post_create(addShow)
-#addEdit.html
+#DB_FOLLOW
+@login_required
+def follow(request):
+    follows = Follow.objects.filter(id=request.user.id).all()
+    mem_info = AuthUser.objects.all()
+    return render(request, 'iwear/follow.html', locals())
+
+#FAN
+@login_required
+def fan(request):
+    template = get_template('iwear/fan.html')
+    html = template.render(locals())
+    return HttpResponse(html)
+
+#addEdit
 @login_required
 def post_create(request):
   # style = Style.objects.all()
@@ -51,51 +60,40 @@ def post_create(request):
       new_post.save()
       return redirect('/')
     else:
-      return render(request,'iwear/addEdit.html',{
+      return render(request,'iwear/add_post.html',{
         'post_form':post_form, 
       })
   else:
     post_form = PostForm()
-    return render(request,'iwear/addEdit.html',{
+    return render(request,'iwear/add_post.html',{
       'post_form':post_form, 
   })
 
-
-
-#addEdit.html
 # @login_required
-# def addedit(request):
-#    template = get_template('iwear/addEdit.html')
-#    html = template.render(locals())
-#    return HttpResponse(html)   
+# def post_list(request):
+#     post = Post.objects.filter(account=request.user.id).all()
+#     return render(request, 'iwear/postList.html', {'post': post})
 
-#record.html
+# def post_show(request, pk):
+#   post = Post.objects.get(pk=pk)
+#   return render(request, 'iwear/postShow.html', {'post':post})
+
+
+#RECORD
 @login_required
 def record(request):
     template = get_template('iwear/record.html')
     html = template.render(locals())
     return HttpResponse(html)
 
-#search.html
+#SEARCH
 @login_required
 def search(request):
     template = get_template('iwear/search.html')
     html = template.render(locals())
     return HttpResponse(html)      
 
-#Accessories
-@login_required
-def access(request):
-    access = Accessories.objects.all()
-    return render(request, 'test/accessInformation.html', {
-        'access': access,
-    })
-
-@login_required
-def logout(request):
-    logout(request)
-    return HttpResponseRedirect(reverse('homepage'))
-
+#REGISTER
 def register(request):
     # registered = False
     if request.method == 'POST':
@@ -128,6 +126,7 @@ def register(request):
         # 'registered':registered
       })
 
+#LOGIN
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -145,3 +144,9 @@ def login(request):
             return HttpResponse("Invalid login details given")
     else:
         return render(request, 'registration/login.html', {})
+
+#LOGOUT
+@login_required
+def logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('homepage'))

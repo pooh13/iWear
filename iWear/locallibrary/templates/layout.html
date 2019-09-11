@@ -8,37 +8,149 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- CSS -->
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-        <!-- JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-        <script src="{% static 'js/jquery.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'js/scripts.js' %}"></script>
-
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/classy-nav.css' %}">
     </head>
+    
     <body>
     {% if request.user.is_authenticated %}
-        <div class="row">
-            <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
-                        <ul class="navbar-nav ml-md-auto">
-                                <li>
-                                    <a class="btn btn-primary" type="submit" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
-                                </li> 
-                        </ul>
-                    </nav>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="preload-content">
+                <div id="original-load"></div>
             </div>
         </div>
+        <!-- ##### Header Area Start ##### -->
+        <header class="header-area">
+            <!-- Nav Area -->
+            <div class="original-nav-area" id="stickyNav">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <!-- Classy Menu -->
+                        <nav class="classy-navbar justify-content-between">
+                             <!-- Breaking News Area -->
+                        <div class="col-12 col-sm-1">
+                                <div class="breaking-news-area">
+                                    <div id="breakingNewsTicker" class="ticker">
+                                        <ul>
+                                            <li><a href="#">iWear</a></li>
+                                            <li><a href="#">i穿搭</a></li>
+                                            <li><a href="#">愛穿搭</a></li>
+                                            <li><a href="#">iWear</a></li>
+                                            <li><a href="#">i穿搭</a></li>
+                                            <li><a href="#">愛穿搭</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>  
+                            <!-- Subscribe btn -->
+                            <div class="subscribe-btn">
+                                <a class="btn subscribe-btn" type="submit" href="{% url 'logout'%}">Logout</a>
+                                <!-- <a href="{% url 'logout'%}?next={{request.path}}" class="btn subscribe-btn" data-toggle="modal" data-target="#subsModal">LOGOUT</a> -->
+                            </div>
+    
+                            <!-- Navbar Toggler -->
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+    
+                            <!-- Menu -->
+                            <div class="classy-menu" id="originalNav">
+                                <!-- close btn -->
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+    
+                                <!-- Nav Start -->
+                                <div class="classynav">
+                                    <ul>
+                                        <li><a href="{% url 'iwear:homepage' %}">HOME</a></li>
+                                        <li><a href="{% url 'iwear:search' %}">SEARCH</a></li>
+                                        <li><a href="{% url 'iwear:add_post' %}">ADD</a></li>
+                                        <li><a href="{% url 'iwear:record' %}">RECORD</a> </li>
+                                        <li><a href="{% url 'iwear:profile' %}">PROFILE</a>
+                                            <ul class="dropdown">
+                                                <li><a href="{% url 'iwear:fan' %}">FAN</a></li>
+                                                <li><a href="{% url 'iwear:follow' %}">FOLLOW</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+    
+                                    <!-- Search Form  -->
+                                    <div id="search-wrapper">
+                                        <form action="#">
+                                            <input type="text" id="search" placeholder="Search something...">
+                                            <div id="close-icon"></div>
+                                            <input class="d-none" type="submit" value="">
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Nav End -->
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ##### Header Area End ##### -->
+        {% endif %}
+
+        {% block content %}{% endblock %}
+        
+        {% if request.user.is_authenticated %}
+        <!-- ##### Footer Area Start ##### -->
+        <footer class="footer-area text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+    
+                        <!-- Footer Nav Area -->
+                        <div class="classy-nav-container breakpoint-off">
+                            <!-- Classy Menu -->
+                            <nav class="classy-navbar justify-content-center">
+    
+                                <!-- Navbar Toggler -->
+                                <div class="classy-navbar-toggler">
+                                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                                </div>
+    
+                                <!-- Menu -->
+                                <div class="classy-menu">
+    
+                                    <!-- close btn -->
+                                    <div class="classycloseIcon">
+                                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+    
+                        <!-- Footer Social Area -->
+                    </div>
+                </div>
+            </div>
+            
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with by 108510 <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    
+        </footer>
+        <!-- ##### Footer Area End ##### -->
     {% endif %}
 
-    {% block content %}{% endblock %}
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
 
     </body>
 </html>
-

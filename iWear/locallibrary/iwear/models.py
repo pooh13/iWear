@@ -61,6 +61,9 @@ class AuthUser(models.Model):
     is_staff = models.BooleanField()
     is_active = models.BooleanField()
 
+    def __str__(self):
+        return self.username
+
     class Meta:
         managed = False
         db_table = 'auth_user'
@@ -128,14 +131,14 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-# class Follow(models.Model):
-#     fono = models.CharField(db_column='FoNo', primary_key=True, max_length=8)  # Field name made lowercase.
-#     memno = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memNo')  # Field name made lowercase.
-#     memfono = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memFoNo')  # Field name made lowercase.
+class Follow(models.Model):
+    fono = models.AutoField(db_column='FoNo', primary_key=True)  # Field name made lowercase.
+    id = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='id', related_name='follow_user_id')
+    memfono = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='memFoNo')  # Field name made lowercase.
 
-#     class Meta:
-#         managed = False
-#         db_table = 'follow'
+    class Meta:
+        managed = False
+        db_table = 'follow'
 
 
 # class Friends(models.Model):
