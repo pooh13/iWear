@@ -89,8 +89,10 @@ def getPossible(cusNo):
         #     printFile.write(cusNoPostCntSortB+"\n")
 
         # DB.(3/3 B) 將 DB-241DB 分析結果寫成檔案
-        with open('DataAnalysisResult/analysisResult241DB.csv',"a",encoding='UTF-8') as printFile:
+        with open('DataAnalysisResult/analysisResult241DB.csv',"a",encoding='BIG5') as printFile:
             printFile.write(cusNoPostCntSortB+"\n")
+
+        postDataAnalysisCmd = ('')
 
     print("\n"+"="*80+"\n")
 getPossible("64")
@@ -108,9 +110,9 @@ getCusNoOwnPostJieba("64")
 
 
 # 檢查是否已登入 iWear 平台 (需連結Django測試)
-# loginResult = loginChecker.loginChecker()
-# if loginResult[0]=="verified":
-#     getPossible(loginResult[1])
+loginResult = loginChecker.loginChecker()
+if loginResult[0]=="verified":
+    getPossible(loginResult[1])
 
 def getCusNoOthersPostJieba(cusNo):
 
