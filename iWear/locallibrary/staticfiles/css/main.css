@@ -1,0 +1,143 @@
+ html, body{
+	/*background-color: lightyellow;*/
+	background-color: rgba(255, 255, 255, 1); 
+	margin:0;
+	padding: 0;
+	height: 100%;
+}
+.container{
+	width: 800px;
+	min-height: 100%;
+	/*border: 5px solid black;*/
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+
+}
+
+/*----------------------------------*/
+/*img*/
+/*----------------------------------*/
+
+/*...index*?
+
+
+img: .article-index{
+	width:200px ;
+	height: 200px;
+	position: relative;
+	left:-1px;
+	top:-30px;
+	margin-bottom: 10px;
+	border: solid 4px ;
+}
+
+
+/*...search*/
+img.friends{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: solid 4px;
+}
+/*...addEdit*/
+img.article-add{
+	width: 300px;
+	height: 300px;
+	border: 2px solid black;
+	float: left;
+}
+
+
+
+/*----------------------------------*/
+/*h*/
+/*----------------------------------*/
+
+/*...index*/
+h1{
+	position: relative;
+	left: 55px;
+	top:-30px;
+	font-size: 20px;
+}
+h2{
+	position: relative;
+	/*left: 20px;*/
+	top:-30px;
+	margin-bottom: 10px;
+}
+
+/*----------------------------------*/
+/*button*/
+/*----------------------------------*/
+
+/*...addShow*/
+button.btnSubButton-addShow{
+	width: 100%;
+}
+
+/*----------------------------------*/
+/*p*/
+/*----------------------------------*/
+
+/*...index*/
+p{
+	position: relative;
+	left: 20px;
+	top:-30px;
+}
+
+/*----------------------------------*/
+/*nav*/
+/*----------------------------------*/
+
+/*...index*/
+nav{
+	box-sizing: border-box;
+	margin-bottom: 30px;
+}
+/*----------------------------------*/
+/*div*/
+/*----------------------------------*/
+
+/*...index*/
+div.frame-block, .frame-inline{
+	width: 100%;
+	height:1000px;
+	background-color: rgba(255, 255, 255, 1);
+}
+div.frame-inline{
+	height: 50px;
+	margin-bottom: 50px;
+}
+
+/*----------------------------------*/
+/*table*/
+/*----------------------------------*/
+table, tr, th {
+ 	border: 3px solid black;
+}
+
+/*...adddShow*/
+table.subButton-addShow{
+	width: 100%;
+	position: relative;
+	border: 5px solid #F34D4D;
+	border-top: none;
+	float: left;
+}
+
+
+/*----------------------------------*/
+/*p*/
+/*----------------------------------*/
+p.articl-add{
+	float: left;
+}
+
+/*----------------------------------*/
+/*選取器*/
+/*----------------------------------*/
+
+

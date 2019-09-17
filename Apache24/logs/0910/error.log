@@ -1,0 +1,267 @@
+[Tue Sep 10 18:18:14.600058 2019] [ssl:warn] [pid 7520:tid 416] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 18:18:14.896930 2019] [ssl:warn] [pid 7520:tid 416] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 18:18:14.896930 2019] [mpm_winnt:notice] [pid 7520:tid 416] AH00455: Apache/2.4.39 (Win64) OpenSSL/1.0.2r configured -- resuming normal operations
+[Tue Sep 10 18:18:14.896930 2019] [mpm_winnt:notice] [pid 7520:tid 416] AH00456: Server built: Mar 27 2019 11:25:14
+[Tue Sep 10 18:18:14.896930 2019] [core:notice] [pid 7520:tid 416] AH00094: Command line: 'c:\\Apache24\\bin\\httpd.exe -d C:/Apache24'
+[Tue Sep 10 18:18:14.912565 2019] [mpm_winnt:notice] [pid 7520:tid 416] AH00418: Parent: Created child process 7108
+[Tue Sep 10 18:18:15.751692 2019] [ssl:warn] [pid 7108:tid 308] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 18:18:16.025710 2019] [ssl:warn] [pid 7108:tid 308] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 18:18:16.029713 2019] [mpm_winnt:notice] [pid 7108:tid 308] AH00354: Child: Starting 64 worker threads.
+[Tue Sep 10 18:47:30.569651 2019] [mpm_winnt:notice] [pid 7520:tid 416] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Tue Sep 10 18:47:32.601821 2019] [mpm_winnt:notice] [pid 7108:tid 308] AH00364: Child: All worker threads have exited.
+[Tue Sep 10 18:47:32.617449 2019] [mpm_winnt:notice] [pid 7520:tid 416] AH00430: Parent: Child process 7108 exited successfully.
+[Tue Sep 10 18:57:42.547807 2019] [ssl:warn] [pid 4764:tid 416] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 18:57:42.875860 2019] [ssl:warn] [pid 4764:tid 416] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 18:57:42.875860 2019] [mpm_winnt:notice] [pid 4764:tid 416] AH00455: Apache/2.4.39 (Win64) OpenSSL/1.0.2r mod_wsgi/4.6.7 Python/3.7 configured -- resuming normal operations
+[Tue Sep 10 18:57:42.875860 2019] [mpm_winnt:notice] [pid 4764:tid 416] AH00456: Server built: Mar 27 2019 11:25:14
+[Tue Sep 10 18:57:42.875860 2019] [core:notice] [pid 4764:tid 416] AH00094: Command line: 'c:\\Apache24\\bin\\httpd.exe -d C:/Apache24'
+[Tue Sep 10 18:57:42.875860 2019] [mpm_winnt:notice] [pid 4764:tid 416] AH00418: Parent: Created child process 5664
+[Tue Sep 10 18:57:43.735428 2019] [ssl:warn] [pid 5664:tid 304] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 18:57:43.995426 2019] [ssl:warn] [pid 5664:tid 304] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 18:57:44.128377 2019] [mpm_winnt:notice] [pid 5664:tid 304] AH00354: Child: Starting 64 worker threads.
+[Tue Sep 10 18:57:55.649861 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] mod_wsgi (pid=5664): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 18:57:55.652863 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] mod_wsgi (pid=5664): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 18:57:55.919828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] Traceback (most recent call last):\r
+[Tue Sep 10 18:57:55.919828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\utils.py", line 110, in load_backend\r
+[Tue Sep 10 18:57:55.919828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     return import_module('%s.base' % backend_name)\r
+[Tue Sep 10 18:57:55.919828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\importlib\\__init__.py", line 127, in import_module\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     return _bootstrap._gcd_import(name[level:], package, level)\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 1006, in _gcd_import\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 983, in _find_and_load\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 1006, in _gcd_import\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 983, in _find_and_load\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 1006, in _gcd_import\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 983, in _find_and_load\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] ModuleNotFoundError: No module named 'sql_server'\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] \r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] The above exception was the direct cause of the following exception:\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] \r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] Traceback (most recent call last):\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     application = get_wsgi_application()\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     django.setup(set_prefix=False)\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 114, in populate\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     app_config.import_models()\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\config.py", line 211, in import_models\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     self.models_module = import_module(models_module_name)\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\importlib\\__init__.py", line 127, in import_module\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     return _bootstrap._gcd_import(name[level:], package, level)\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 1006, in _gcd_import\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 983, in _find_and_load\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 677, in _load_unlocked\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap_external>", line 728, in exec_module\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\contrib\\auth\\models.py", line 2, in <module>\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\contrib\\auth\\base_user.py", line 47, in <module>\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     class AbstractBaseUser(models.Model):\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\base.py", line 117, in __new__\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     new_class.add_to_class('_meta', Options(meta, app_label))\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\base.py", line 321, in add_to_class\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     value.contribute_to_class(cls, name)\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\options.py", line 204, in contribute_to_class\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     self.db_table = truncate_name(self.db_table, connection.ops.max_name_length())\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\__init__.py", line 28, in __getattr__\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     return getattr(connections[DEFAULT_DB_ALIAS], item)\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\utils.py", line 201, in __getitem__\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     backend = load_backend(db['ENGINE'])\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\utils.py", line 125, in load_backend\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     ) from e_user\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] django.core.exceptions.ImproperlyConfigured: 'sql_server.pyodbc' isn't an available database backend.\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703] Try using 'django.db.backends.XXX', where XXX is one of:\r
+[Tue Sep 10 18:57:55.948828 2019] [wsgi:error] [pid 5664:tid 1064] [client 140.131.114.149:60703]     'mysql', 'oracle', 'postgresql', 'sqlite3'\r
+[Tue Sep 10 19:07:15.334436 2019] [mpm_winnt:notice] [pid 4764:tid 416] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Tue Sep 10 19:07:17.339386 2019] [mpm_winnt:notice] [pid 5664:tid 304] AH00364: Child: All worker threads have exited.
+[Tue Sep 10 19:07:17.663850 2019] [mpm_winnt:notice] [pid 4764:tid 416] AH00430: Parent: Child process 5664 exited successfully.
+[Tue Sep 10 19:07:21.075248 2019] [ssl:warn] [pid 6984:tid 420] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 19:07:21.371385 2019] [ssl:warn] [pid 6984:tid 420] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 19:07:21.371385 2019] [mpm_winnt:notice] [pid 6984:tid 420] AH00455: Apache/2.4.39 (Win64) OpenSSL/1.0.2r mod_wsgi/4.6.7 Python/3.7 configured -- resuming normal operations
+[Tue Sep 10 19:07:21.371385 2019] [mpm_winnt:notice] [pid 6984:tid 420] AH00456: Server built: Mar 27 2019 11:25:14
+[Tue Sep 10 19:07:21.371385 2019] [core:notice] [pid 6984:tid 420] AH00094: Command line: 'c:\\Apache24\\bin\\httpd.exe -d C:/Apache24'
+[Tue Sep 10 19:07:21.386991 2019] [mpm_winnt:notice] [pid 6984:tid 420] AH00418: Parent: Created child process 5816
+[Tue Sep 10 19:07:22.290436 2019] [ssl:warn] [pid 5816:tid 328] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 19:07:22.553453 2019] [ssl:warn] [pid 5816:tid 328] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 19:07:22.710465 2019] [mpm_winnt:notice] [pid 5816:tid 328] AH00354: Child: Starting 64 worker threads.
+[Tue Sep 10 19:07:28.427077 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860] mod_wsgi (pid=5816): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:28.427077 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860] mod_wsgi (pid=5816): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860] Traceback (most recent call last):\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     application = get_wsgi_application()\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     django.setup(set_prefix=False)\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 114, in populate\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     app_config.import_models()\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\config.py", line 211, in import_models\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     self.models_module = import_module(models_module_name)\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\importlib\\__init__.py", line 127, in import_module\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     return _bootstrap._gcd_import(name[level:], package, level)\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "<frozen importlib._bootstrap>", line 1006, in _gcd_import\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "<frozen importlib._bootstrap>", line 983, in _find_and_load\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "<frozen importlib._bootstrap>", line 677, in _load_unlocked\r
+[Tue Sep 10 19:07:28.502064 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "<frozen importlib._bootstrap_external>", line 728, in exec_module\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\contrib\\auth\\models.py", line 2, in <module>\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\contrib\\auth\\base_user.py", line 47, in <module>\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     class AbstractBaseUser(models.Model):\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\base.py", line 117, in __new__\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     new_class.add_to_class('_meta', Options(meta, app_label))\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\base.py", line 321, in add_to_class\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     value.contribute_to_class(cls, name)\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\options.py", line 204, in contribute_to_class\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     self.db_table = truncate_name(self.db_table, connection.ops.max_name_length())\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\__init__.py", line 28, in __getattr__\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     return getattr(connections[DEFAULT_DB_ALIAS], item)\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\utils.py", line 201, in __getitem__\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     backend = load_backend(db['ENGINE'])\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\utils.py", line 110, in load_backend\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     return import_module('%s.base' % backend_name)\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\importlib\\__init__.py", line 127, in import_module\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     return _bootstrap._gcd_import(name[level:], package, level)\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\sql_server\\pyodbc\\base.py", line 7\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]     except ImportError, e:\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860]                       ^\r
+[Tue Sep 10 19:07:28.503054 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60860] SyntaxError: invalid syntax\r
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868] mod_wsgi (pid=5816): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868] mod_wsgi (pid=5816): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868] Traceback (most recent call last):\r
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868]     application = get_wsgi_application()\r
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868]     django.setup(set_prefix=False)\r
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 19:07:32.215067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 19:07:32.216067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 83, in populate\r
+[Tue Sep 10 19:07:32.216067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868]     raise RuntimeError("populate() isn't reentrant")\r
+[Tue Sep 10 19:07:32.216067 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60868] RuntimeError: populate() isn't reentrant\r
+[Tue Sep 10 19:07:32.564090 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867] mod_wsgi (pid=5816): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:32.564090 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867] mod_wsgi (pid=5816): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867] Traceback (most recent call last):\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867]     application = get_wsgi_application()\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867]     django.setup(set_prefix=False)\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 83, in populate\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867]     raise RuntimeError("populate() isn't reentrant")\r
+[Tue Sep 10 19:07:32.565096 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60867] RuntimeError: populate() isn't reentrant\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869] mod_wsgi (pid=5816): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869] mod_wsgi (pid=5816): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869] Traceback (most recent call last):\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869]     application = get_wsgi_application()\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869]     django.setup(set_prefix=False)\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 83, in populate\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869]     raise RuntimeError("populate() isn't reentrant")\r
+[Tue Sep 10 19:07:32.925171 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60869] RuntimeError: populate() isn't reentrant\r
+[Tue Sep 10 19:07:37.090541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872] mod_wsgi (pid=5816): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:37.091541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872] mod_wsgi (pid=5816): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:37.091541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872] Traceback (most recent call last):\r
+[Tue Sep 10 19:07:37.091541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 19:07:37.091541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872]     application = get_wsgi_application()\r
+[Tue Sep 10 19:07:37.091541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 19:07:37.092541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872]     django.setup(set_prefix=False)\r
+[Tue Sep 10 19:07:37.092541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 19:07:37.092541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 19:07:37.092541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 83, in populate\r
+[Tue Sep 10 19:07:37.092541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872]     raise RuntimeError("populate() isn't reentrant")\r
+[Tue Sep 10 19:07:37.092541 2019] [wsgi:error] [pid 5816:tid 1088] [client 140.131.114.149:60872] RuntimeError: populate() isn't reentrant\r
+[Tue Sep 10 19:07:37.250551 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871] mod_wsgi (pid=5816): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:37.250551 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871] mod_wsgi (pid=5816): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:07:37.251553 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871] Traceback (most recent call last):\r
+[Tue Sep 10 19:07:37.251553 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 19:07:37.251553 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871]     application = get_wsgi_application()\r
+[Tue Sep 10 19:07:37.251553 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 19:07:37.251553 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871]     django.setup(set_prefix=False)\r
+[Tue Sep 10 19:07:37.251553 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 19:07:37.252554 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 19:07:37.252554 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 83, in populate\r
+[Tue Sep 10 19:07:37.252554 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871]     raise RuntimeError("populate() isn't reentrant")\r
+[Tue Sep 10 19:07:37.252554 2019] [wsgi:error] [pid 5816:tid 1084] [client 140.131.114.149:60871] RuntimeError: populate() isn't reentrant\r
+[Tue Sep 10 19:11:47.319599 2019] [mpm_winnt:notice] [pid 6984:tid 420] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Tue Sep 10 19:11:49.322739 2019] [mpm_winnt:notice] [pid 5816:tid 328] AH00364: Child: All worker threads have exited.
+[Tue Sep 10 19:11:49.550752 2019] [mpm_winnt:notice] [pid 6984:tid 420] AH00430: Parent: Child process 5816 exited successfully.
+[Tue Sep 10 19:11:50.832450 2019] [ssl:warn] [pid 4908:tid 416] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 19:11:51.124471 2019] [ssl:warn] [pid 4908:tid 416] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 19:11:51.125471 2019] [mpm_winnt:notice] [pid 4908:tid 416] AH00455: Apache/2.4.39 (Win64) OpenSSL/1.0.2r mod_wsgi/4.6.7 Python/3.7 configured -- resuming normal operations
+[Tue Sep 10 19:11:51.125471 2019] [mpm_winnt:notice] [pid 4908:tid 416] AH00456: Server built: Mar 27 2019 11:25:14
+[Tue Sep 10 19:11:51.125471 2019] [core:notice] [pid 4908:tid 416] AH00094: Command line: 'c:\\Apache24\\bin\\httpd.exe -d C:/Apache24'
+[Tue Sep 10 19:11:51.130471 2019] [mpm_winnt:notice] [pid 4908:tid 416] AH00418: Parent: Created child process 8136
+[Tue Sep 10 19:11:51.994529 2019] [ssl:warn] [pid 8136:tid 324] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 19:11:52.214545 2019] [ssl:warn] [pid 8136:tid 324] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Sep 10 19:11:52.308552 2019] [mpm_winnt:notice] [pid 8136:tid 324] AH00354: Child: Starting 64 worker threads.
+[Tue Sep 10 19:11:56.571337 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939] mod_wsgi (pid=8136): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:11:56.571337 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939] mod_wsgi (pid=8136): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:11:56.579338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939] Traceback (most recent call last):\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     application = get_wsgi_application()\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     django.setup(set_prefix=False)\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 114, in populate\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     app_config.import_models()\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\config.py", line 211, in import_models\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     self.models_module = import_module(models_module_name)\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\importlib\\__init__.py", line 127, in import_module\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     return _bootstrap._gcd_import(name[level:], package, level)\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "<frozen importlib._bootstrap>", line 1006, in _gcd_import\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "<frozen importlib._bootstrap>", line 983, in _find_and_load\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "<frozen importlib._bootstrap>", line 677, in _load_unlocked\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "<frozen importlib._bootstrap_external>", line 728, in exec_module\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\contrib\\auth\\models.py", line 2, in <module>\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\contrib\\auth\\base_user.py", line 47, in <module>\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     class AbstractBaseUser(models.Model):\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\base.py", line 117, in __new__\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     new_class.add_to_class('_meta', Options(meta, app_label))\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\base.py", line 321, in add_to_class\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     value.contribute_to_class(cls, name)\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\models\\options.py", line 204, in contribute_to_class\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     self.db_table = truncate_name(self.db_table, connection.ops.max_name_length())\r
+[Tue Sep 10 19:11:56.580338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\__init__.py", line 28, in __getattr__\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     return getattr(connections[DEFAULT_DB_ALIAS], item)\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\utils.py", line 201, in __getitem__\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     backend = load_backend(db['ENGINE'])\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\db\\utils.py", line 110, in load_backend\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     return import_module('%s.base' % backend_name)\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\importlib\\__init__.py", line 127, in import_module\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     return _bootstrap._gcd_import(name[level:], package, level)\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\sql_server\\pyodbc\\base.py", line 7\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]     except ImportError, e:\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939]                       ^\r
+[Tue Sep 10 19:11:56.581338 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60939] SyntaxError: invalid syntax\r
+[Tue Sep 10 19:12:17.360911 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947] mod_wsgi (pid=8136): Failed to exec Python script file 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:12:17.360911 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947] mod_wsgi (pid=8136): Exception occurred processing WSGI script 'C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py'.
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947] Traceback (most recent call last):\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947]   File "C:/Users/case510810/Desktop/iWear/locallibrary/locallibrary/wsgi.py", line 16, in <module>\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947]     application = get_wsgi_application()\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\core\\wsgi.py", line 12, in get_wsgi_application\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947]     django.setup(set_prefix=False)\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\__init__.py", line 24, in setup\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947]     apps.populate(settings.INSTALLED_APPS)\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947]   File "c:\\programdata\\anaconda3\\lib\\site-packages\\django\\apps\\registry.py", line 83, in populate\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947]     raise RuntimeError("populate() isn't reentrant")\r
+[Tue Sep 10 19:12:17.361912 2019] [wsgi:error] [pid 8136:tid 1064] [client 140.131.114.149:60947] RuntimeError: populate() isn't reentrant\r
+[Tue Sep 10 19:12:23.605171 2019] [mpm_winnt:notice] [pid 4908:tid 416] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Tue Sep 10 19:12:26.920185 2019] [mpm_winnt:notice] [pid 8136:tid 324] AH00364: Child: All worker threads have exited.
+[Tue Sep 10 19:12:27.066172 2019] [mpm_winnt:notice] [pid 4908:tid 416] AH00430: Parent: Child process 8136 exited successfully.
+[Tue Sep 10 19:12:27.067174 2019] [core:error] [pid 4908:tid 416] (OS 2)系統找不到指定的檔案。  : AH00095: failed to remove PID file C:/Apache24/logs/httpd.pid

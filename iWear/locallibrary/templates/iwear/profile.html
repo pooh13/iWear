@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+	{% load static %}
+		<!-- ##### Breadcumb Area Start ##### -->
+		<div class="breadcumb-area bg-img" style="background-image: url({% static 'img/bg-img/b1.jpg' %});">
+			<div class="container h-100">
+				<div class="row h-100 align-items-center">
+					<div class="col-12">
+						<div class="breadcumb-content text-center">
+							<h2>about me</h2>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- ##### Cool Facts Area Start ##### -->
+		{% for memimg in mems %}
+			{% if memimg.mempic %}
+		<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({{MEDIA_URL}}{{ memimg.mempic }})">
+			{% endif %}
+		{% endfor %}
+
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="single-blog-area blog-style-2 text-center mb-100">
+						</div>
+					</div>
+				</div>
+	
+				<div class="row">
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h2><span class="counter">{{ times }}</span></h2>
+							<p>貼文</p>
+						</div>
+					</div>
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h2><span class="counter">0</span>K</h2>
+							<p>粉絲</p>
+						</div>
+					</div>
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="single-cool-facts-area text-center mb-100">
+							<!-- <h2><span class="counter">{{ follows }}</span></h2> -->
+							<h2><span class="counter">2</span></h2>
+							<p>追蹤中</p>
+						</div>
+					</div>
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h2><span class="counter">16</span></h2>
+							<p>群組</p>
+						</div>
+					</div>
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-sm-6 col-lg-6">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h3>i am a boy and i like soda. i am a boy and i like soda. i am a boy and i like soda. </h3>
+						</div>
+					</div>
+
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-sm-6 col-lg-6">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h3><input id="btn" class="button" type="button" onclick="follow()" value="追蹤"></h3>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- ##### Cool Facts Area End ##### -->
+	
+		<!-- ##### Blog Wrapper Start ##### -->
+		<div class="blog-wrapper section-padding-100-0 clearfix">
+			<div class="container">
+				{% for img in posts %}
+					{% if img.photo %}
+						{% cycle "<div class='row'> <div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" %}
+							<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
+						</div>
+						{% cycle "</div> </div>" "</div> </div>" "</div> </div>" %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+		<!-- ##### Blog Wrapper End ##### -->
+			
+	{% else %}
+	<div class="container">
+		<div class="frame">
+			<div class="userIcon">
+				<i class="fas fa-user head"></i>  
+			</div>
+			<a href="{% url 'login' %}"><button class="btnLogin">登入</button></a> 
+     		<a href="{% url 'iwear:register' %}"><button class="btnRegister">註冊</button></a>
+		</div>
+	</div>
+
+	<!-- Script -->
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-boxSlider.js' %}"></script>
+
+	<!-- <div class="container">
+		<input id="btn" class="btnUnFollow btnFollow" type="button" onclick="follow()" value="追蹤">
+
+		<div class="userID">
+			<p id="userID">{{request.user}}</p>
+		</div> -->
+
+		<!-- <div class="top">
+			<div class="left">
+				{% for memimg in mems %}
+					{% if memimg.mempic %}
+					<img class="userLogo" src="{{MEDIA_URL}}{{ memimg.mempic }}">
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="middle" id="popularity">
+				<table class="userFame">
+					<tr>
+						<th class="article">貼文</th>
+						<th class="fans">粉絲人數</th>
+						<th class="follow">追蹤中</th>
+					</tr>
+					<tr>
+						
+						<th class="article">{{ times }}</th>
+					
+						<th class="fans">0</th>
+						<th class="follow"><a href="{% url 'iwear:follow' %}" style="color: black">{{ follows }}</a></th>
+				
+					</tr>
+				</table>
+			</div>
+			<div class="right"></div>
+		</div>
+		
+		<hr size="8px" align="center" width="100%" color=black>
+
+	</div> -->
+	
+		<!-- <div class="article-search">
+			{% for img in posts %}
+				{% if img.photo %}
+				{% cycle "<div class='frame'> <div class='photo'>" "<div class='photo'>" "<div class='photo'>" %}
+					<img class="articlePhoto" alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
+				</div>
+				{% cycle "" "" "</div>" %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		</div> -->
+
+	<!-- <div class="footerNav">
+		<ul>
+			<div class="footerli"><a href="{% url 'iwear:homepage' %}"><li><i class="fas fa-home"></i></li></a></div>
+			<div class="footerli"><a href="{% url 'iwear:search' %}"><li><i class="fas fa-search"></i></li></a></div>
+			<div class="footerli"><a href="{% url 'iwear:addEdit' %}"><li><i class="fas fa-plus"></i></li></a></div>
+			<div class="footerli"><a href="{% url 'iwear:record' %}"><li><i class="fas fa-heart"></i></li></a></div>
+			<div class="footerli"><a href="{% url 'iwear:setting' %}"><li><i class="fas fa-user"></i></li></a></div>	
+		</ul>
+	</div> -->
+
+{% endif %}
+{% endblock %}

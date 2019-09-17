@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+	{% load static %}
+
+{% endif %}
+
+{% endblock %}
