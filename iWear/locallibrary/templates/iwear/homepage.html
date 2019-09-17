@@ -1,0 +1,195 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if request.user.is_authenticated %}
+	{% load static %}
+		<!-- CSS -->
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'css/index.css' %}" rel="stylesheet">
+		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+		<!-- Script -->
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery-boxSlider.js"></script>
+
+		<script type="text/javascript">
+			jQuery(document).ready(
+			function(){
+				$("#slider-horizontal").boxSlider({orientation:"horizontal", speed:5});
+			});
+		</script>
+
+	<script type="text/javascript">google_ad_client = "ca-pub-2783044520727903";google_ad_slot = "2780937993";google_ad_width = 728;google_ad_height = 90;</script>
+	<script type="text/javascript"src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-36251023-1']);
+	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+
+	<script type="text/javascript">
+		$(function() {
+		    /* 按下GoTop按鈕時的事件 */
+		    $('#gotop').click(function(){
+		        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+		        return false;
+		    });
+		    
+		    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+		    $(window).scroll(function() {
+		        if ( $(this).scrollTop() > 200){
+		            $('#gotop').fadeIn();
+		        } else {
+		            $('#gotop').fadeOut();
+		        }
+		    });
+		});
+	</script>  
+		
+	<script type="text/javascript">
+		function jumptoCommentArea() {
+			document.getElementById('commentArea').style.display="inline";
+			document.getElementById('btnSure').style.display="inline";
+		}
+	</script>	 
+
+	<div class="container">
+		<div class="center" style="margin-top:150px;">
+			<div class="box-slider" id="slider-horizontal">
+				<a href="#" class="box-slider-seta-left"><i class="fas fa-chevron-left fontawesome"></i></a>
+				<div class="box-slider-content">
+					<div class="box-slider-move">
+						<div class="item first"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item"><span></span></div>
+						<div class="item last-item"><span></span></div>
+						<div class="clear"></div>
+					</div>
+				</div>    
+				<a href="#" class="box-slider-seta-right"><i class="fas fa-chevron-right fontawesome"></i></a>
+			</div>
+		</div>
+
+		<div class="whole-article">
+			<div class="userframe">			
+				<div class="user">
+					<a href="setting.html">
+						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
+						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
+					</a>
+				</div>
+			</div>
+			<div>
+				<img alt="Bootstrap Image Preview" src="{% static 'images/logo.png' %}" class="article">
+			</div>		
+			<div class="btnGroup"> 
+				<a href="#"><i class="far fa-heart like" title="like"></i></a>
+				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
+				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
+			</div>	
+		</div>
+					
+		<div class="whole-article">
+			<div class="userframe">			
+				<div class="user">
+					<a href="setting.html">
+						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
+						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
+					</a>
+				</div>
+			</div>
+			<div>
+				<img alt="Bootstrap Image Preview" src="{% static 'images/logo.png' %}" class="article">
+			</div>		
+			<div class="btnGroup"> 
+				<a href="#"><i class="far fa-heart like" title="like"></i></a>
+				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
+				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
+			</div>	
+		</div>
+		
+		<div class="whole-article">
+			<div class="userframe">			
+				<div class="user">
+					<a href="setting.html">
+						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
+						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
+					</a>
+				</div>
+			</div>
+			<div>
+				<img alt="Bootstrap Image Preview" src="{% static 'images/logo.png' %}" class="article">
+			</div>		
+			<div class="btnGroup"> 
+				<a href="#"><i class="far fa-heart like" title="like"></i></a>
+				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
+				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
+			</div>	
+		</div>
+
+		<div class="whole-article">
+			<div class="userframe">			
+				<div class="user">
+					<a href="setting.html">
+						<i style="position: relative; top: 15px; font-size: 50px;" class="fas fa-user"></i>
+						<p style="position: relative;left: 60px; top: -50px; text-decoration: none;color: black;">Name</p>
+					</a>
+				</div>
+			</div>
+			<div>
+				<img alt="Bootstrap Image Preview" src="{% static 'images/logo.png' %}" class="article">
+			</div>		
+			<div class="btnGroup"> 
+				<a href="#"><i class="far fa-heart like" title="like"></i></a>
+				<a href="#"><i class="far fa-comment comment" title="comment"></i></a>
+				<a href="#"><i class="far fa-share-square share" title="share"></i></a>
+			</div>	
+		</div>
+	</div>
+		
+		<div class="footerNav">
+			<ul>
+				<div class="footerli"><a href="{% url 'iwear:homepage' %}"><li><i class="fas fa-home"></i></li></a></div>
+				<div class="footerli"><a href="{% url 'iwear:search' %}"><li><i class="fas fa-search"></i></li></a></div>
+				<div class="footerli"><a href="{% url 'iwear:addEdit' %}"><li><i class="fas fa-plus"></i></li></a></div>
+				<div class="footerli"><a href="{% url 'iwear:record' %}"><li><i class="fas fa-heart"></i></li></a></div>
+				<div class="footerli"><a href="{% url 'iwear:setting' %}"><li><i class="fas fa-user"></i></li></a></div>	
+			</ul>
+		</div>				
+	{% else %}
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
+	<link rel="stylesheet" href="{% static 'css/application.css' %}">
+
+	<div class="container">
+		<div class="frame">
+			<div class="userIcon">
+				<i class="fas fa-user head"></i>  
+			</div>
+			<a href="{% url 'login' %}"><button class="btnLogin">登入</button></a> 
+     		<a href="{% url 'iwear:register' %}"><button class="btnRegister">註冊</button></a>
+		</div>
+	</div>
+
+{% endif %}
+{% endblock %}

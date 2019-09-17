@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% load static %}
+	<!-- ##### Single Blog Area Start ##### -->
+    <div class="single-blog-wrapper section-padding-0-100">
+
+    <div class="container">
+        <div class="row">
+            <!-- ##### Post Content Area ##### -->
+            <div class="col-12 col-lg-12">
+                <!-- Comment Area Start -->
+                <div class="comment_area clearfix mt-70">
+                    <h4 class="title">Record</h4>
+    
+                	<ol>
+						<!-- Single Comment Area -->
+						<li class="single_comment_area">
+							<!-- Comment Content -->
+							<div class="comment-content d-flex">
+								<!-- Comment Author -->
+								<div class="comment-author">
+									<img src="{% static 'img/bg-img/b7.jpg' %}" alt="author">
+								</div>
+								<!-- Comment Meta -->
+								<div class="comment-meta">
+									<a class="post-date">March 12</a>
+									<p><a href="#" class="post-author">William James</a></p>
+									<p>在一則貼文為你點讚。</p>
+									<img src="{% static 'img/blog-img/lp4.jpg' %}" alt="">
+								</div>
+							</div>
+						</li>																			
+					</ol>
+
+                    <ol>
+						<!-- Single Comment Area -->
+						<li class="single_comment_area">
+							<!-- Comment Content -->
+                            <div class="comment-content d-flex">
+                                <!-- Comment Author -->
+                                <div class="comment-author">
+                                    <img src="{% static 'img/bg-img/b7.jpg' %}" alt="author">
+                                </div>
+                                <!-- Comment Meta -->
+                                <div class="comment-meta">
+                                    <a class="post-date">March 13</a>
+                                    <p><a href="#" class="post-author">William James</a></p>
+                                    <p>在一則貼文為你點讚。</p>
+                                    <img src="{% static 'img/blog-img/lp4.jpg' %}" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+	<!-- ##### Single Blog Area End ##### -->
+
+	
+{% endblock %}
