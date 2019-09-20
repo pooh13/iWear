@@ -23,11 +23,10 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
     path('register/', views.register, name='register'),
-
     path('', views.homepage, name='homepage'),
     path('profile/', views.profile, name='profile'),
     path('follow/', views.follow, name='follow'),
-    path('fan/', views.fan, name='fan'),
+    path('friend/', views.friend, name='friend'),
     path('addPost/', views.post_create, name='add_post'),
     # path('postList/', views.post_list, name='postList'),
     # path('postList/<int:pk>/', views.post_show, name='postShow'),
