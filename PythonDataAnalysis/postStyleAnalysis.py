@@ -1,7 +1,27 @@
 import os
 import cursorToList
+import csv
 import MyJieba_hant
 import loginChecker
+from datetime import datetime
+import cursorG
+import cursorToMySplit
+import toList
+from iWear.locallibrary.iwear import views
+
+userLoginDatetimeSQLCmd = cursorG.cursorG("SELECT CONVERT(varchar(100), last_login, 20) FROM auth_user where id = 62;")
+
+userLoginDatetime = datetime.strptime(userLoginDatetimeSQLCmd[0][0], "%Y-%m-%d %H:%M:%S")
+
+print(type(userLoginDatetime))
+print(userLoginDatetime)
+print(type(userLoginDatetimeSQLCmd[0][0]))
+
+if userLoginDatetime < datetime.now():
+    print("datetime is true")
+    # loginChecker.loginChecker()
+# views.login()
+# loginChecker.loginChecker("62")
 
 listPercent=[0.3,0.1,0.15,0.15,0.15,0.15]
 
@@ -21,7 +41,7 @@ def getPossible(cusNo):
 
     sum=0
 
-    for cusNoPostCnt in cursorToList.cursorToList("SELECT COUNT(*) as cnt FROM post WHERE account= "+cusNo+";"):
+    for cusNoPostCnt in cursorToList.cursorToList("SELECT COUNT(*) as cnt FROM post WHERE account = "+cusNo+";"):
         sum=int(cusNoPostCnt[0])
         # print(sum)
 
@@ -30,7 +50,7 @@ def getPossible(cusNo):
 
     # { cusNoPostCntSortCmdA=["SELECT COUNT(*) as cnt,"] } { cusNoPostCntSortCmd01=[,] }
     # { cusNoPostCntSortCmdB=[" FROM post WHERE account ="+cusNo+" GROUP BY "," ORDER BY "] }
-    cusNoPostCntSortSQLCmd = ["SELECT COUNT(*) as cnt,"," FROM post WHERE account = "+cusNo+" GROUP BY "," ORDER BY cnt desc ,"]
+    cusNoPostCntSortSQLCmd = ["SELECT COUNT(*) as cnt,"," FROM post WHERE account = "+cusNo+" GROUP BY "," ORDER BY cnt desc, "]
 
     # 加入 cusNoPostCntSortCmdA
     for cusNoPostCntSortCmdA in cusNoPostCntSortSQLCmd:
@@ -92,10 +112,31 @@ def getPossible(cusNo):
         with open('DataAnalysisResult/analysisResult241DB.csv',"a",encoding='BIG5') as printFile:
             printFile.write(cusNoPostCntSortB+"\n")
 
-        postDataAnalysisCmd = ('')
+            # reader = csv.reader(insertToDB)
+            # columens = next(reader)
+            # postDataAnalysisCmd = 'INSERT INTO postcount({0}) VALUES ({1})'
+            # postDataAnalysisCmd = postDataAnalysisCmd.format(','.join(columens), ','.join('?' * len(columens)))
+            # cursorToList.cursor()
+
+            # for postDataAnalysisData in reader:
+                # cursorToList.cursorToList(postDataAnalysisCmd, postDataAnalysisData)
+                # print(postDataAnalysisData)
+
+    with open('DataAnalysisResult/analysisResult241DB.csv', "r", encoding='BIG5') as file:
+        reader = csv.reader(file)
+        # postDataAnalysisCmd = 'INSERT INTO postcount({0}) VALUES ({1})'
+        # postDataAnalysisCmd = postDataAnalysisCmd.format(','.join(reader), ','.join('?' * len(reader)))
+        # cursorToList.iWearDB.cursor()
+        for postDataAnalysisDataRow in reader:
+            postDataAnalysisDataString=cusNo
+            for postDataAnalysisDataSQLCmd in postDataAnalysisDataRow:
+                postDataAnalysisDataString = postDataAnalysisDataString+" ,'" +postDataAnalysisDataSQLCmd+ "'"
+            postDataAnalysisDataSQLCmd = "INSERT INTO postcount(id, [count], styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo, note) VALUES("+postDataAnalysisDataString+");"
+            print("postDataAnalysisDataSQLCmd: ",postDataAnalysisDataSQLCmd)
 
     print("\n"+"="*80+"\n")
-getPossible("64")
+
+getPossible("62")
 
 def getCusNoOwnPostJieba(cusNo):
 
@@ -106,24 +147,22 @@ def getCusNoOwnPostJieba(cusNo):
         # print(str(cusNoPostContext))
         MyJieba_hant.MyJieba_hant(str(cusNoPostContext))
 
-getCusNoOwnPostJieba("64")
+getCusNoOwnPostJieba("62")
 
+# # 檢查是否已登入 iWear 平台 (需連結Django測試)
+# loginResult = loginChecker.loginChecker()
+# if loginResult[0]=="verified":
+#     getPossible(loginResult[1])
+#
+# def getCusNoOthersPostJieba(cusNo):
+#
+#     # 將資料庫其他使用者既有貼文抓出
+#     cursorToList.cursor.execute("SELECT * 0FROM post WHERE account!="+cusNo+"")
+#     allPost = cursorToList.cursor.fetchall()
+#
+#     # 依優先順序顯示貼文
+#     print(allPost)
 
-# 檢查是否已登入 iWear 平台 (需連結Django測試)
-loginResult = loginChecker.loginChecker()
-if loginResult[0]=="verified":
-    getPossible(loginResult[1])
+# getCusNoOthersPostJieba("64")
 
-def getCusNoOthersPostJieba(cusNo):
-
-    # 將資料庫其他使用者既有貼文抓出
-    cursorToList.cursor.execute("SELECT * 0FROM post WHERE account!="+cusNo+"")
-    allPost = cursorToList.cursor.fetchall()
-
-    # 依優先順序顯示貼文
-    print(allPost)
-
-
-
-getCusNoOthersPostJieba("64")
 

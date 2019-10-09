@@ -12,9 +12,9 @@ def SQLServerDBLink241DB():
     )
 
 def SQLServerDBLinkMyDB():
-    # IP: 220.135.161.251
+    # IP: 122.116.41.151
     return pyodbc.connect(
-        'DRIVER={SQL Server}; SERVER=220.135.161.251,1433; DATABASE=108-510; UID=sa; PWD=sqlserver',
+        'DRIVER={SQL Server}; SERVER=122.116.41.151,1433; DATABASE=108-510; UID=sa; PWD=sqlserver',
         ENGINE = "sql_server.pyodbc",
         NAME= "108-510",
         HOST="220.135.161.251,1433",

@@ -14,9 +14,7 @@ if r.status_code == requests.codes.ok:
     # 以 BeautifulSoup 解析 HTML 原始碼
     soup = BeautifulSoup(r.text, 'lxml')
 
-    # print(soup)
     # 抓取穿搭板內文網頁
-    # print(soup.select("div"))
     for i in soup.find(attrs={"class":"block block_1 infinite_scroll"}).findAll(attrs={"class":"piece clearfix"}):
         urltag = i.find(attrs={"a":""})
         url = urltag.get('href')

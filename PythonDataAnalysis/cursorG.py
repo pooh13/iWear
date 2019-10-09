@@ -1,4 +1,3 @@
-import toList
 import SQLServerDBLink
 
 # DB.(1/3 A) SQLServerDBLinkMyDB
@@ -8,10 +7,7 @@ import SQLServerDBLink
 iWearDB = SQLServerDBLink.SQLServerDBLink241DB()
 cursor = iWearDB.cursor()
 
-def cursorToList(cursorToListResult):
-    cursor.execute(cursorToListResult)
-    cursorToListResult = cursor.fetchall()
-    cursorToList = toList.toList(cursorToListResult)
-    return cursorToList
-
-
+def cursorG(cursorGResult):
+    cursor.execute(cursorGResult)
+    cursorGResult = cursor.fetchall()
+    return cursorGResult
