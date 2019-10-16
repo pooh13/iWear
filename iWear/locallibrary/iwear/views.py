@@ -8,53 +8,58 @@ from django.contrib import auth
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, authenticate
 from django.urls import reverse
-import datetime
+from datetime import datetime
+# from django.views import generic
 
 from .forms import UserForm, MemInfoForm, PostForm
-from .models import Accessories, Meminform, Style, Post, Follow, AuthUser
+from .models import Accessories, Meminform, Style, Post, Follow, AuthUser, Friends
 
 # Create your views here.
 def homepage(request):
-    template = get_template('iwear/index.html')
-    html = template.render(locals())
-    return HttpResponse(html)
-    # account = Meminform.objects.get(pk=pk)
-    # return render(request, 'iwear/homepage.html', {'account':account})
+    posts = Post.objects.filter(userid=request.user).all().order_by('-time')
+    return render(request, 'iwear/home.html', locals())
 
 #setting.html
 @login_required
 def profile(request):
     # user_id = Meminform.objects.get(pk=pk)
-    mems = Meminform.objects.filter(user=request.user.id).all()
-    posts = Post.objects.filter(account=request.user.id).order_by('-time')
-    times = Post.objects.filter(account=request.user.id).count()
-    # follows = Follow.objects.filter(memno=request.user.id).count()
+    # mems = Meminform.objects.get(pk=request.user.id)
+    mems = Meminform.objects.filter(userid=request.user).all()
+    posts = Post.objects.filter(userid=request.user).order_by('-time') #貼文
+    times = Post.objects.filter(userid=request.user).count() #發文數
+    follows = Follow.objects.filter(userid=request.user).count() #追蹤數
+    fans = Follow.objects.filter(memfoid=request.user).count() #被追蹤數
     return render(request, 'iwear/profile.html', locals())
 
+#Follows_profile
+def profile_test(request, pk):
+  mems = Meminform.objects.get(userid=pk)
+  meminfos = Meminform.objects.filter(userid=pk).all()
+  times = Post.objects.filter(userid=pk).count() #發文數
+  # follows = Follow.objects.filter(id=pk).count() #追蹤數
+  # fans = Follow.objects.filter(memfono=pk).count() #被追蹤數
+  posts = Post.objects.filter(userid=pk).order_by('-time') #貼文
+  return render(request, 'iwear/profile_test.html', locals())
 
 #DB_FOLLOW
-@login_required
 def follow(request):
-    follows = Follow.objects.filter(id=request.user.id).all()
-    mem_info = AuthUser.objects.all()
+    follows = Follow.objects.filter(userid=request.user).all()
+    # mempics = Meminform.objects.filter(userid=request.user).all()
     return render(request, 'iwear/follow.html', locals())
 
 #FAN
-@login_required
-def fan(request):
-    template = get_template('iwear/fan.html')
-    html = template.render(locals())
-    return HttpResponse(html)
+def friend(request):
+#     friends = Friends.objects.filter(memno=request.user.id)
+    return render(request, 'iwear/friend.html', locals())
 
 #addEdit
 @login_required
 def post_create(request):
-  # style = Style.objects.all()
   if request.method == 'POST':
     post_form = PostForm(request.POST, request.FILES)
     if post_form.is_valid():
       new_post = post_form.save(commit=False) # 保存數據，但暫時不提交到數據庫中
-      new_post.account = request.user.id #指定account為使用者
+      new_post.userid = request.user #指定account為使用者
       if 'photo' in request.FILES:
           new_post.photo = request.FILES['photo']
       new_post.save()
@@ -66,18 +71,8 @@ def post_create(request):
   else:
     post_form = PostForm()
     return render(request,'iwear/add_post.html',{
-      'post_form':post_form, 
+      'post_form':post_form, 'time':datetime.now()
   })
-
-# @login_required
-# def post_list(request):
-#     post = Post.objects.filter(account=request.user.id).all()
-#     return render(request, 'iwear/postList.html', {'post': post})
-
-# def post_show(request, pk):
-#   post = Post.objects.get(pk=pk)
-#   return render(request, 'iwear/postShow.html', {'post':post})
-
 
 #RECORD
 @login_required
@@ -89,9 +84,7 @@ def record(request):
 #SEARCH
 @login_required
 def search(request):
-    template = get_template('iwear/search.html')
-    html = template.render(locals())
-    return HttpResponse(html)      
+    return render(request, 'iwear/search.html', locals())
 
 #REGISTER
 def register(request):
@@ -105,6 +98,7 @@ def register(request):
         user.save()
         new_mem = mem_form.save(commit=False) # 暫存不存入資料庫, 因為mem.user不得為空值
         new_mem.user = user
+        new_mem.userid = request.POST.get('username')
         if 'mempic' in request.FILES:
           new_mem.mempic = request.FILES['mempic']
         new_mem.save()
@@ -135,6 +129,8 @@ def login(request):
         if user:
             if user.is_active:
                 login(request,user)
+                request.session['username']=username
+                # return HttpResponseRedirect("/index")
                 return HttpResponse(user.is_authenticated)
                 # return HttpResponseRedirect(reverse('/'))
             else:

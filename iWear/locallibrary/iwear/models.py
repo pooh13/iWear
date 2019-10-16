@@ -53,7 +53,7 @@ class AuthUser(models.Model):
     username = models.CharField(unique=True, max_length=12)
     password = models.CharField(max_length=128)
     email = models.CharField(max_length=100)
-    last_login = models.DateTimeField(blank=True, null=True)
+    last_login = models.DateTimeField(null=True, auto_now=True)
     date_joined = models.DateTimeField()
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=150)
@@ -133,27 +133,27 @@ class DjangoSession(models.Model):
 
 class Follow(models.Model):
     fono = models.AutoField(db_column='FoNo', primary_key=True)  # Field name made lowercase.
-    id = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='id', related_name='follow_user_id')
-    memfono = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='memFoNo')  # Field name made lowercase.
+    userid = models.CharField(max_length=12, blank=True, null=True)
+    memfoid = models.CharField(db_column='memFoid', max_length=12, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'follow'
 
 
-# class Friends(models.Model):
-#     frno = models.CharField(db_column='FrNo', primary_key=True, max_length=8)  # Field name made lowercase.
-#     memno = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memNo')  # Field name made lowercase.
-#     memfrno = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memFrNo')  # Field name made lowercase.
+class Friends(models.Model):
+    frno = models.AutoField(db_column='FrNo', primary_key=True)  # Field name made lowercase.
+    memno = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='memNo', related_name='friend_user_id')  # Field name made lowercase.
+    memfrno = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='memFrNo')  # Field name made lowercase.
 
-#     class Meta:
-#         managed = False
-#         db_table = 'friends'
+    class Meta:
+        managed = False
+        db_table = 'friends'
 
 
 class Meminform(models.Model):
-    # memno = models.IntegerField(db_column='memNo',primary_key=True, blank=True)  # Field name made lowercase.
     user = models.OneToOneField(User, on_delete=models.CASCADE, db_column='account')
+    userid = models.CharField(max_length=12, db_column='userid')
     # password = models.TextField()  # This field type is a guess.
     name = models.CharField(max_length=12)  # This field type is a guess.
     male = 'M'
@@ -168,9 +168,6 @@ class Meminform(models.Model):
     mempic = models.ImageField(upload_to='mempics',blank=True)
     height = models.IntegerField(blank=True, null=True)
     weight = models.IntegerField(blank=True, null=True)
-
-    def __str__(self):
-        return self.user.username
 
     class Meta:
         managed = False
@@ -187,7 +184,8 @@ class Pants(models.Model):
 
 
 class Post(models.Model):
-    account = models.CharField(max_length=8)
+    account = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='account')
+    userid = models.CharField(max_length=12, blank=True, null=True)
     time = models.DateTimeField(auto_now=True)
     word = models.TextField(blank=True, null=True)  # This field type is a guess.
     photo = models.ImageField(upload_to='photos',blank=True)
@@ -201,6 +199,7 @@ class Post(models.Model):
     class Meta:
         managed = False
         db_table = 'post'
+    
 
 
 class Shoes(models.Model):

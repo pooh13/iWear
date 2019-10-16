@@ -24,12 +24,12 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('register/', views.register, name='register'),
     path('', views.homepage, name='homepage'),
+    # path('index/', views.)
     path('profile/', views.profile, name='profile'),
+    path('profile_test/<pk>', views.profile_test, name='profile_test'),
     path('follow/', views.follow, name='follow'),
     path('friend/', views.friend, name='friend'),
     path('addPost/', views.post_create, name='add_post'),
-    # path('postList/', views.post_list, name='postList'),
-    # path('postList/<int:pk>/', views.post_show, name='postShow'),
     path('record/', views.record, name='record'),
     path('search/', views.search, name='search'),
 ]

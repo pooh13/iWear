@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-
 	{% load static %}
 		<!-- ##### Breadcumb Area Start ##### -->
 		<div class="breadcumb-area bg-img" style="background-image: url({% static 'img/bg-img/b1.jpg' %});">
@@ -8,16 +7,16 @@
 				<div class="row h-100 align-items-center">
 					<div class="col-12">
 						<div class="breadcumb-content text-center">
-							<h2>about me</h2>
-							
+							<!-- <h2>about me</h2> -->
+							<h2>{{ mems.userid }}</h2>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	
+
 		<!-- ##### Cool Facts Area Start ##### -->
-		{% for memimg in mems %}
+		{% for memimg in meminfos %}
 			{% if memimg.mempic %}
 		<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({{MEDIA_URL}}{{ memimg.mempic }})">
 			{% endif %}
@@ -42,7 +41,7 @@
 					<!-- Single Cool Facts Area -->
 					<div class="col-12 col-xs-6 col-md-4">
 						<div class="single-cool-facts-area text-center mb-100">
-							<h2><span class="counter">{{ fans }}</span></h2>
+							<h2><span class="counter">0</span>K</h2>
 							<p>粉絲</p>
 						</div>
 					</div>
@@ -50,7 +49,7 @@
 					<div class="col-12 col-xs-6 col-md-4">
 						<div class="single-cool-facts-area text-center mb-100">
 							<!-- <h2><span class="counter">{{ follows }}</span></h2> -->
-							<h2><span class="counter">{{ follows }}</span></h2>
+							<h2><span class="counter"></span></h2>
 							<p>追蹤中</p>
 						</div>
 					</div>
@@ -61,11 +60,18 @@
 						</div>
 					</div>
 
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-sm-6 col-lg-6">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h3><input id="btn" class="button" type="button" onclick="follow()" value="追蹤"></h3>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
 		<!-- ##### Cool Facts Area End ##### -->
-	
+
 		<!-- ##### Blog Wrapper Start ##### -->
 		<div class="blog-wrapper section-padding-100-0 clearfix">
 			<div class="container">
@@ -84,5 +90,21 @@
 	<!-- Script -->
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="{% static 'js/jquery-boxSlider.js' %}"></script>
+
+	<script type="text/javascript">
+		var flag=0
+		function follow(){
+			if(flag==0){
+				document.getElementById('btn').value='已追蹤';			
+				document.getElementById('btn').className='btnFollowActive btnFollow';
+				flag+=1;
+			}
+			else if(flag==1){
+				document.getElementById('btn').value='追蹤';			
+				document.getElementById('btn').className='btnUnFollow btnFollow';
+				flag=0;	
+			}
+		}
+	</script>
 
 {% endblock %}

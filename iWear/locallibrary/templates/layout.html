@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
         <link rel="stylesheet" href="{% static 'css/classy-nav.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
     </head>
     
     <body>
@@ -67,14 +69,14 @@
                                 <!-- Nav Start -->
                                 <div class="classynav">
                                     <ul>
-                                        <li><a href="{% url 'iwear:homepage' %}">HOME</a></li>
-                                        <li><a href="{% url 'iwear:search' %}">SEARCH</a></li>
-                                        <li><a href="{% url 'iwear:add_post' %}">ADD</a></li>
-                                        <li><a href="{% url 'iwear:record' %}">RECORD</a> </li>
-                                        <li><a href="{% url 'iwear:profile' %}">PROFILE</a>
+                                        <li><a href="{% url 'iwear:homepage' %}">首頁</a></li>
+                                        <li><a href="{% url 'iwear:search' %}">搜尋</a></li>
+                                        <li><a href="{% url 'iwear:add_post' %}">新增貼文</a></li>
+                                        <li><a href="{% url 'iwear:record' %}">紀錄</a> </li>
+                                        <li><a href="{% url 'iwear:profile' %}">個人檔案</a>
                                             <ul class="dropdown">
-                                                <li><a href="{% url 'iwear:fan' %}">FAN</a></li>
-                                                <li><a href="{% url 'iwear:follow' %}">FOLLOW</a></li>
+                                                <li><a href="{% url 'iwear:friend' %}">好友</a></li>
+                                                <li><a href="{% url 'iwear:follow' %}">追蹤</a></li>
                                             </ul>
                                         </li>
                                     </ul>

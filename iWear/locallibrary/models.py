@@ -159,7 +159,9 @@ class DjangoSession(models.Model):
 class Follow(models.Model):
     fono = models.AutoField(db_column='FoNo', primary_key=True)  # Field name made lowercase.
     id = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='id')
+    userid = models.CharField(max_length=12, blank=True, null=True)
     memfono = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='memFoNo')  # Field name made lowercase.
+    memfoid = models.CharField(db_column='memFoid', max_length=12, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -168,8 +170,8 @@ class Follow(models.Model):
 
 class Friends(models.Model):
     frno = models.AutoField(db_column='FrNo', primary_key=True)  # Field name made lowercase.
-    memno = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memNo')  # Field name made lowercase.
-    memfrno = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memFrNo')  # Field name made lowercase.
+    memno = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='memNo')  # Field name made lowercase.
+    memfrno = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='memFrNo')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -187,6 +189,7 @@ class Group(models.Model):
 
 class Meminform(models.Model):
     account = models.IntegerField()
+    userid = models.CharField(max_length=12, blank=True, null=True)
     name = models.CharField(max_length=12)
     gender = models.CharField(max_length=2)
     birth = models.DateField(blank=True, null=True)
@@ -219,7 +222,8 @@ class Pants(models.Model):
 
 
 class Post(models.Model):
-    account = models.IntegerField()
+    account = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='account', blank=True, null=True)
+    userid = models.CharField(max_length=12, blank=True, null=True)
     photo = models.CharField(max_length=100, blank=True, null=True)
     time = models.DateTimeField()
     word = models.CharField(max_length=255, blank=True, null=True)
@@ -236,7 +240,8 @@ class Post(models.Model):
 
 
 class Postcount(models.Model):
-    postcountno = models.AutoField(db_column='postcountNo')  # Field name made lowercase.
+    postcountno = models.AutoField(db_column='postcountNo', primary_key=True)  # Field name made lowercase.
+    count = models.IntegerField()
     id = models.IntegerField()
     styleno = models.CharField(db_column='styleNo', max_length=8)  # Field name made lowercase.
     accessoriesno = models.CharField(db_column='accessoriesNo', max_length=8)  # Field name made lowercase.
@@ -244,7 +249,7 @@ class Postcount(models.Model):
     coatno = models.CharField(db_column='coatNo', max_length=8)  # Field name made lowercase.
     pantsno = models.CharField(db_column='pantsNo', max_length=8)  # Field name made lowercase.
     shoesno = models.CharField(db_column='shoesNo', max_length=8)  # Field name made lowercase.
-    count = models.IntegerField()
+    note = models.CharField(max_length=100)
 
     class Meta:
         managed = False

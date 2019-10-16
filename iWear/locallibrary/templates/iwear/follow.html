@@ -13,12 +13,11 @@
 				</div>
 					<!-- #### cycle Start #### -->
 					{% for follow in follows %}
-					
 						{% cycle "<div class='inner'> <div class='flex flex-4'> <div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" %}
-							<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
+							<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ mempics.mempic }}">
 							</div>
-							<h3>{{ follow.memfono }}</h3>
-                			<p>Cipdum dolor</p>
+							<a href="{% url 'iwear:profile_test' follow.memfoid %}"><h3>{{ follow.memfoid }}</h3></a>
+                			<p></p>
                 			<p><a href="#" class="button-style">追蹤中</a></p>
 						{% cycle "</div>" "</div>" "</div>" "</div> </div> </div>" %}
 					{% endfor %}

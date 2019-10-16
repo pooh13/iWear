@@ -11,30 +11,19 @@
                     <header><h2>Fan</h2></header>
 
                     <!--  -->
-				    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Payment Taken</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-    
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>      
-                                        <td>?</td>
-                                        <td>01/04/2012</td>
-                                        <td>Default</td>
-                                    </tr>
-                                </tbody>
+                    {% for friend in friends %}
+                        {% cycle "<div class='inner'> <div class='flex flex-4'> <div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" %}
+                            {% for img in mems %}
+                                {% if img.mempic %}
+                                    <img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.mempic }}">
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                            <h3>{{ friends.memfono }}</h3>
+                            <p><a href="#" class="button-style">追蹤中</a></p>
+                        {% cycle "</div>" "</div>" "</div>" "</div> </div> </div>" %}
+                    {% endfor %}
 
-                            </table>
-                        </div>
-                    </div>
                     
                     <!--  -->
 

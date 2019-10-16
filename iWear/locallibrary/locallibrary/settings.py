@@ -117,9 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.1/topics/i18n/
-
-#AUTH_USER_MODEL = 'iwear.Meminform'
+# https://docs.djangoproject.com/en/2.1/topics/i18n/'
 
 LANGUAGE_CODE = 'zh-hant'
 
@@ -129,7 +127,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 #static & media
@@ -138,6 +136,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
+#session
+SESSION_COOKIE_AGE = 60*30 #設置session過期時間為30分鐘
+SESSION_EXPIRE_AT_BROWSER_CLOSE =  True#當瀏覽器被關閉的時候將session失效，但是不能刪除數據庫的session數據
+SESSION_SAVE_EVERY_REQUEST = True#每次請求都要保存一下session
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
