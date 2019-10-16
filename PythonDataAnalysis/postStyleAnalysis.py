@@ -1,21 +1,19 @@
-import os
-import cursorToList
-import csv
-import MyJieba_hant
+import os, cursorToList, cursorG, MyJieba_hant, csv
 import loginChecker
 from datetime import datetime
-import cursorG
 import cursorToMySplit
 import toList
-from iWear.locallibrary.iwear import views
+import socketLoginChecker
+
+
 
 userLoginDatetimeSQLCmd = cursorG.cursorG("SELECT CONVERT(varchar(100), last_login, 20) FROM auth_user where id = 62;")
 
 userLoginDatetime = datetime.strptime(userLoginDatetimeSQLCmd[0][0], "%Y-%m-%d %H:%M:%S")
 
-print(type(userLoginDatetime))
+# print(type(userLoginDatetime))
 print(userLoginDatetime)
-print(type(userLoginDatetimeSQLCmd[0][0]))
+# print(type(userLoginDatetimeSQLCmd[0][0]))
 
 if userLoginDatetime < datetime.now():
     print("datetime is true")
@@ -67,7 +65,7 @@ def getPossible(cusNo):
             cusNoPostCntSortA+=","
 
     # 列印出(SELECT COUNT(*) as cnt,styleNo,accessoriesNo,clothesNo,coatNo,pantsNo,shoesNo FROM post WHERE account =64 GROUP BY styleNo,accessoriesNo,clothesNo,coatNo,pantsNo,shoesNo ORDER BY styleNo,accessoriesNo,clothesNo,coatNo,pantsNo,shoesNo)
-    print(cusNoPostCntSortA)
+    # print(cusNoPostCntSortA)
 
     # DB.(2/3 A) 判斷 MyDB 是否有原有輸出檔案存在
     # filePathMyDB = "DataAnalysisResult/analysisResultMyDB.csv"
@@ -82,7 +80,6 @@ def getPossible(cusNo):
     # 抓取且執行 cusNoPostCntSortA 查詢結果 = arrPersonalRow
     for arrPersonalRow in cursorToList.cursorToList(cusNoPostCntSortA):
         cusNoPostCntSortB=""
-        # >
         # print(arrPersonalRow)
 
         # 轉換成同一欄位
@@ -92,11 +89,6 @@ def getPossible(cusNo):
 
         print(arrPersonalRow)
         cusNoPostCntSortB+=" 比例:"+str(int(arrPersonalRow[0])/sum)
-
-        # insert into DB ！
-        # print(type(arrPersonalRow))
-        # strArrPersonalRow = str(arrPersonalRow).join(',')
-        # print(type(strArrPersonalRow))
 
         # print(type(str(arrPersonalRow)))
         # cursorToList.cursor.execute("INSERT INTO dbo.postcount(id, count, styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo) VALUES("+cusNo+","+str(arrPersonalRow).split(',')+")")
@@ -112,15 +104,7 @@ def getPossible(cusNo):
         with open('DataAnalysisResult/analysisResult241DB.csv',"a",encoding='BIG5') as printFile:
             printFile.write(cusNoPostCntSortB+"\n")
 
-            # reader = csv.reader(insertToDB)
-            # columens = next(reader)
-            # postDataAnalysisCmd = 'INSERT INTO postcount({0}) VALUES ({1})'
-            # postDataAnalysisCmd = postDataAnalysisCmd.format(','.join(columens), ','.join('?' * len(columens)))
-            # cursorToList.cursor()
-
-            # for postDataAnalysisData in reader:
-                # cursorToList.cursorToList(postDataAnalysisCmd, postDataAnalysisData)
-                # print(postDataAnalysisData)
+    print("\n"+"-"*80+"\n")
 
     with open('DataAnalysisResult/analysisResult241DB.csv', "r", encoding='BIG5') as file:
         reader = csv.reader(file)
@@ -136,7 +120,7 @@ def getPossible(cusNo):
 
     print("\n"+"="*80+"\n")
 
-getPossible("62")
+getPossible(socketLoginChecker.socketLoginChecker())
 
 def getCusNoOwnPostJieba(cusNo):
 
