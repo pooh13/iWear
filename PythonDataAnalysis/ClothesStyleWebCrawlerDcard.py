@@ -1,5 +1,4 @@
-import requests
-import MyJieba_hant
+import requests, iWearFunction
 
 from bs4 import BeautifulSoup
 
@@ -36,7 +35,7 @@ if r.status_code == requests.codes.ok:
             print(clean.text)
 
         # context = soup.find("div",attrs={"class":"Post_content_NKEl9d"}).text
-        # print(MyJieba_hant.MyJieba_hant(context))
+        # print(iWearFunction.MyJieba_hant(context))
         print("\n"+"="*60)
 
 

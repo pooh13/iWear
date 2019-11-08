@@ -1,6 +1,5 @@
-import requests
+import requests, iWearFunction
 import urllib
-import MyJieba_hant
 from bs4 import BeautifulSoup
 
 meteor_url = 'https://meteor.today/b/styling/new'
@@ -24,7 +23,7 @@ if r.status_code == requests.codes.ok:
         for clean in title:
             print(clean.text)
         context = soup.find("div",attrs={"class":"article_content"}).text
-        print(MyJieba_hant.MyJieba_hant(context))
+        print(iWearFunction.MyJieba_hant(context))
 
 
 

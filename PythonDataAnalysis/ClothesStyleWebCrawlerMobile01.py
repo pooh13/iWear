@@ -1,12 +1,10 @@
-import requests
+import requests, iWearFunction
 import urllib
-import MyJieba_hant
-import get_Content403
 from bs4 import BeautifulSoup
 
 mobile01_url = 'https://www.mobile01.com'
 
-r=get_Content403.get_Content403(mobile01_url+"/topiclist.php?f=302","www.mobile01.com")
+r=iWearFunction.get_Content403(mobile01_url+"/topiclist.php?f=302","www.mobile01.com")
 arr=[]
 # if r.status_code == requests.codes.ok:
 # 以 BeautifulSoup 解析 HTML 原始碼
@@ -24,4 +22,4 @@ for urlString in arr:
     for clean in title:
         print(clean.text)
     # context = soup.find("div",attrs={"id":"ct72381770"})
-    # print(MyJieba_hant.MyJieba_hant(context))
+    # print(iWearFunction.MyJieba_hant(context))

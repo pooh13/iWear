@@ -1,13 +1,7 @@
-import os, cursorToList, cursorG, MyJieba_hant, csv
-import loginChecker
+import os, csv, iWearFunction
 from datetime import datetime
-import cursorToMySplit
-import toList
-import socketLoginChecker
 
-
-
-userLoginDatetimeSQLCmd = cursorG.cursorG("SELECT CONVERT(varchar(100), last_login, 20) FROM auth_user where id = 62;")
+userLoginDatetimeSQLCmd = iWearFunction.cursorGFetch("SELECT CONVERT(varchar(100), last_login, 20) FROM auth_user where id = 62;")
 
 userLoginDatetime = datetime.strptime(userLoginDatetimeSQLCmd[0][0], "%Y-%m-%d %H:%M:%S")
 
@@ -17,9 +11,6 @@ print(userLoginDatetime)
 
 if userLoginDatetime < datetime.now():
     print("datetime is true")
-    # loginChecker.loginChecker()
-# views.login()
-# loginChecker.loginChecker("62")
 
 listPercent=[0.3,0.1,0.15,0.15,0.15,0.15]
 
@@ -31,7 +22,8 @@ arrAllRow=[] # [[ST01,ST02],[PA01,PA02]] [[ST01,ST02,ST03],[PA01,PA02,PA03]]
 for table in arrTable:
     tableSQLCmd="SELECT * FROM "+table+";"
     arrTableCols=[]
-    for cols in cursorToList.cursorToList(tableSQLCmd):
+
+    for cols in iWearFunction.cursorToList(tableSQLCmd):
         arrTableCols.append(cols[0])
     arrAllRow.append(arrTableCols)
 
@@ -39,7 +31,7 @@ def getPossible(cusNo):
 
     sum=0
 
-    for cusNoPostCnt in cursorToList.cursorToList("SELECT COUNT(*) as cnt FROM post WHERE account = "+cusNo+";"):
+    for cusNoPostCnt in iWearFunction.cursorToList("SELECT COUNT(*) as cnt FROM post WHERE account = "+cusNo+";"):
         sum=int(cusNoPostCnt[0])
         # print(sum)
 
@@ -60,6 +52,7 @@ def getPossible(cusNo):
         for cusNoPostCntSortCmd01 in arrTableCol:
             cnt+=1
             cusNoPostCntSortA+=cusNoPostCntSortCmd01
+
             if cnt>=len(arrTableCol):
                 break
             cusNoPostCntSortA+=","
@@ -77,8 +70,12 @@ def getPossible(cusNo):
     if os.path.isfile(filePath241DB):
         os.remove(filePath241DB)
 
+    deleteView = "DELETE FROM postcountView WHERE id="+cusNo+""
+    iWearFunction.cursorGInsert(deleteView)
+    print(deleteView)
+
     # 抓取且執行 cusNoPostCntSortA 查詢結果 = arrPersonalRow
-    for arrPersonalRow in cursorToList.cursorToList(cusNoPostCntSortA):
+    for arrPersonalRow in iWearFunction.cursorToList(cusNoPostCntSortA):
         cusNoPostCntSortB=""
         # print(arrPersonalRow)
 
@@ -89,9 +86,6 @@ def getPossible(cusNo):
 
         print(arrPersonalRow)
         cusNoPostCntSortB+=" 比例:"+str(int(arrPersonalRow[0])/sum)
-
-        # print(type(str(arrPersonalRow)))
-        # cursorToList.cursor.execute("INSERT INTO dbo.postcount(id, count, styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo) VALUES("+cusNo+","+str(arrPersonalRow).split(',')+")")
 
         # 列印出每一種可能及比例
         print(cusNoPostCntSortB)
@@ -106,43 +100,60 @@ def getPossible(cusNo):
 
     print("\n"+"-"*80+"\n")
 
+    judgeCusNo = "DELETE FROM postcount WHERE id = "+cusNo+""
+    iWearFunction.cursorGInsert(judgeCusNo)
+
     with open('DataAnalysisResult/analysisResult241DB.csv', "r", encoding='BIG5') as file:
         reader = csv.reader(file)
-        # postDataAnalysisCmd = 'INSERT INTO postcount({0}) VALUES ({1})'
-        # postDataAnalysisCmd = postDataAnalysisCmd.format(','.join(reader), ','.join('?' * len(reader)))
-        # cursorToList.iWearDB.cursor()
-        for postDataAnalysisDataRow in reader:
-            postDataAnalysisDataString=cusNo
-            for postDataAnalysisDataSQLCmd in postDataAnalysisDataRow:
-                postDataAnalysisDataString = postDataAnalysisDataString+" ,'" +postDataAnalysisDataSQLCmd+ "'"
-            postDataAnalysisDataSQLCmd = "INSERT INTO postcount(id, [count], styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo, note) VALUES("+postDataAnalysisDataString+");"
-            print("postDataAnalysisDataSQLCmd: ",postDataAnalysisDataSQLCmd)
+
+        for line in reader:
+            insertSQLCmd ="INSERT INTO postCount VALUES("
+            line=list(line)
+            line.insert(1,cusNo)
+
+            for addCusNo in line:
+                insertSQLCmd+="'"+addCusNo+"',"
+            insertSQLCmd = insertSQLCmd[:len(insertSQLCmd)-1]+');'
+
+            # print(insertSQLCmd)
+            iWearFunction.cursorGInsert(insertSQLCmd)
+
+    print("\n"+"-"*80+"\n")
+
+
+    recommendSQLCmd = "SELECT * FROM post WHERE (account !="+cusNo+")"
+    print(recommendSQLCmd)
+    a = iWearFunction.cursorGFetch(recommendSQLCmd)
+    print(a)
+
+    # for recommendSQL in recommendSQLCmd:
+    #     recommendSQL = ""
+    # print(cursorG.cursorG(recommendSQLCmd))
+
 
     print("\n"+"="*80+"\n")
 
-getPossible(socketLoginChecker.socketLoginChecker())
+# getPossible(socketLoginChecker.socketLoginChecker())
+getPossible("64")
 
 def getCusNoOwnPostJieba(cusNo):
 
     cusNoPostContextSQLCmd = ("SELECT word FROM post WHERE account = "+cusNo+"")
     # print(cusNoPostContextSQLCmd)
 
-    for cusNoPostContext in cursorToList.cursorToList(cusNoPostContextSQLCmd):
+    for cusNoPostContext in iWearFunction.cursorToList(cusNoPostContextSQLCmd):
         # print(str(cusNoPostContext))
-        MyJieba_hant.MyJieba_hant(str(cusNoPostContext))
+        JiebaResult = str(iWearFunction.MyJieba_hant(str(cusNoPostContext)))
+        print(type(JiebaResult))
 
-getCusNoOwnPostJieba("62")
 
-# # 檢查是否已登入 iWear 平台 (需連結Django測試)
-# loginResult = loginChecker.loginChecker()
-# if loginResult[0]=="verified":
-#     getPossible(loginResult[1])
-#
+getCusNoOwnPostJieba("64")
+
 # def getCusNoOthersPostJieba(cusNo):
 #
 #     # 將資料庫其他使用者既有貼文抓出
-#     cursorToList.cursor.execute("SELECT * 0FROM post WHERE account!="+cusNo+"")
-#     allPost = cursorToList.cursor.fetchall()
+#     iWearFunction.cursor.execute("SELECT * 0FROM post WHERE account!="+cusNo+"")
+#     allPost = iWearFunction.cursor.fetchall()
 #
 #     # 依優先順序顯示貼文
 #     print(allPost)
