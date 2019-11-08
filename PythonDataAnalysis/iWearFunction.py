@@ -13,6 +13,7 @@ cursor = iWearDB.cursor()
 def cursorGFetch(cursorGResult):
     cursor.execute(cursorGResult)
     cursorGResult = cursor.fetchall()
+
     return cursorGResult
 
 def cursorGInsert(cursorGResult):
@@ -21,18 +22,21 @@ def cursorGInsert(cursorGResult):
 
 def toList(result):
     listResult=[]
+
     for row in result:
         listRow = [row]
         string = ",".join(str(v) for v in listRow)
         string=string.replace(" ","").replace("'","").replace("(","").replace(")","")
         listCut = string.split(',')
         listResult.append(listCut)
+
     return listResult
 
 def cursorToList(cursorToListResult):
     cursor.execute(cursorToListResult)
     cursorToListResult = cursor.fetchall()
     cursorToList = toList(cursorToListResult)
+
     return cursorToList
 
 from collections import Counter
@@ -42,20 +46,22 @@ def MyJieba_hant(context):
     # print("斷詞結果：",sentence)
     # -------------------------------------------------------------------------
     cnt = Counter()
+
     for x in sentence:
         if len(x)>1 and x != '\r\n':
             cnt[x] += 1
+
     # print("字詞出現頻率統計結果\n")
     for (k,v) in cnt.most_common(5):
         # print("%s%s %s  %d" % ("  "*(5-len(k)), k, "*"*int(v/3), v))
         result = k+","+str(v)
         print(result)
+
     print("\n"+"-"*80+"\n")
 
 def get_Content403(url,host):
-    '''
-    @獲取403禁止訪問的網頁
-    '''
+
+    # @獲取403禁止訪問的網頁
 
     req= urllib.request.Request(url)
     req.add_header("User-Agent","Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36")
@@ -64,6 +70,7 @@ def get_Content403(url,host):
     req.add_header("GET",url)
 
     content=urllib.request.urlopen(req).read()
+
     return content
 
     # https://blog.csdn.net/jsqfengbao/article/details/44594985
