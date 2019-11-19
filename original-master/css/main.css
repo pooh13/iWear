@@ -1307,7 +1307,7 @@ input, select, textarea {
 
 	body {
 		/*background-image: url("images/bg.jpg");*/
-		/*background-color: lightblue;*/
+		background-color: lightblue;
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;

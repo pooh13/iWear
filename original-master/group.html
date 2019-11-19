@@ -17,10 +17,20 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
     <link rel="stylesheet" href="my_style.css">
-    <link rel="stylesheet" type="text/css" href="css/group.css">
+<!--     <link rel="stylesheet" type="text/css" href="css/my_main.css"> -->
 
- 
+    <!-- <link rel="stylesheet" type="text/css" href="css/group.css"> -->
+    <noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+    <!-- Chatroom -->
+  
+<!--     
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<!------ Include the above in your HEAD tag ---------->
+
 </head>
 
 <body>
@@ -73,15 +83,6 @@
                                             </ul>
                                         </li>
                                     </ul>
-    
-                                    <!-- Search Form  -->
-                                    <div id="search-wrapper">
-                                        <form action="#">
-                                            <input type="text" id="search" placeholder="Search something...">
-                                            <div id="close-icon"></div>
-                                            <input class="d-none" type="submit" value="">
-                                        </form>
-                                    </div>
                                 </div>
                                 <!-- Nav End -->
                             </div>
@@ -90,11 +91,91 @@
                 </div>
             </div>
     </header>
-    <!-- ##### Hero Area Start ##### -->
+    <!-- chatroom test start-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 chatroom">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" id="accordion">
+                        <span class="glyphicon glyphicon-comment"></span> 聊天室
+                        <div class="btn-group pull-right">
+                            <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fas fa fa-sort-down"></i>
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </a>
+                        </div>
+                    </div>
+                <div class="panel-collapse collapse" id="collapseOne">
+                    <div class="panel-body">
+                        <ul class="chat">
+                            <li class="left clearfix"><span class="chat-img pull-left">
+                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                            </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">西裝群組</strong> <small class="pull-right text-muted">
+                                            <span class="glyphicon glyphicon-time"></span>訊息 70</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="left clearfix"><span class="chat-img pull-left">
+                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                            </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">丹寧群組</strong> <small class="pull-right text-muted">
+                                            <span class="glyphicon glyphicon-time"></span>訊息 58</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="left clearfix"><span class="chat-img pull-left">
+                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                            </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">工裝群組</strong> <small class="pull-right text-muted">
+                                            <span class="glyphicon glyphicon-time"></span>訊息 18</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="left clearfix"><span class="chat-img pull-left">
+                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                            </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">牛仔褲群組</strong> <small class="pull-right text-muted">
+                                            <span class="glyphicon glyphicon-time"></span>訊息 26</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="left clearfix"><span class="chat-img pull-left">
+                                <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                            </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">連身褲裝群組</strong> <small class="pull-right text-muted">
+                                            <span class="glyphicon glyphicon-time"></span>訊息 12</small>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input type="test" class="message" placeholder="Type your message here...">
+                            <span class="input-group-btn">
+                                <button class="submit">送出</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    
 
-    <!-- ##### Blog Wrapper Start ##### -->
+
+    <!-- chatroom test end -->
     <!-- <div class="blog-wrapper section-padding-100 clearfix">
         <div class="container">
             <div class="row">
@@ -102,84 +183,24 @@
                     <h5 class="title">風格群組</h5>
                         <div class="widget-content">
                             <ul class="tags">
-                                <li><a href="#">校園</a></li>
-                                <li><a href="#">正裝</a></li>
-                                <li><a href="#">休閒</a></li>
-                                <li><a href="#">海灘</a></li>
-                                <li><a href="#">冬季</a></li>
+                                <li><a href="#groupchat">校園</a></li>
+                                <li><a href="#groupchat">正裝</a></li>
+                                <li><a href="#groupchat">休閒</a></li>
+                                <li><a href="#groupchat">海灘</a></li>
+                                <li><a href="#groupchat">冬季</a></li>
                             </ul>
                         </div>
-                </div>
+                </div> -->
+
+
+               <!--  <div id="groupchat"></div> -->
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- ##### Blog Wrapper End ##### -->
-    <div id="wrapper">
-                <div>群組列表</div>
-                <!-- Nav -->
-                    <nav id="nav">
-                        <a href="#school" class="icon solid fa-tshirt"><p>校園</p></a>
-                        <a href="#official" class="icon solid fa-tshirt"><p>正裝</p></a>
-                        <a href="#leisure" class="icon solid fa-tshirt"><p>休閒</p></a>
-                        <a href="#beach" class="icon solid fa-tshirt"><p>海灘</p></a>
-                        <a href="#winter" class="icon solid fa-tshirt"><p>冬季</p></a>
-                    </nav>
-                        <!-- Main -->
-                        <div id="main">
-
-                        <!-- school -->
-                            <article id="school" class="panel intro">
-                                <!-- <div style="display: block;"> -->
-                                    <div class="comment"></div>
-                                    <div class="message"></div> 
-                                <!-- </div> -->
-                                
-                                <!-- <textarea class="message" readonly></textarea> -->
-                                <!-- <textarea class="comment"></textarea> -->
-                                <!-- <input class="comment" type="text"> -->
-                                <input class="submit" type="submit">
-                            </article>
-                        <!-- official -->
-                            <article id="official" class="panel intro">
-                                <header>
-                                    <h1>Official</h1>
-                                </header>
-                            </article>
-                        <!-- leisure -->
-                            <article id="leisure" class="panel intro">
-                                <header>
-                                    <h1>leisure</h1>
-                                </header>
-                            </article>
-                        <!-- beach -->
-                            <article id="beach" class="panel intro">
-                                <header>
-                                    <h1>Beach</h1>
-                                </header>
-                            </article>
-                        <!-- winter -->
-                            <article id="winter" class="panel intro">
-                                <header>
-                                    <h1>Winter</h1>
-                                </header>
-                            </article>
-                        </div>
-            </div>
-   
+    
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                
-            </div>
-        </div>
-
-   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">108510</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-    </footer>
+    <!-- <div class="list"></div> -->
     <!-- ##### Footer Area End ##### -->
 
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
@@ -192,6 +213,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/breakpoints.min.js"></script>
+    
+
+    <!-- <script src="js/jquery.min.js"></script> -->
+
+
+    
 
 </body>
 
