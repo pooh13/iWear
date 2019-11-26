@@ -41,5 +41,12 @@ class PostForm(forms.ModelForm):
     class Meta():
         model = Post
         fields = ('photo', 'word', 'styleno', 'accessoriesno', 'clothesno', 'coatno', 'pantsno', 'shoesno',)  
+
+
+#follow 追蹤
+# class FollowForm(forms.ModelForm):
+#     class Meta():
+#         model = Follow
+#         fields = ('')
                                                                         
 

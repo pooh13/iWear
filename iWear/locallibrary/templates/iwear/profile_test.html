@@ -18,7 +18,9 @@
 		<!-- ##### Cool Facts Area Start ##### -->
 		{% for memimg in meminfos %}
 			{% if memimg.mempic %}
-		<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({{MEDIA_URL}}{{ memimg.mempic }})">
+				<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({{MEDIA_URL}}{{ memimg.mempic }})">
+			{% else %}
+			<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({% static 'images/logo.jpg' %})">
 			{% endif %}
 		{% endfor %}
 
@@ -56,14 +58,14 @@
 					<!-- Single Cool Facts Area -->
 					<div class="col-12 col-sm-6 col-lg-6">
 						<div class="single-cool-facts-area text-center mb-100">
-							<h3>i am a boy and i like soda. i am a boy and i like soda. i am a boy and i like soda. </h3>
+							<h3>iwear</h3>
 						</div>
 					</div>
 
 					<!-- Single Cool Facts Area -->
 					<div class="col-12 col-sm-6 col-lg-6">
 						<div class="single-cool-facts-area text-center mb-100">
-							<h3><input id="btn" class="button" type="button" onclick="follow()" value="追蹤"></h3>
+							<h3><input id="btn" class="btn btn-primary btn-lg" type="button" onclick="follow()" value="已追蹤"></h3>
 						</div>
 					</div>
 					
@@ -76,12 +78,14 @@
 		<div class="blog-wrapper section-padding-100-0 clearfix">
 			<div class="container">
 				{% for img in posts %}
-					{% if img.photo %}
 						{% cycle "<div class='row'> <div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" %}
-							<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
+							{% if img.photo %}
+								<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
+							{% else %}
+								<img alt="Bootstrap Image Preview" src="{% static 'images/logo.jpg' %}">
+							{% endif %}
 						</div>
 						{% cycle "</div> </div>" "</div> </div>" "</div> </div>" %}
-					{% endif %}
 				{% endfor %}
 			</div>
 		</div>
@@ -96,12 +100,12 @@
 		function follow(){
 			if(flag==0){
 				document.getElementById('btn').value='已追蹤';			
-				document.getElementById('btn').className='btnFollowActive btnFollow';
+				document.getElementById('btn').className='btn btn-primary btn-lg';
 				flag+=1;
 			}
 			else if(flag==1){
 				document.getElementById('btn').value='追蹤';			
-				document.getElementById('btn').className='btnUnFollow btnFollow';
+				document.getElementById('btn').className='btn btn-primary btn-lg';
 				flag=0;	
 			}
 		}

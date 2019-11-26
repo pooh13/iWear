@@ -13,6 +13,9 @@ class Accessories(models.Model):
     accessoriesno = models.CharField(db_column='accessoriesNo', primary_key=True, max_length=8)  # Field name made lowercase.
     accessories = models.TextField(blank=True, null=True)  # This field type is a guess.
 
+    def __str__(self):
+        return self.accessories
+
     class Meta:
         managed = False
         db_table = 'accessories'
@@ -73,6 +76,9 @@ class Clothes(models.Model):
     clothesno = models.CharField(db_column='clothesNo', primary_key=True, max_length=8)  # Field name made lowercase.
     clothes = models.TextField(blank=True, null=True)  # This field type is a guess.
 
+    def __str__(self):
+        return self.clothes
+
     class Meta:
         managed = False
         db_table = 'clothes'
@@ -81,6 +87,9 @@ class Clothes(models.Model):
 class Coat(models.Model):
     coatno = models.CharField(db_column='coatNo', primary_key=True, max_length=8)  # Field name made lowercase.
     coat = models.TextField(blank=True, null=True)  # This field type is a guess.
+
+    def __str__(self):
+        return self.coat
 
     class Meta:
         managed = False
@@ -134,7 +143,7 @@ class DjangoSession(models.Model):
 class Follow(models.Model):
     fono = models.AutoField(db_column='FoNo', primary_key=True)  # Field name made lowercase.
     userid = models.CharField(max_length=12, blank=True, null=True)
-    memfoid = models.CharField(db_column='memFoid', max_length=12, blank=True, null=True)  # Field name made lowercase.
+    memfoid = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memFoid')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -153,7 +162,7 @@ class Friends(models.Model):
 
 class Meminform(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, db_column='account')
-    userid = models.CharField(max_length=12, db_column='userid')
+    userid = models.CharField(primary_key=True, max_length=12)
     # password = models.TextField()  # This field type is a guess.
     name = models.CharField(max_length=12)  # This field type is a guess.
     male = 'M'
@@ -169,6 +178,9 @@ class Meminform(models.Model):
     height = models.IntegerField(blank=True, null=True)
     weight = models.IntegerField(blank=True, null=True)
 
+    def __str__(self):
+        return self.userid
+
     class Meta:
         managed = False
         db_table = 'memInform'
@@ -178,14 +190,19 @@ class Pants(models.Model):
     pantsno = models.CharField(db_column='pantsNo', primary_key=True, max_length=8)  # Field name made lowercase.
     pants = models.TextField(blank=True, null=True)  # This field type is a guess.
 
+    def __str__(self):
+        return self.pants
+
     class Meta:
         managed = False
         db_table = 'pants'
 
 
 class Post(models.Model):
-    account = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='account')
+    account = models.IntegerField(blank=True, null=True)
+    # account = models.(AuthUser, models.DO_NOTHING, db_column='account')
     userid = models.CharField(max_length=12, blank=True, null=True)
+    # userid = models.ForeignKey(Meminform, models.DO_NOTHING, db_column='userid', blank=True, null=True)
     time = models.DateTimeField(auto_now=True)
     word = models.TextField(blank=True, null=True)  # This field type is a guess.
     photo = models.ImageField(upload_to='photos',blank=True)
@@ -206,6 +223,9 @@ class Shoes(models.Model):
     shoesno = models.CharField(db_column='shoesNo', primary_key=True, max_length=8)  # Field name made lowercase.
     shoes = models.TextField(blank=True, null=True)  # This field type is a guess.
 
+    def __str__(self):
+        return self.shoes
+
     class Meta:
         managed = False
         db_table = 'shoes'
@@ -216,7 +236,7 @@ class Style(models.Model):
     style = models.TextField(blank=True, null=True)  # This field type is a guess.
 
     def __str__(self):
-        return self.styleno
+        return self.style
 
     class Meta:
         managed = False

@@ -121,16 +121,15 @@
                                             <li><a href="{% url 'iwear:follow' %}">追蹤</a></li>
                                         </ul>
                                     </li>
+                                    <!-- Search Form  -->
+                                    <div id="search-wrapper">
+                                        <form action="/profile_test/"  method="get" enctype="multipart/form-data">
+                                            <input type="text" id="search" placeholder="Search something...">
+                                            <div id="close-icon"></div>
+                                                <input class="d-none" type="submit" value="search">
+                                        </form>
+                                    </div>
                                 </ul>
-
-                                <!-- Search Form  -->
-                                <div id="search-wrapper">
-                                    <form action="#">
-                                        <input type="text" id="search" placeholder="Search something...">
-                                        <div id="close-icon"></div>
-                                        <input class="d-none" type="submit" value="">
-                                    </form>
-                                </div>
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -150,14 +149,21 @@
                 <div class="col-12 col-lg-9 article-frame">  
                     <!-- START Single Blog Area  -->
                     {% for post in posts %}
-                        {% if post.photo %}
                             <div class='single-blog-area blog-style-2 mb-50 wow fadeInUp' data-wow-delay="0.2s" data-wow-duration="1000ms">
                                 <div class="row align-items-center">
-                                    <div class="col-12 col-md-6">
+                                    {% if post.photo %}
+                                    <div class="col-12 col-md-6">    
                                         <div class="single-blog-thumbnail">
-                                            <img src="{{ MEDIA_URL }}{{ post.photo }}" alt="">
+                                                <img src="{{ MEDIA_URL }}{{ post.photo }}" alt="">                                                
                                         </div>
                                     </div>
+                                    {% else %}
+                                    <div class="col-12 col-md-6">    
+                                        <div class="single-blog-thumbnail">
+                                            <img src="{% static 'images/logo.jpg' %}" alt="">
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                     <div class="col-12 col-md-6">
                                         <!-- Blog Content -->
                                         <div class="single-blog-content">
@@ -165,14 +171,13 @@
                                             <a href="#" class="post-tag">{{ post.styleno }}</a>                             
                                             <p class="article">{{ post.word }}</p>
                                             <div class="post-meta">
-                                                <p>By<a href="#"> {{ post.account }}</a></p>
+                                                <p>By<a href="{% url 'iwear:profile_test' post.userid %}"> {{ post.userid }}</a></p>
                                                 <p>0 comments</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        {% endif %}
+                            </div>                     
                     {% endfor %}
                     <!-- END Single Blog Area  -->
                 </div>

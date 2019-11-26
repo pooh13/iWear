@@ -18,9 +18,9 @@ class Accessories(models.Model):
 
 
 class Action(models.Model):
-    actionno = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='actionNo', primary_key=True)  # Field name made lowercase.
-    id = models.IntegerField()
-    anotherid = models.IntegerField()
+    actionno = models.AutoField(db_column='actionNo', primary_key=True)  # Field name made lowercase.
+    id = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='id')
+    anotherid = models.CharField(max_length=12)
     postno = models.ForeignKey('Post', models.DO_NOTHING, db_column='postNo')  # Field name made lowercase.
     likes = models.BooleanField()
     message = models.CharField(max_length=100, blank=True, null=True)
@@ -158,10 +158,8 @@ class DjangoSession(models.Model):
 
 class Follow(models.Model):
     fono = models.AutoField(db_column='FoNo', primary_key=True)  # Field name made lowercase.
-    id = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='id')
     userid = models.CharField(max_length=12, blank=True, null=True)
-    memfono = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='memFoNo')  # Field name made lowercase.
-    memfoid = models.CharField(db_column='memFoid', max_length=12, blank=True, null=True)  # Field name made lowercase.
+    memfoid = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memFoid')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -188,12 +186,13 @@ class Group(models.Model):
 
 
 class Meminform(models.Model):
-    account = models.IntegerField()
-    userid = models.CharField(max_length=12, blank=True, null=True)
+    id = models.AutoField()
+    account = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='account')
+    userid = models.CharField(primary_key=True, max_length=12)
     name = models.CharField(max_length=12)
     gender = models.CharField(max_length=2)
     birth = models.DateField(blank=True, null=True)
-    mempic = models.CharField(max_length=100, blank=True, null=True)
+    mempic = models.CharField(max_length=255, blank=True, null=True)
     height = models.IntegerField(blank=True, null=True)
     weight = models.IntegerField(blank=True, null=True)
 
@@ -222,8 +221,8 @@ class Pants(models.Model):
 
 
 class Post(models.Model):
-    account = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='account', blank=True, null=True)
-    userid = models.CharField(max_length=12, blank=True, null=True)
+    account = models.IntegerField(blank=True, null=True)
+    userid = models.ForeignKey(Meminform, models.DO_NOTHING, db_column='userid', blank=True, null=True)
     photo = models.CharField(max_length=100, blank=True, null=True)
     time = models.DateTimeField()
     word = models.CharField(max_length=255, blank=True, null=True)
@@ -239,9 +238,28 @@ class Post(models.Model):
         db_table = 'post'
 
 
+class Postanalysisview(models.Model):
+    id = models.IntegerField()
+    account = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='account', blank=True, null=True)
+    userid = models.CharField(max_length=12, blank=True, null=True)
+    photo = models.CharField(max_length=100, blank=True, null=True)
+    time = models.DateTimeField()
+    word = models.CharField(max_length=255, blank=True, null=True)
+    styleno = models.ForeignKey('Style', models.DO_NOTHING, db_column='styleNo', blank=True, null=True)  # Field name made lowercase.
+    accessoriesno = models.ForeignKey(Accessories, models.DO_NOTHING, db_column='accessoriesNo', blank=True, null=True)  # Field name made lowercase.
+    clothesno = models.ForeignKey(Clothes, models.DO_NOTHING, db_column='clothesNo', blank=True, null=True)  # Field name made lowercase.
+    coatno = models.ForeignKey(Coat, models.DO_NOTHING, db_column='coatNo', blank=True, null=True)  # Field name made lowercase.
+    pantsno = models.ForeignKey(Pants, models.DO_NOTHING, db_column='pantsNo', blank=True, null=True)  # Field name made lowercase.
+    shoesno = models.ForeignKey('Shoes', models.DO_NOTHING, db_column='shoesNo', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'postAnalysisView'
+
+
 class Postcount(models.Model):
     postcountno = models.AutoField(db_column='postcountNo', primary_key=True)  # Field name made lowercase.
-    count = models.IntegerField()
+    postcount = models.IntegerField(db_column='postCount')  # Field name made lowercase.
     id = models.IntegerField()
     styleno = models.CharField(db_column='styleNo', max_length=8)  # Field name made lowercase.
     accessoriesno = models.CharField(db_column='accessoriesNo', max_length=8)  # Field name made lowercase.
@@ -249,7 +267,7 @@ class Postcount(models.Model):
     coatno = models.CharField(db_column='coatNo', max_length=8)  # Field name made lowercase.
     pantsno = models.CharField(db_column='pantsNo', max_length=8)  # Field name made lowercase.
     shoesno = models.CharField(db_column='shoesNo', max_length=8)  # Field name made lowercase.
-    note = models.CharField(max_length=100)
+    persent = models.CharField(max_length=100)
 
     class Meta:
         managed = False
@@ -321,3 +339,25 @@ class Sysdiagrams(models.Model):
         managed = False
         db_table = 'sysdiagrams'
         unique_together = (('principal_id', 'name'),)
+
+
+class Usersentencecount(models.Model):
+    usersentencecountno = models.AutoField(db_column='usersentenceCountNo')  # Field name made lowercase.
+    account = models.IntegerField(blank=True, null=True)
+    usersentence = models.CharField(db_column='userSentence', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    usersentencecount = models.IntegerField(db_column='userSentenceCount', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'userSentenceCount'
+
+
+class Websentence(models.Model):
+    websentenceno = models.AutoField(db_column='websentenceNo')  # Field name made lowercase.
+    web = models.CharField(max_length=100, blank=True, null=True)
+    webtitle = models.CharField(max_length=100, blank=True, null=True)
+    sentence = models.CharField(max_length=100, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'websentence'

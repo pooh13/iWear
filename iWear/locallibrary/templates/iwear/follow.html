@@ -11,15 +11,25 @@
 						<h2>Follow</h2>
 					</header>
 				</div>
+				<div class="inner">
 					<!-- #### cycle Start #### -->
 					{% for follow in follows %}
-						{% cycle "<div class='inner'> <div class='flex flex-4'> <div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" %}
-							<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ mempics.mempic }}">
-							</div>
-							<a href="{% url 'iwear:profile_test' follow.memfoid %}"><h3>{{ follow.memfoid }}</h3></a>
-                			<p></p>
-                			<p><a href="#" class="button-style">追蹤中</a></p>
-						{% cycle "</div>" "</div>" "</div>" "</div> </div> </div>" %}
+					<div class="row" style="margin-top: 30px">
+						<div class="col-md-4">
+							{% if follow.memfoid.mempic %} 
+							<!-- 使用者有頭貼 -->
+								<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ follow.memfoid.mempic }}" class="rounded-circle" />
+							{% else %}
+							<!-- 沒有頭貼 -->
+								<img width="150px" alt="Bootstrap Image Preview" src="{% static 'images/logo.png' %}" class="rounded-circle" />
+							{% endif %}
+						</div>
+						<div class="col-md-4" style="margin-top: 50px">
+							<a href="{% url 'iwear:profile_test' follow.memfoid.userid %}"><h3>{{ follow.memfoid.userid }}</h3></a>							</div>
+						<div class="col-md-4"> 
+							<input id="btn" class="btn btn-primary btn-lg" style="margin-top: 45px" type="button" value="追蹤中">
+						</div>
+					</div>
 					{% endfor %}
 					<!-- #### cycle End #### -->
 				</div>
@@ -27,4 +37,21 @@
 		</div>
 	</div>
 	<!-- ##### Single Blog Area End ##### -->
+
+	<!-- Script -->
+	<script type="text/javascript">
+		var flag=0
+		function follow(){
+			if(flag==0){
+				document.getElementById('btn').value='追蹤中';			
+				document.getElementById('btn').class='btn btn-primary btn-lg';
+				flag+=1;
+			}
+			else if(flag==1){
+				document.getElementById('btn').value='追蹤';			
+				document.getElementById('btn').class='btn btn-primary btn-lg';
+				flag=0;	
+			}
+		}
+	</script>
 {% endblock %}
