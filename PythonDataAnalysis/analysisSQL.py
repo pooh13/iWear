@@ -1,4 +1,4 @@
-# 分析用SQL
+# ---分析貼文風格用SQL---
 
 allSearchSQLCmd = ("SELECT * FROM post"+" "+
                   "WHERE (post.styleNo IN (SELECT styleNo FROM postcount INTERSECT SELECT styleNo FROM post))"+" "+
@@ -73,4 +73,5 @@ orACCOSHPASearchSQLCmd = ("SELECT * FROM post"+" "+
 # orIncreasing
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
+# ---分析貼文內容用SQL---
 

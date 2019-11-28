@@ -152,7 +152,7 @@ def getPossible(cusNo):
 
     # ---開始此使用者貼文與其他使用者貼文分析和此使用者相同或相似貼文---
 
-    insertAnalysisRequest = iWearFunction.cursorGFetch(analysisSQL.allSearchSQLCmd)
+    insertAnalysisRequest = iWearFunction.cursorGFetch(analysisSQL.allSearchSQLCmd+"AND account!="+cusNo+";")
     print(insertAnalysisRequest)
 
     print("\n"+"---getPossible/已完成此使用者貼文與其他使用者貼文分析和此使用者相同或相似貼文---"+"\n"+"-"*30+"\n")
@@ -165,10 +165,13 @@ def getPossible(cusNo):
         # (73898, 62, '108510', 'photos/1511257878-3051391331.jpg', datetime.datetime(2019, 5, 27, 8, 24, 18, 483000), '照片測試2', 'ST01', 'AC01', 'CL01', 'CO01', 'PA01', 'SH01')
         row[4]=row[4].strftime('%Y-%m-%d %H:%M:%S')
 
-        for toString in list(row):
+        row=list(row)
+        row.append(cusNo)
+
+        for toString in row:
             toString=str(toString)
             insertAnalysisRequestSQLCmd+="'"+toString+"',"
-        insertAnalysisRequestSQLCmd=insertAnalysisRequestSQLCmd[:len(insertAnalysisRequestSQLCmd)-1]+");"
+        insertAnalysisRequestSQLCmd = insertAnalysisRequestSQLCmd[:len(insertAnalysisRequestSQLCmd)-1]+");"
         print("insertAnalysisRequestSQLCmd: "+insertAnalysisRequestSQLCmd)
 
         iWearFunction.cursorGInsert(insertAnalysisRequestSQLCmd)
@@ -213,8 +216,9 @@ def getCusNoOwnPostJieba(cusNo):
         # print(type(JiebaResult))
         # print(JiebaResult)
 
-        print("\n"+"JiebaHant"+"\n"+"-"*30+"\n")
+        print("\n"+"---getCusNoOwnPostJieba/已完成此使用者貼文文字內容處裡統計---"+"\n"+"-"*30+"\n")
 
+        # ---分析結果寫成CSV---
 
         # DB.(3-1/3 A) 將 DB-MyDB 分析結果寫成檔案
         # with open('DataAnalysisResult/userSentenceResultMyDB.csv',"a",encoding='UTF-8') as printFile:
@@ -224,11 +228,22 @@ def getCusNoOwnPostJieba(cusNo):
         with open('DataAnalysisResult/userSentenceResult241DB.csv',"a",encoding='BIG5') as printFile:
             printFile.write(JiebaResult+"\n")
 
-    print("\n"+"getCusNoOwnPostJiebaCSV"+"\n"+"-"*50+"\n")
+        print("\n"+"---getCusNoOwnPostJieba/已完成此筆分析結果寫入檔案---"+"\n"+"-"*30+"\n")
+
+    print("\n"+"---getCusNoOwnPostJieba/已完成全部分析結果寫入檔案---"+"\n"+"-"*30+"\n")
+    print("\n"+"===getCusNoOwnPostJiebaCSV==="+"\n"+"-"*50+"\n")
+
+    # ---將分析結果寫入資料庫---
+
+    # ---資料庫資料更新前先刪除先前貼文分析---
 
     determineCusNoSQLCmd = ("DELETE FROM userSentenceCount WHERE account = "+cusNo+"")
     iWearFunction.cursorGInsert(determineCusNoSQLCmd)
-    #
+
+    print("\n"+"---getCusNoOwnPostJieba/已完成資料庫資料更新前先刪除先前貼文分析---"+"\n"+"-"*30+"\n")
+
+    # ---以檔案將使用者貼文分析結果寫入資料庫---
+
     with open('DataAnalysisResult/userSentenceResult241DB.csv', "r", encoding='BIG5') as file:
         reader = csv.reader(file)
 
@@ -244,7 +259,8 @@ def getCusNoOwnPostJieba(cusNo):
             print(insertSQLCmd)
             iWearFunction.cursorGInsert(insertSQLCmd)
 
-    print("\n"+"getCusNoOwnPostJiebaInsertDB"+"\n"+"-"*50+"\n")
+    print("\n"+"---getCusNoOwnPostJieba/已完成將使用者貼文分析結果寫入資料庫---"+"\n"+"-"*30+"\n")
+    print("\n"+"===getCusNoOwnPostJiebaInsertDB==="+"\n"+"-"*50+"\n")
 
     # for column in testOnly.test01.clothesStyleWebCrawlerDcard():
     #     insertSQLCmd = ("INSERT INTO userSentenceCount VALUES(")
