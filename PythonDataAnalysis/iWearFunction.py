@@ -23,9 +23,9 @@ def cursorGInsert(cursorGResult):
 def toList(result):
     listResult=[]
 
-    for row in result:
-        listRow = [row]
-        string = ",".join(str(v) for v in listRow)
+    for column in result:
+        listColumn = [column]
+        string = ",".join(str(v) for v in listColumn)
         string=string.replace(" ","").replace("'","").replace("(","").replace(")","")
         listCut = string.split(',')
         listResult.append(listCut)
@@ -55,9 +55,10 @@ def MyJieba_hant(context):
     for (k,v) in cnt.most_common(5):
         # print("%s%s %s  %d" % ("  "*(5-len(k)), k, "*"*int(v/3), v))
         result = k+","+str(v)
-        print(result)
+        # print(result)
 
-    print("\n"+"-"*80+"\n")
+    return result
+    # print("\n"+"-"*80+"\n")
 
 def get_Content403(url,host):
 
