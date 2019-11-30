@@ -3,179 +3,43 @@
 
     {% load static %}
     <!-- Search Form  -->
-    <!-- <div id="search-wrapper">
-        <form action="{% url 'iwear:search' %}"  method="get" enctype="multipart/form-data">
-            <input type="text" id="search" placeholder="Search something...">
-            <div id="close-icon"></div>
-                <input class="d-none" type="submit" value="">
+    <!-- <div class="container" style="margin: 0px 120px 50px auto;">
+        <form action="/profile_test/"  method="post" enctype="multipart/form-data">
+            <div class="col-lg-6">
+                <div class="input-group" style="position: absolute;">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn-default" style="margin-left: 20px;" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
         </form>
     </div> -->
+
     <!-- ##### Hero Area Start ##### -->
-    <div class="hero-area">
         <!-- Hero Slides Area -->
-        <div class="InOrOut">其它朋友的穿搭</div>
-        <div class="hero-slides owl-carousel">
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">校園</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">正裝</a>
-                                </div>
-                               <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">休閒</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">海灘</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">冬季</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
+        <div class="container-fluid">
+            <div class="InOrOut">更多穿搭技巧</div>
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-md-12">
+                    {% for recommend in recommends %}
+                    {% cycle "<div class='row'> <div class='col-md-4'>" "<div class='col-md-4'>" "<div class='col-md-4'>" %}
+                        {% if recommend.photo %}
+                            <img alt="Bootstrap Image Preview" width="300" style="margin:0 25%" src="{{ MEDIA_URL }}{{ recommend.photo }}">
+                        {% else %}
+                            <img alt="Bootstrap Image Preview" width="300" style="margin:0 25%" src="{% static 'images/logo.jpg' %}">
+                        {% endif %}
+                        <a href="{% url 'iwear:profile_test' recommend.userid  %}"><h3  width="300" style="margin:0 45%;">{{ recommend.userid }}</h3></a>
+                    {% cycle "</div>" "</div>" "</div></div>" %}
+                    {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     <!-- ##### Hero Area End ##### -->
 
 
-    <div class="hero-area">
-        <!-- Hero Slides Area -->
-        <div class="InOrOut">更多穿搭技巧</div>
-        <div class="hero-slides owl-carousel">
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">校園</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">正裝</a>
-                                </div>
-                               <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">休閒</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">海灘</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="slider single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/b3.jpg' %});">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" class="style" ata-animation="fadeInUp">冬季</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">看看更多搭配</a></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- ##### Hero Area Start ##### -->
     <!-- ##### Hero Area End ##### -->
 
 	

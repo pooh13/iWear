@@ -4,7 +4,7 @@ from iwear import models
 # from django.forms import ModelForm
 # from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from iwear.models import Meminform, Post, Style
+from iwear.models import Meminform, Post, Style, Follow
 
 # Create the form class.
 # 使用者
@@ -44,9 +44,9 @@ class PostForm(forms.ModelForm):
 
 
 #follow 追蹤
-# class FollowForm(forms.ModelForm):
-#     class Meta():
-#         model = Follow
-#         fields = ('')
+class FollowForm(forms.ModelForm):
+    class Meta():
+        model = Follow
+        fields = ('fono', 'userid', 'memfoid',)
                                                                         
 

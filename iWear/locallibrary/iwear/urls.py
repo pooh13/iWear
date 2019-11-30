@@ -26,6 +26,7 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     # path('index/', views.)
     path('profile/', views.profile, name='profile'),
+    # path('un_profile/<pk>', views.un_profile, name='un_profile'),
     path('profile_test/<pk>', views.profile_test, name='profile_test'),
     path('follow/', views.follow, name='follow'),
     path('friend/', views.friend, name='friend'),

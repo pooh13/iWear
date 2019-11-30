@@ -15,8 +15,8 @@ from itertools import chain
 from operator import attrgetter
 # from django.views import generic
 
-from .forms import UserForm, MemInfoForm, PostForm
-from .models import Accessories, Meminform, Style, Post, Follow, AuthUser, Friends
+from .forms import UserForm, MemInfoForm, PostForm, FollowForm
+from .models import Accessories, Meminform, Style, Post, Follow, AuthUser, Friends, Postanalysisview
 
 # Create your views here.
 def homepage(request):
@@ -30,13 +30,17 @@ def homepage(request):
     follow_posts = SelectAllSqlByColumns(sql, ['userid', 'photo', 'time'])
     posts = list(follow_posts) #按時間順序排(越新越上面)
 
-  if request.method == 'get':
-      pk=request.GET.get('search', '')
-      mems = Meminform.objects.get(userid=pk)
-      return render(request, 'iwear/profile_test.html', {'mems':mems})
+  # if request.method == 'get':
+  #     pk=request.GET.get('search', '')
+  #     mems = Meminform.objects.get(userid=pk)
+  #     return render(request, 'iwear/profile_test.html', {'mems':mems})
 
   # else: #自己貼文
   #   posts = own_posts.order_by('-time') 
+
+  #搜尋
+  # if 'search' in request.GET and request.GET['search']!='': #表單是否被提交
+  #   return render(request, 'iwear/profile_test.html', locals())
 
   return render(request, 'iwear/home.html', locals())
 
@@ -52,17 +56,81 @@ def profile(request):
     return render(request, 'iwear/profile.html', locals())
 
 #Follows_profile
-def profile_test(request, pk):
+def profile_test(request, pk): #pk=memfoid
     mems = Meminform.objects.get(userid=pk)
     meminfos = Meminform.objects.filter(userid=pk).all()
     times = Post.objects.filter(userid=pk).count() #發文數
     posts = Post.objects.filter(userid=pk).order_by('-time') #貼文
 
-    # if request.method == 'get':
-    #   pk=request.GET.get('search', '')
-    #   mems = Meminform.objects.get(userid=pk)
+    ##
+    # 表-follow的userid是登入者 #登入者有追蹤memfoid
+    if Follow.objects.filter(userid=request.user):
+      if Follow.objects.filter(memfoid=pk):
+        #btn顯示已追蹤
+        follows = Follow.objects.all()
+        # 刪除追蹤好友
+        if request.method == 'POST':
+          follow_dic={}
+          follow = request.POST
+          follow_dic['userid'] = request.user
+          follow_dic['memfoid'] = pk
+          Follow.objects.filter(**follow_dic).delete()
+      else:
+        unfollows = Meminform.objects.all()
+        #新增追蹤好友
+        if request.method == 'POST':
+          userid = request.user
+          memfoid = Meminform.objects.get(userid = pk)
+          follow = Follow.objects.create(userid=userid, memfoid=memfoid)
+    #表-follow沒有userid是登入者
+    else:
+      #btn顯示追蹤(未追蹤)
+      unfollows = Meminform.objects.all()
+      #新增追蹤好友
+      if request.method == 'POST':
+        userid = request.user
+        memfoid = Meminform.objects.get(userid = pk)
+        follow = Follow.objects.create(userid=userid, memfoid=memfoid)
+      # follows = Follow.objects.all()
     
+    # 表-follow的userid是登入者 #登入者有追蹤memfoid
+    if Follow.objects.filter(userid=request.user):
+      if Follow.objects.filter(memfoid=pk):
+        #btn顯示已追蹤
+        follows = Follow.objects.all()
+      else:
+        unfollows = Meminform.objects.all()
+
+    else:
+      unfollows = Meminform.objects.all()
+
     return render(request, 'iwear/profile_test.html', locals())
+    ##
+
+    #搜尋
+    # if 'search' in request.GET and request.GET['search']!='': #表單是否被提交
+    #   pk = request.GET['search']
+
+    
+
+# # 未追蹤_profile
+# def un_profile(request, pk): #pk=userid
+#     mems = Meminform.objects.get(userid=pk)
+#     meminfos = Meminform.objects.filter(userid=pk).all()
+#     times = Post.objects.filter(userid=pk).count() #發文數
+#     posts = Post.objects.filter(userid=pk).order_by('-time') #貼文
+
+#     if request.method == 'POST':
+#       userid = request.user
+#       memfoid = Meminform.objects.get(userid = pk)
+#       follow = Follow.objects.create(userid=userid, memfoid=memfoid)
+#       return redirect('/')
+#     # else:
+#     #   if Follow.objects.get(userid=request.user):
+#     #     Follow.objects.get(memfoid=pk)
+#     return render(request, 'iwear/profile_test.html', locals())
+    
+
 
 #DB_FOLLOW
 @login_required
@@ -109,6 +177,7 @@ def record(request):
 #SEARCH
 @login_required
 def search(request):
+    recommends = Postanalysisview.objects.filter(ownaccount=request.user.id)
     return render(request, 'iwear/search.html', locals())
 
 #REGISTER

@@ -65,11 +65,7 @@
 							<div class="single-cool-facts-area text-center mb-100">
 								<form method="POST">
 									{% csrf_token %}
-										{%if follows %} <!-- 是追蹤好友 -->
-											<button id="btn_del" class="btn-primary btn-lg">追蹤中</button>
-										{% elif unfollows %}
-											<button id="btn_add" class="btn-primary btn-lg">追蹤</button>
-										{% endif %}
+									<button id="btn" class="btn-primary btn-lg">追蹤</button>
 									<!-- <input id='btn' class="btn-primary btn-lg" type="button" onclick="follow()" value="已追蹤"> -->
 								</form>
 
@@ -102,7 +98,7 @@
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="{% static 'js/jquery-boxSlider.js' %}"></script>
 
-	<!-- <script type="text/javascript">
+	<script type="text/javascript">
 		var flag=0
 		function follow(){
 			if(flag==0){
@@ -116,14 +112,14 @@
 				flag=0;	
 			}
 		}
-	</script> -->
+	</script>
 
 	<!-- <script>
 		$(document).ready(function(){
 			var follow=0
-			$("#btn_add").click(function(){
+			$("#btn").click(function(){
 				if(follow==0){
-					$(this).html('追蹤中');
+					$(this).html('已追蹤');
 					follow+=1;
 				}else{
 					$(this).html('追蹤');

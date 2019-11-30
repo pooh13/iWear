@@ -216,8 +216,26 @@ class Post(models.Model):
     class Meta:
         managed = False
         db_table = 'post'
-    
 
+
+class Postanalysisview(models.Model):
+    account = models.ForeignKey(AuthUser, models.DO_NOTHING, db_column='account', blank=True, null=True)
+    userid = models.CharField(max_length=12, blank=True, null=True)
+    photo = models.ImageField(upload_to='photos',blank=True)
+    time = models.DateTimeField()
+    word = models.CharField(max_length=255, blank=True, null=True)
+    styleno = models.ForeignKey('Style', models.DO_NOTHING, db_column='styleNo', blank=True, null=True)  # Field name made lowercase.
+    accessoriesno = models.ForeignKey(Accessories, models.DO_NOTHING, db_column='accessoriesNo', blank=True, null=True)  # Field name made lowercase.
+    clothesno = models.ForeignKey(Clothes, models.DO_NOTHING, db_column='clothesNo', blank=True, null=True)  # Field name made lowercase.
+    coatno = models.ForeignKey(Coat, models.DO_NOTHING, db_column='coatNo', blank=True, null=True)  # Field name made lowercase.
+    pantsno = models.ForeignKey(Pants, models.DO_NOTHING, db_column='pantsNo', blank=True, null=True)  # Field name made lowercase.
+    shoesno = models.ForeignKey('Shoes', models.DO_NOTHING, db_column='shoesNo', blank=True, null=True)  # Field name made lowercase.
+    ownaccount = models.IntegerField(db_column='ownAccount', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'postAnalysisView'
+    
 
 class Shoes(models.Model):
     shoesno = models.CharField(db_column='shoesNo', primary_key=True, max_length=8)  # Field name made lowercase.

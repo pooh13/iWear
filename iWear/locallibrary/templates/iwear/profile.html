@@ -21,7 +21,7 @@
 		{% if mem.mempic %}
 			<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({{MEDIA_URL}}{{ mem.mempic }})">
 		{% else %}
-			<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({% static 'images/logo.jpg' %})">
+			<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({% static 'images/logo.png' %})">
 		{% endif %}
 		{% endfor %}
 
@@ -74,9 +74,9 @@
 				{% for img in posts %}
 						{% cycle "<div class='row'> <div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" %}
 							{% if img.photo %}
-								<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
+								<img width="300" alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
 							{% else %}
-								<img alt="Bootstrap Image Preview" src="{% static 'images/logo.jpg' %}">
+								<img width="300" alt="Bootstrap Image Preview" src="{% static 'images/logo.jpg' %}">
 							{% endif %}
 						</div>
 						{% cycle "</div> </div>" "</div> </div>" "</div> </div>" %}

@@ -222,7 +222,7 @@ class Pants(models.Model):
 
 class Post(models.Model):
     account = models.IntegerField(blank=True, null=True)
-    userid = models.ForeignKey(Meminform, models.DO_NOTHING, db_column='userid', blank=True, null=True)
+    userid = models.CharField(max_length=12, blank=True, null=True)
     photo = models.CharField(max_length=100, blank=True, null=True)
     time = models.DateTimeField()
     word = models.CharField(max_length=255, blank=True, null=True)
@@ -251,6 +251,7 @@ class Postanalysisview(models.Model):
     coatno = models.ForeignKey(Coat, models.DO_NOTHING, db_column='coatNo', blank=True, null=True)  # Field name made lowercase.
     pantsno = models.ForeignKey(Pants, models.DO_NOTHING, db_column='pantsNo', blank=True, null=True)  # Field name made lowercase.
     shoesno = models.ForeignKey('Shoes', models.DO_NOTHING, db_column='shoesNo', blank=True, null=True)  # Field name made lowercase.
+    ownaccount = models.IntegerField(db_column='ownAccount', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -353,11 +354,11 @@ class Usersentencecount(models.Model):
 
 
 class Websentence(models.Model):
-    websentenceno = models.AutoField(db_column='websentenceNo')  # Field name made lowercase.
+    websentenceno = models.AutoField(db_column='webSentenceNo')  # Field name made lowercase.
     web = models.CharField(max_length=100, blank=True, null=True)
-    webtitle = models.CharField(max_length=100, blank=True, null=True)
+    webtitle = models.CharField(db_column='webTitle', max_length=100, blank=True, null=True)  # Field name made lowercase.
     sentence = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'websentence'
+        db_table = 'webSentence'

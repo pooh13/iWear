@@ -25,3 +25,20 @@
     </div>
 </div>
 <!-- END Single Blog Area  -->
+
+#追蹤btn
+<script type="text/javascript">
+		var flag=0
+		function follow(){
+			if(flag==0){
+				document.getElementById('btn').value='已追蹤';			
+				document.getElementById('btn').className='btn btn-primary btn-lg';
+				flag+=1;
+			}
+			else if(flag==1){
+				document.getElementById('btn').value='追蹤';			
+				document.getElementById('btn').className='btn btn-primary btn-lg';
+				flag=0;	
+			}
+		}
+	</script>

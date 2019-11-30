@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Accessories, Meminform, Style, Post, Follow, Friends, Clothes, Coat, Pants, Shoes
+from .models import Accessories, Meminform, Style, Post, Follow, Friends, Clothes, Coat, Pants, Shoes, Postanalysisview
 
 admin.site.register(Style)
 admin.site.register(Accessories)
@@ -9,6 +9,7 @@ admin.site.register(Clothes)
 admin.site.register(Coat)
 admin.site.register(Pants)
 admin.site.register(Shoes)
+admin.site.register(Postanalysisview)
 
 
 @admin.register(Meminform)

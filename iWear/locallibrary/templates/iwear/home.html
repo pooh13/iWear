@@ -112,21 +112,19 @@
                             <div class="classynav mynav">
                                 <ul>
                                     <li><a href="{% url 'iwear:homepage' %}">首頁</a></li>
-                                    <li><a href="{% url 'iwear:search' %}">搜尋</a></li>
+                                    <li><a href="{% url 'iwear:search' %}">推薦</a></li>
                                     <li><a href="{% url 'iwear:add_post' %}">新增貼文</a></li>
                                     <li><a href="{% url 'iwear:record' %}">紀錄</a> </li>
-                                    <li><a href="{% url 'iwear:profile' %}">個人檔案</a>
-                                        <ul class="dropdown">
-                                            <li><a href="{% url 'iwear:friend' %}">好友</a></li>
-                                            <li><a href="{% url 'iwear:follow' %}">追蹤</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="{% url 'iwear:profile' %}">個人檔案</a></li>
+                                    <li><a href="{% url 'iwear:friend' %}">好友</a></li>
+                                    <li><a href="{% url 'iwear:follow' %}">追蹤</a></li>
+                                    
                                     <!-- Search Form  -->
                                     <div id="search-wrapper">
-                                        <form action="/profile_test/"  method="get" enctype="multipart/form-data">
-                                            <input type="text" id="search" placeholder="Search something...">
+                                        <form action="/profile_test/"  method="post">
+                                            <input type="text" id="search" name="search" placeholder="Search something...">
                                             <div id="close-icon"></div>
-                                                <input class="d-none" type="submit" value="search">
+                                                <input class="d-none" type="submit" value="搜尋">
                                         </form>
                                     </div>
                                 </ul>
@@ -141,7 +139,7 @@
     <!-- ##### Header Area End ##### -->
 
     
-
+    <!-- 追蹤好友貼文 -->
     <!-- ##### Blog Wrapper Start ##### -->
     <div class="blog-wrapper section-padding-100 clearfix">
         <div class="container">
