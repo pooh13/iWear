@@ -1,36 +1,59 @@
 {% extends 'layout.html' %}
 {% block content %}
-    {% load static %}
-    
-    <!-- ##### Single Blog Area Start ##### -->
+	{% load static %}
+	<!-- ##### Single Blog Area Start ##### -->
     <div class="single-blog-wrapper section-padding-0-100">
-        <div class="container">
-            <!-- Two -->
-            <section id="two" class="wrapper style1 special">
-                <div class="inner">
-                    <header><h2>粉絲</h2></header>
-
-                    <!--  -->
-                    {% for friend in friends %}
-                        {% cycle "<div class='inner'> <div class='flex flex-4'> <div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" "<div class='box person'> <div class='image round'>" %}
-                            {% for img in mems %}
-                                {% if img.mempic %}
-                                    <img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.mempic }}">
-                                {% endif %}
-                            {% endfor %}
-                            </div>
-                            <h3>{{ friends.memfono }}</h3>
-                            <p><a href="#" class="button-style">追蹤中</a></p>
-                        {% cycle "</div>" "</div>" "</div>" "</div> </div> </div>" %}
-                    {% endfor %}
-
-                    
-                    <!--  -->
-
-                </div>
-            </section>
-        </div>
+		<div class="container">
+			<!-- Two -->
+			<section id="two" class="wrapper style1 special">
+				<div class="inner">
+					<header>
+						<h2>粉絲</h2>
+					</header>
+				</div>
+				<div class="inner">
+					<!-- #### cycle Start #### -->
+					{% for fan in fans %}
+					<div class="row" style="margin-top: 30px">
+						<div class="col-md-4">
+                            <!-- 圖片顯示 -->
+                            {% if fan.userid.mempic %} 
+							<!-- 使用者有頭貼 -->
+								<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ fan.userid.mempic }}" class="rounded-circle" />
+							{% else %}
+							<!-- 沒有頭貼 -->
+								<img width="150px" alt="Bootstrap Image Preview" src="{% static 'images/logo.png' %}" class="rounded-circle" />
+							{% endif %}
+						</div>
+						<div class="col-md-4" style="margin-top: 50px">
+                            <a href="{% url 'iwear:profile_test' fan.userid %}"><h3>{{ fan.userid }}</h3></a>							
+                        </div>
+						<div class="col-md-4">
+							<input id="btn" class="btn btn-primary btn-lg" style="margin-top: 45px" type="button" value="追蹤中">
+						</div>
+					</div>
+					{% endfor %}
+					<!-- #### cycle End #### -->
+				</div>
+			</section>
+		</div>
 	</div>
-    <!-- ##### Single Blog Area End ##### -->
+	<!-- ##### Single Blog Area End ##### -->
 
+	<!-- Script -->
+	<script type="text/javascript">
+		var flag=0
+		function follow(){
+			if(flag==0){
+				document.getElementById('btn').value='追蹤中';			
+				document.getElementById('btn').class='btn btn-primary btn-lg';
+				flag+=1;
+			}
+			else if(flag==1){
+				document.getElementById('btn').value='追蹤';			
+				document.getElementById('btn').class='btn btn-primary btn-lg';
+				flag=0;	
+			}
+		}
+	</script>
 {% endblock %}

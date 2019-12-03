@@ -25,34 +25,22 @@ def homepage(request):
   sql = """
   select post.userid, post.photo, post.time from follow, post where follow.memFoid = post.userid order by post.time desc
   """
-  follows = Follow.objects.filter(userid = request.user)
-  if follows: #追蹤好友貼文
+ 
+  if request.user: #追蹤好友貼文
     follow_posts = SelectAllSqlByColumns(sql, ['userid', 'photo', 'time'])
     posts = list(follow_posts) #按時間順序排(越新越上面)
-
-  # if request.method == 'get':
-  #     pk=request.GET.get('search', '')
-  #     mems = Meminform.objects.get(userid=pk)
-  #     return render(request, 'iwear/profile_test.html', {'mems':mems})
-
-  # else: #自己貼文
-  #   posts = own_posts.order_by('-time') 
-
-  #搜尋
-  # if 'search' in request.GET and request.GET['search']!='': #表單是否被提交
-  #   return render(request, 'iwear/profile_test.html', locals())
-
   return render(request, 'iwear/home.html', locals())
 
 
 #setting.html
 @login_required
 def profile(request):
+    user = Meminform.objects.get(userid=request.user)
     mems = Meminform.objects.filter(userid=request.user).all()
     posts = Post.objects.filter(userid=request.user).order_by('-time') #貼文
     times = Post.objects.filter(userid=request.user).count() #發文數
-    follows = Follow.objects.filter(userid=request.user).count() #追蹤數
-    fans = Follow.objects.filter(memfoid__userid=request.user).count() #被追蹤數
+    follows = Follow.objects.filter(userid=user).count() #追蹤數
+    fans = Follow.objects.filter(memfoid=user).count() #被追蹤數
     return render(request, 'iwear/profile.html', locals())
 
 #Follows_profile
@@ -62,43 +50,37 @@ def profile_test(request, pk): #pk=memfoid
     times = Post.objects.filter(userid=pk).count() #發文數
     posts = Post.objects.filter(userid=pk).order_by('-time') #貼文
 
+    user = Meminform.objects.get(userid=request.user)
     ##
     # 表-follow的userid是登入者 #登入者有追蹤memfoid
-    if Follow.objects.filter(userid=request.user):
+    if Follow.objects.filter(userid=user):
       if Follow.objects.filter(memfoid=pk):
-        #btn顯示已追蹤
-        follows = Follow.objects.all()
         # 刪除追蹤好友
         if request.method == 'POST':
           follow_dic={}
           follow = request.POST
-          follow_dic['userid'] = request.user
+          follow_dic['userid'] = user
           follow_dic['memfoid'] = pk
           Follow.objects.filter(**follow_dic).delete()
       else:
-        unfollows = Meminform.objects.all()
         #新增追蹤好友
         if request.method == 'POST':
-          userid = request.user
-          memfoid = Meminform.objects.get(userid = pk)
-          follow = Follow.objects.create(userid=userid, memfoid=memfoid)
+          memfoid = Meminform.objects.get(userid=pk)
+          follow = Follow.objects.create(userid=user, memfoid=memfoid)
     #表-follow沒有userid是登入者
     else:
-      #btn顯示追蹤(未追蹤)
-      unfollows = Meminform.objects.all()
       #新增追蹤好友
       if request.method == 'POST':
-        userid = request.user
-        memfoid = Meminform.objects.get(userid = pk)
-        follow = Follow.objects.create(userid=userid, memfoid=memfoid)
-      # follows = Follow.objects.all()
+        memfoid = Meminform.objects.get(userid=pk)
+        follow = Follow.objects.create(userid=user, memfoid=memfoid)
     
     # 表-follow的userid是登入者 #登入者有追蹤memfoid
-    if Follow.objects.filter(userid=request.user):
+    if Follow.objects.filter(userid=user):
       if Follow.objects.filter(memfoid=pk):
         #btn顯示已追蹤
         follows = Follow.objects.all()
       else:
+        #btn顯示追蹤
         unfollows = Meminform.objects.all()
 
     else:
@@ -114,13 +96,15 @@ def profile_test(request, pk): #pk=memfoid
 #DB_FOLLOW
 @login_required
 def follow(request):
-    follows = Follow.objects.filter(userid = request.user).all()  #__
+    user = Meminform.objects.get(userid = request.user)
+    follows = Follow.objects.filter(userid = user).all()  #__
     return render(request, 'iwear/follow.html', locals())
 
 #FAN
 @login_required
 def fan(request):
-#     friends = Friends.objects.filter(memno=request.user.id)
+    user = Meminform.objects.get(userid = request.user)
+    fans = Follow.objects.filter(memfoid = user).all()
     return render(request, 'iwear/fan.html', locals())
 
 #addEdit

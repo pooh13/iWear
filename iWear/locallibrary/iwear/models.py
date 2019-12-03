@@ -142,7 +142,7 @@ class DjangoSession(models.Model):
 
 class Follow(models.Model):
     fono = models.AutoField(db_column='FoNo', primary_key=True)  # Field name made lowercase.
-    userid = models.CharField(max_length=12, blank=True, null=True)
+    userid = models.ForeignKey('Meminform', models.DO_NOTHING, related_name='follow_userid', db_column='userid')
     memfoid = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memFoid')  # Field name made lowercase.
 
     class Meta:
