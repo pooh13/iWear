@@ -17,14 +17,6 @@
     <div class="container">	
 		<form action = "."  method = "post" enctype="multipart/form-data">	
 			<div class="header">
-				<div class="btnBack">
-					<button type="button" class="btnBack" onclick="history.back()">Back</button> 	
-				</div>
-
-				<div class="userAdd">
-					<i class="fas fa-user userIcon">{{ request.user }}</i>
-				</div>
-				
 				<div class="btnShare">
 					<a href="{% url 'iwear:homepage' %}"><button type="submit" class="btnShare">Share</button></a>
 				</div> 				
@@ -33,7 +25,7 @@
 			<div class="article">
 				{% csrf_token %}
 				<div class="articleAdd">
-				<img src="/static/img/logo.png" alt="" id="photo_show" style="width:20%" class="articleAdd">
+				<img src="{% static 'images/logo.png' %}" alt="" id="photo_show" style="width:20%" class="articleAdd">
 				</div>
 				<input id="photo" type="file" name="photo">
 				
@@ -145,5 +137,6 @@
 			</div>
 		</form>
     </div>
-    <!-- ##### Single Blog Area End ##### -->
+	<!-- ##### Single Blog Area End ##### -->
+	
 {% endblock %}

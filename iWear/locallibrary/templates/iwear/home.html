@@ -1,350 +1,268 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    {% load static %}
-        <link rel="Shortcut Icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}"/>
-        {% block title %}<title>i 穿搭</title>{% endblock %}
-        <meta charset="utf-8">
+    <head>
+        {% load static %} 
+        <meta charset="UTF-8">
+        <meta name="description" content="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Title -->
+        <link rel="Shortcut Icon" type="image/x-icon" href="{% static 'images/logo.png' %}"/>
+        {% block title %}<title>iWear</title>{% endblock %}
+        <title>iWear</title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="{% static 'img/logo.jpg}">
+
+    <!-- Style CSS -->
+
         <!-- CSS -->
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/classy-nav.css' %}">
-		<!-- <link rel="stylesheet" href="{% static 'my_style.css' %}"> -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
 
-</head>
+    </head>
 
 {% if request.user.is_authenticated %}
-<body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="preload-content">
-            <div id="original-load"></div>
-        </div>
-    </div>
-
-    <!-- Subscribe Modal -->
-    <div class="subscribe-newsletter-area">
-        <div class="modal fade" id="subsModal" tabindex="-1" role="dialog" aria-labelledby="subsModal" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div class="modal-body">
-                        <h5 class="title">Subscribe to my newsletter</h5>
-                        <form action="#" class="newsletterForm" method="post">
-                            <input type="email" name="email" id="subscribesForm2" placeholder="Your e-mail here">
-                            <button type="submit" class="btn original-btn">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-
-        <!-- Top Header Area -->
-        <div class="top-header">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <!-- Breaking News Area -->
-                    <div class="col-12 col-sm-8">
-                        <div class="breaking-news-area">
-                            <div id="breakingNewsTicker" class="ticker">
-                                <ul>
-                                    <li><a href="#">i穿搭</a></li>
-                                    <li><a href="#">愛上穿搭</a></li>
-                                    <li><a href="#">i穿搭</a></li>
-                                    <li><a href="#">愛上穿搭</a></li>
-                                    <li><a href="#">i穿搭</a></li>
-                                    <li><a href="#">愛上穿搭</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Top Social Area -->
-                    <div class="col-12 col-sm-4">
-                    </div>
-                </div>
+    <body>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="preload-content">
+                <div id="original-load"></div>
             </div>
         </div>
 
-        <!-- Logo Area -->
-        <div class="logo-area text-center">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
-                    <div class="col-12">
-                        <a href="{% url 'iwear:homepage' %}" class="original-logo" style="font-size: 10em;position: relative;top:-0.1em;">iWear</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <!-- ##### Header Area Start ##### -->
+        <header class="header-area">
         <!-- Nav Area -->
-        <div class="original-nav-area" id="stickyNav">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Classy Menu -->
-                    <nav class="classy-navbar justify-content-between">
-
-                        <!-- Subscribe btn -->
-                        <div class="subscribe-btn">
-                        </div>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu" id="originalNav">
-                            <!-- close btn -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav mynav">
-                                <ul>
-                                    <li><a href="{% url 'iwear:homepage' %}">首頁</a></li>
-                                    <li><a href="{% url 'iwear:search' %}">推薦</a></li>
-                                    <li><a href="{% url 'iwear:add_post' %}">新增貼文</a></li>
-                                    <li><a href="{% url 'iwear:record' %}">紀錄</a> </li>
-                                    <li><a href="{% url 'iwear:profile' %}">個人檔案</a></li>
-                                    <li><a href="{% url 'iwear:friend' %}">好友</a></li>
-                                    <li><a href="{% url 'iwear:follow' %}">追蹤</a></li>
-                                    
-                                    <!-- Search Form  -->
-                                    <div id="search-wrapper">
-                                        <form action="/profile_test/"  method="post">
-                                            <input type="text" id="search" name="search" placeholder="Search something...">
-                                            <div id="close-icon"></div>
-                                                <input class="d-none" type="submit" value="搜尋">
-                                        </form>
-                                    </div>
-                                </ul>
-                            </div>
-                            <!-- Nav End -->
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
-
-    
-    <!-- 追蹤好友貼文 -->
-    <!-- ##### Blog Wrapper Start ##### -->
-    <div class="blog-wrapper section-padding-100 clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-9 article-frame">  
-                    <!-- START Single Blog Area  -->
-                    {% for post in posts %}
-                            <div class='single-blog-area blog-style-2 mb-50 wow fadeInUp' data-wow-delay="0.2s" data-wow-duration="1000ms">
-                                <div class="row align-items-center">
-                                    {% if post.photo %}
-                                    <div class="col-12 col-md-6">    
-                                        <div class="single-blog-thumbnail">
-                                                <img src="{{ MEDIA_URL }}{{ post.photo }}" alt="">                                                
-                                        </div>
-                                    </div>
-                                    {% else %}
-                                    <div class="col-12 col-md-6">    
-                                        <div class="single-blog-thumbnail">
-                                            <img src="{% static 'images/logo.jpg' %}" alt="">
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                                    <div class="col-12 col-md-6">
-                                        <!-- Blog Content -->
-                                        <div class="single-blog-content">
-                                            <div class="line"></div>
-                                            <a href="#" class="post-tag">{{ post.styleno }}</a>                             
-                                            <p class="article">{{ post.word }}</p>
-                                            <div class="post-meta">
-                                                <p>By<a href="{% url 'iwear:profile_test' post.userid %}"> {{ post.userid }}</a></p>
-                                                <p>0 comments</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                     
-                    {% endfor %}
-                    <!-- END Single Blog Area  -->
-                </div>
-
-                <!-- ##### Sidebar Area ##### -->
-                <div class="col-12 col-md-4 col-lg-3">
-                    <div class="post-sidebar-area">
-                        <!-- Widget Area -->
-                        <div class="sidebar-widget-area">
-                            <h5 class="title">Tags</h5>
-                            <div class="widget-content">
-                                <ul class="tags">
-                                    <li><a href="#">design</a></li>
-                                    <li><a href="#">fashion</a></li>
-                                    <li><a href="#">travel</a></li>
-                                    <li><a href="#">music</a></li>
-                                    <li><a href="#">party</a></li>
-                                    <li><a href="#">video</a></li>
-                                    <li><a href="#">photography</a></li>
-                                    <li><a href="#">adventure</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Blog Wrapper End ##### -->
-
-   
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                   
-                    <!-- Footer Nav Area -->
-                    <div class="classy-nav-container breakpoint-off">
+            <div class="original-nav-area" id="stickyNav">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
                         <!-- Classy Menu -->
-                        <nav class="classy-navbar justify-content-center">
-
+                        <nav class="classy-navbar justify-content-between">
+                        <!-- Breaking News Area -->
+                        <img class="nav-logo" style="width: 4.7%;" src="{% static 'images/logo.png' %}">  
+                            <!-- Subscribe btn -->
+                            <div class="subscribe-btn">
+                                <a href="#" class="btn subscribe-btn" data-toggle="modal" data-target="#subsModal">LOGOUT</a>
+                            </div>
+    
                             <!-- Navbar Toggler -->
                             <div class="classy-navbar-toggler">
                                 <span class="navbarToggler"><span></span><span></span><span></span></span>
                             </div>
-
+    
                             <!-- Menu -->
-                            <div class="classy-menu">
+                            <div class="classy-menu" id="originalNav">
                                 <!-- close btn -->
                                 <div class="classycloseIcon">
                                     <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                                 </div>
+    
+                                <!-- Nav Start -->
+                                <div class="classynav">
+                                    <ul>
+                                        <li><a href="{% url 'iwear:homepage' %}">首頁</a></li>
+                                        <li><a href="{% url 'iwear:search' %}">推薦</a></li>
+                                        <li><a href="{% url 'iwear:add_post' %}">新增貼文</a></li>
+                                        <li><a href="{% url 'iwear:group' %}">群組</a></li>
+                                        <li><a href="{% url 'iwear:record' %}">紀錄</a> </li>
+                                        <li><a href="{% url 'iwear:profile' %}">個人檔案</a>
+                                            <ul class="dropdown">
+                                                <li><a href="{% url 'iwear:fan' %}">粉絲</a></li>
+                                                <li><a href="{% url 'iwear:follow' %}">追蹤</a></li> 
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <!-- Search Form  -->
+                                    <div id="search-wrapper">
+                                        <form action="#">
+                                            <input type="text" id="search" placeholder="Search something...">
+                                            <div id="close-icon"></div>
+                                            <input class="d-none" type="submit" value="">
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Nav End -->
                             </div>
-
                         </nav>
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
+        <!-- ##### Header Area End ##### -->
 
-    <!-- Footer Social Area -->
+        
+        <!-- 追蹤好友貼文 -->
+        <!-- ##### Blog Wrapper Start ##### -->
+        <div class="blog-wrapper section-padding-100 clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-9 article-frame">  
+                        <!-- START Single Blog Area  -->
+                        {% for post in posts %}
+                                <div class='single-blog-area blog-style-2 mb-50 wow fadeInUp' data-wow-delay="0.2s" data-wow-duration="1000ms">
+                                    <div class="row align-items-center">
+                                        {% if post.photo %}
+                                        <div class="col-12 col-md-6">    
+                                            <div class="single-blog-thumbnail">
+                                                    <img style="width: 250px;" src="{{ MEDIA_URL }}{{ post.photo }}" alt="">                                                
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <div class="col-12 col-md-6">    
+                                            <div class="single-blog-thumbnail">
+                                                <img src="{% static 'images/logo.jpg' %}" alt="">
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        <div class="col-12 col-md-6">
+                                            <!-- Blog Content -->
+                                            <div class="single-blog-content">
+                                                <div class="line"></div>
+                                                <a href="#" class="post-tag">{{ post.styleno }}</a>                             
+                                                <p class="article">{{ post.word }}</p>
+                                                <div class="post-meta">
+                                                    <p>By<a href="{% url 'iwear:profile_test' post.userid %}"> {{ post.userid }}</a></p>
+                                                    <p>0 comments</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                     
+                        {% endfor %}
+                        <!-- END Single Blog Area  -->
+                    </div>
 
-  	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with by 108510 <i class="fa fa-heart-o" aria-hidden="true"></i>
-	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    
-    </footer>
-    <!-- ##### Footer Area End ##### --> 
-    
-    <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
-    <!-- Popper js -->
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <!-- Bootstrap js -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- Plugins js -->
-    <script src="{% static 'js/plugins.js' %}"></script>
-    <!-- Active js -->
-    <script src="{% static 'js/active.js' %}"></script>
-
-
-    {% else %}
-    <!-- css -->
-    <link rel="stylesheet" href="{% static 'css/app.css' %}" />
-	<!-- ##### Header Start ##### -->
-	<header id="header">
-		<div class="inner">
-			<div class="content">
-				<h1>i Wear</h1>
-				<div class="frame">
-					<a href="{% url 'login' %}">
-						<button class="btnLogin">登入</button>
-					</a> 
-					<a href="{% url 'iwear:register' %}">
-						<button class="btnRegister">註冊</button>
-					</a>		  
-				</div>
-			</div>
-		</div>
-    </header>
-    <!-- ##### Header End ##### -->
-
-	<!-- ##### Main Start ##### -->
-	<div id="main">
-		<div class="inner">
-			<div class="columns">
-				<div class="image fit">
-					<img src="{% static 'images/pic01.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-                    <img src="{% static 'images/pic02.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic03.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-                    <img src="{% static 'images/pic04.jpg' %}" alt="" />
+                    <!-- ##### Sidebar Area ##### -->
+                    <div class="col-12 col-md-4 col-lg-3">
+                        <div class="post-sidebar-area">
+                            <!-- Widget Area -->
+                            <div class="sidebar-widget-area">
+                                <h5 class="title">Tags</h5>
+                                <div class="widget-content">
+                                    <ul class="tags">
+                                        <li><a href="#">design</a></li>
+                                        <li><a href="#">fashion</a></li>
+                                        <li><a href="#">travel</a></li>
+                                        <li><a href="#">music</a></li>
+                                        <li><a href="#">party</a></li>
+                                        <li><a href="#">video</a></li>
+                                        <li><a href="#">photography</a></li>
+                                        <li><a href="#">adventure</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-				<div class="image fit">
-					<img src="{% static 'images/pic06.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic05.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic08.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic07.jpg' %}" alt="" />
-                </div>
-                
-				<div class="image fit">
-					<img src="{% static 'images/pic09.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic12.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic11.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic10.jpg' %}" alt="" />
-				</div>
-
-				<div class="image fit">
-					<img src="{% static 'images/pic13.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic14.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic15.jpg' %}" alt="" />
-				</div>
-				<div class="image fit">
-					<img src="{% static 'images/pic16.jpg' %}" alt="" />
-				</div>
-
             </div>
-		</div>
-    </div>
-    <!-- ##### Main End ##### -->
-    <!-- Scripts -->
-	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
-	<script src="{% static 'assets/js/skel.min.js' %}"></script>
-	<script src="{% static 'assets/js/util.js' %}"></script>
-	<script src="{% static 'assets/js/main.js' %}"></script>
-    
-</body>
+        </div>
+        <!-- ##### Blog Wrapper End ##### -->
+        
+        <!-- jQuery (Necessary for All JavaScript Plugins) -->
+        <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+        <!-- Popper js -->
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <!-- Bootstrap js -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!-- Plugins js -->
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <!-- Active js -->
+        <script src="{% static 'js/active.js' %}"></script>
+
+
+        {% else %}
+        <!-- css -->
+        <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+        <!-- ##### Header Start ##### -->
+        <header id="header">
+            <div class="inner">
+                <div class="content">
+                    <h1>i Wear</h1>
+                    <div class="frame">
+                        <a href="{% url 'login' %}">
+                            <button class="btnLogin">登入</button>
+                        </a> 
+                        <a href="{% url 'iwear:register' %}">
+                            <button class="btnRegister">註冊</button>
+                        </a>		  
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ##### Header End ##### -->
+
+        <!-- ##### Main Start ##### -->
+        <div id="main">
+            <div class="inner">
+                <div class="columns">
+                    <div class="image fit">
+                        <img src="{% static 'images/pic01.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic02.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic03.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic04.jpg' %}" alt="" />
+                    </div>
+                    
+                    <div class="image fit">
+                        <img src="{% static 'images/pic06.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic05.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic08.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic07.jpg' %}" alt="" />
+                    </div>
+                    
+                    <div class="image fit">
+                        <img src="{% static 'images/pic09.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic12.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic11.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic10.jpg' %}" alt="" />
+                    </div>
+
+                    <div class="image fit">
+                        <img src="{% static 'images/pic13.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic14.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic15.jpg' %}" alt="" />
+                    </div>
+                    <div class="image fit">
+                        <img src="{% static 'images/pic16.jpg' %}" alt="" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ##### Main End ##### -->
+        <!-- Scripts -->
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/skel.min.js' %}"></script>
+        <script src="{% static 'assets/js/util.js' %}"></script>
+        <script src="{% static 'assets/js/main.js' %}"></script>
+        
+    </body>
 {% endif %}
 </html>

@@ -1,3 +1,5 @@
+@import url("fontawesome-all.min.css");
+
 body{
 	background-color: white;
 }
@@ -151,8 +153,8 @@ div.InOrOut{
 			}
 
 		}
-.button-style
-{
+
+.button-style{
 	display: inline-block;
 	background-color: #FC6103;
 	margin-top: 20px;
@@ -162,4 +164,459 @@ div.InOrOut{
 	text-decoration: none;
 	text-align: center;
 	color: #FFFFFF;
+}
+img.nav-logo{
+	width: 50px;
+	height: 50px;
+}
+div.sidebar-widget-area{
+	display: block;
+	height: 150px;
+	position: relative;
+	top: -80px;
+	margin: 0 auto;
+	/*background-color: yellow;*/
+}
+div#groupchat{
+	width: 100%;
+	height: 300px;
+	/*position: relative;
+	top: -80px;*/
+	border:5px double black;
+}
+div.classy-navbar{
+	margin-bottom: 10px;
+}
+ul.tags{
+	position: relative;
+	top: -40px;
+}
+.breakpoint-off .classynav ul li .dropdown{
+	width: 150px;	
+}
+input[type=file]{
+	width: 100px;
+	height: 60px;
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	z-index: 2;
+	opacity: 0;
+}
+img#fake_icon{
+	width: 100px;
+	height: 50px;
+	/*float: left;*/
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	margin-right: 15%;
+	z-index: 1;
+}
+div#showPic{
+	width: 20em;
+	height: 20em;
+	border: 2px solid black;
+	/*float: left;*/
+	position: fixed;
+	top: 20%;
+	left: 30%;
+	/*z-index: 1;*/
+	/*background-color: red;*/
+}
+button#sure{	
+	width: 80px;
+	height: 40px;
+	background-color: #898272;
+	border:5px groove #898272;
+	border-radius: 5%;
+	color: white;
+	font-size: 25px;
+	position: fixed;
+	left: 80%;
+	top: 16em;
+	/*opacity: 0.3;*/
+	/*display: none;*/  /*這裡先不要顯示，等一珊把圖片show出來在顯示*/
+}
+button.sureInDetail{
+	width: 80px;
+	height: 40px;
+	background-color: #1A1616;
+	border:5px groove #1A1616;
+	border-radius: 5%;
+	color: white;
+	font-size: 25px;
+	position: relative;
+	left: 90%;
+
+	/*opacity: 0.3;*/
+	/*display: none;*/  /*這裡先不要顯示，等一珊把圖片show出來在顯示*/
+}
+
+/*addDetail*/
+.container-detail{
+	width: 800px;
+	height: 650px;
+	/*border: 5px solid black;*/
+	overflow: hidden;
+	padding: 0;
+	margin:10px auto;
+}
+.article{
+	width: 100%;
+	height: 220px;
+	/*background-color: red;	 */
+	margin-bottom: 15px;
+}
+.articleAdd{
+	float: left;
+	width: 28%;
+	height: 100%;
+	/*background-color: yellow;*/
+	/*border: 5px solid black;*/
+	margin-right: 2%;
+}
+.context{
+	width: 70%;
+	height: 100%;
+	/*background-color: blue;*/
+	float: right;
+	overflow: auto;
+	border: 5px solid black;
+}
+.selectOption{
+	width: 100%;
+	height: 50px;
+}
+label{
+	width: 28%;
+	height: 40px;
+	margin-right: 2%;	
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	position: relative;
+	top: 3px;
+	text-align: center;
+	padding-top: 5px;
+}
+.styleList{
+	width: 70%;
+	height: 40px;
+	/*border: 5px solid black;*/
+	border:none;
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	position: relative;
+	top: -45px;
+	left: 30%;
+}
+textarea{
+	width: 100%;
+	height: 100%;
+	resize: none;
+	padding: none;
+	resize: none;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+img.articleAdd{
+	width: 100%;
+	height: 100%;
+	border: 5px solid black;
+}
+/*RWD*/
+@media screen and (max-width: 515px) {
+	body{
+		/*background-color:green;	*/
+	}
+	div.sidebar-widget-area{
+	position: relative;
+	top: -80px;
+	left: 10px;
+	}	
+}
+@media screen and (min-width: 515px) and (max-width: 550px) {
+	body{
+		/*background-color:pink;	*/
+	}
+	div.sidebar-widget-area{
+	position: relative;
+	top: -80px;
+	left: 10px;
+	}
+}
+@media screen and (min-width: 500px) and (max-width: 550px) {
+	body{
+		/*background-color:lightgreen;	*/
+	}
+	div.sidebar-widget-area{
+	position: relative;
+	top: -80px;
+	left: 10px;
+	}	
+	div#showPic{
+	width: 16em;
+	height: 16em;
+	left: 35%;
+	}  
+	.container-detail{
+		width: 450px;
+	}
+	.article{
+		height: 110px;
+	}
+	button#sure{	
+	width: 80px;
+	height: 40px;
+	font-size: 25px;
+	position: fixed;
+	left: 70%;
+	top: 15.5em;
+	}
+	button.sureInDetail{
+	left: 82%;
+	}
+}
+@media screen and (min-width: 550px) and (max-width: 575px) {
+	body{
+		/*background-color:gray;	*/
+	}
+	div#showPic{
+	width: 18em;
+	height: 18em;
+	}  
+	.container-detail{
+		width: 450px;
+	}
+	.article{
+		height: 110px;
+	}
+	button#sure{	
+	width: 80px;
+	height: 40px;
+	font-size: 25px;
+	position: fixed;
+	left: 68%;
+	top: 16.5em;
+	}
+	button.sureInDetail{
+	left: 82%;
+	}
+}
+@media screen and (min-width: 575px) and (max-width: 600px) {
+	body{
+		/*background-color:red;	*/
+	}
+	div#showPic{
+	width: 18em;
+	height: 18em;
+	}
+	.container-detail{
+		width: 500px;
+	}
+	.article{
+		height: 130px;
+	}
+	button#sure{	
+	width: 80px;
+	height: 40px;
+	font-size: 25px;
+	position: fixed;
+	left: 65%;
+	top: 16.5em;
+	}
+	button.sureInDetail{
+	left: 84%;
+	}
+}
+@media screen and (min-width: 600px) and (max-width: 700px) {
+	body{
+		/*background-color: yellow;*/
+	}
+	div#showPic{
+	width: 18em;
+	height: 18em;
+	}
+	.container-detail{
+		width: 600px;
+	}	
+	.article{
+		height: 155px;
+	}
+	button#sure{	
+	width: 80px;
+	height: 40px;
+	font-size: 25px;
+	position: fixed;
+	left: 80%;
+	top: 14.5em;
+	}
+	button.sureInDetail{
+	left: 86%;
+	}
+}
+@media screen and (min-width: 700px) and (max-width: 800px) {
+	body{
+		/*background-color: brown;*/
+	}
+	div.sidebar-widget-area{
+	position: relative;
+	top: -80px;
+	left: 10px;
+	}
+	div#showPic{
+	width: 18em;
+	height: 18em;
+	top: 20%;
+	left: 25%;
+	}
+	div.container-detail{
+		width: 700px;
+	}
+	div.article{
+		height: 180px;
+	}
+	button#sure{	
+	width: 80px;
+	height: 40px;
+	position: fixed;
+	left: 70%;
+	top: 15em;
+	}
+	button.sureInDetail{
+	left: 89%;
+	}
+}
+@media screen and (min-width: 800px) and (max-width: 1000px){
+	body{
+		/*background-color: purple;*/
+	}
+	img.nav-logo{
+		height: 50px;
+		width: 50px;
+	}
+	div#showPic{
+	width: 18em;
+	height: 18em;
+	top: 20%;
+	left: 25%;
+	}
+	button#sure{	
+	width: 80px;
+	height: 40px;
+	position: fixed;
+	font-size: 25px;
+	left: 65%;
+	top: 15em;
+	}
+}
+@media screen and (min-width: 1000px) {
+	body{
+		/*background-color: blue;*/
+	}
+}
+
+
+
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height: 250px;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+div.chatroom{
+	position: relative;
+	/*left: 30%;*/
+	top: 10%;
+	background-color: lightgray;
+	/*margin-right: 10%;*/
+	margin: 0 auto;
+}
+.input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control{
+	background-color: red;
+	position: relative;
+    /* -webkit-box-flex: 1; */
+    /*-ms-flex: 1 1 auto;*/
+    /* flex: 1 1 auto; */
+    width: 8%;
+    margin-bottom: 0;
+}
+input.message{
+	width: 80%;
+	height: 40px;
+	margin-top: 5px;
+	margin-right: 3%;
+	/*background-color: lightgreen;*/
+}
+button.submit{
+	width: 150%;
+	height: 40px;
+	margin-top: 5px;
+}
+button.submit:hover{
+	background-color: lightyellow;
+}
+div.list{
+	float: right; 
+	width: 20%; 
+	height: 100px;
+	border: 5px solid black;
 }

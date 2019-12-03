@@ -111,27 +111,6 @@ def profile_test(request, pk): #pk=memfoid
     # if 'search' in request.GET and request.GET['search']!='': #表單是否被提交
     #   pk = request.GET['search']
 
-    
-
-# # 未追蹤_profile
-# def un_profile(request, pk): #pk=userid
-#     mems = Meminform.objects.get(userid=pk)
-#     meminfos = Meminform.objects.filter(userid=pk).all()
-#     times = Post.objects.filter(userid=pk).count() #發文數
-#     posts = Post.objects.filter(userid=pk).order_by('-time') #貼文
-
-#     if request.method == 'POST':
-#       userid = request.user
-#       memfoid = Meminform.objects.get(userid = pk)
-#       follow = Follow.objects.create(userid=userid, memfoid=memfoid)
-#       return redirect('/')
-#     # else:
-#     #   if Follow.objects.get(userid=request.user):
-#     #     Follow.objects.get(memfoid=pk)
-#     return render(request, 'iwear/profile_test.html', locals())
-    
-
-
 #DB_FOLLOW
 @login_required
 def follow(request):
@@ -140,9 +119,9 @@ def follow(request):
 
 #FAN
 @login_required
-def friend(request):
+def fan(request):
 #     friends = Friends.objects.filter(memno=request.user.id)
-    return render(request, 'iwear/friend.html', locals())
+    return render(request, 'iwear/fan.html', locals())
 
 #addEdit
 @login_required
@@ -166,6 +145,13 @@ def post_create(request):
     return render(request,'iwear/add_post.html',{
       'post_form':post_form, 'time':datetime.now()
   })
+
+#GROUP
+@login_required
+def group(request):
+    template = get_template('iwear/group.html')
+    html = template.render(locals())
+    return HttpResponse(html)
 
 #RECORD
 @login_required

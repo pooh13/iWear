@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% load static %}
+	<!-- CSS -->
+    <!-- <link rel="stylesheet" href="{% static 'css/.css' %}"> -->
+	<!-- chatroom test start-->
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-8 chatroom" style="margin: 0 auto;">
+				<div class="panel panel-primary">
+					<div class="panel-heading" id="accordion">
+						<span class="glyphicon glyphicon-comment"></span> 聊天室
+						<div class="btn-group pull-right">
+							<a type="button" style="float: right;" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fas fa fa-sort-down"></i>
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</a>
+						</div>
+					</div>
+					<div class="panel-collapse collapse" id="collapseOne">
+						<div class="panel-body" style="overflow-y: scroll; height: 250px;">
+							<ul class="chat">
+								<li class="left clearfix"><span class="chat-img pull-left">
+									<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+								</span>
+									<div class="chat-body clearfix">
+										<div class="header">
+											<strong class="primary-font">西裝群組</strong> <small class="pull-right text-muted">
+												<span class="glyphicon glyphicon-time"></span>訊息 70</small>
+										</div>
+									</div>
+								</li>
+								<li class="left clearfix"><span class="chat-img pull-left">
+									<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+								</span>
+									<div class="chat-body clearfix">
+										<div class="header">
+											<strong class="primary-font">丹寧群組</strong> <small class="pull-right text-muted">
+												<span class="glyphicon glyphicon-time"></span>訊息 58</small>
+										</div>
+									</div>
+								</li>
+								<li class="left clearfix"><span class="chat-img pull-left">
+									<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+								</span>
+									<div class="chat-body clearfix">
+										<div class="header">
+											<strong class="primary-font">工裝群組</strong> <small class="pull-right text-muted">
+												<span class="glyphicon glyphicon-time"></span>訊息 18</small>
+										</div>
+									</div>
+								</li>
+								<li class="left clearfix"><span class="chat-img pull-left">
+									<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+								</span>
+									<div class="chat-body clearfix">
+										<div class="header">
+											<strong class="primary-font">牛仔褲群組</strong> <small class="pull-right text-muted">
+												<span class="glyphicon glyphicon-time"></span>訊息 26</small>
+										</div>
+									</div>
+								</li>
+								<li class="left clearfix"><span class="chat-img pull-left">
+									<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+								</span>
+									<div class="chat-body clearfix">
+										<div class="header">
+											<strong class="primary-font">連身褲裝群組</strong> <small class="pull-right text-muted">
+												<span class="glyphicon glyphicon-time"></span>訊息 12</small>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel-footer">
+							<div class="input-group">
+								<input type="test" class="message" placeholder="Type your message here...">
+								<span class="input-group-btn">
+									<button class="submit">送出</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ##### Blog Wrapper End ##### -->
+
+    <!-- Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/breakpoints.min.js' %}"></script>
+{% endblock %}
