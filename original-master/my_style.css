@@ -153,7 +153,10 @@ div.InOrOut{
 			}
 
 		}
-
+img.img-circle{
+	width: 50px;
+	height: 50px;
+}
 .button-style{
 	display: inline-block;
 	background-color: #FC6103;
@@ -197,9 +200,9 @@ ul.tags{
 input[type=file]{
 	width: 100px;
 	height: 60px;
-	position: absolute;
-	top: 20%;
-	left: 10%;
+	position: relative;
+	/*top: 20%;*/
+	/*left: 15%;*/
 	z-index: 2;
 	opacity: 0;
 }
@@ -207,19 +210,19 @@ img#fake_icon{
 	width: 100px;
 	height: 50px;
 	/*float: left;*/
-	position: absolute;
-	top: 20%;
-	left: 10%;
+	position: relative;
+	/*top: 20%;*/
+	/*left: 19%;*/
 	margin-right: 15%;
 	z-index: 1;
 }
 div#showPic{
 	width: 20em;
 	height: 20em;
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 	/*float: left;*/
 	position: fixed;
-	top: 20%;
+	top: 19%;
 	left: 30%;
 	/*z-index: 1;*/
 	/*background-color: red;*/
@@ -235,7 +238,7 @@ button#sure{
 	position: fixed;
 	left: 80%;
 	top: 16em;
-	/*opacity: 0.3;*/
+	opacity: 0.5;
 	/*display: none;*/  /*這裡先不要顯示，等一珊把圖片show出來在顯示*/
 }
 button.sureInDetail{
@@ -267,6 +270,7 @@ button.sureInDetail{
 	height: 220px;
 	/*background-color: red;	 */
 	margin-bottom: 15px;
+	/*margin-top: 10%;*/
 }
 .articleAdd{
 	float: left;
@@ -619,4 +623,5 @@ div.list{
 	width: 20%; 
 	height: 100px;
 	border: 5px solid black;
+	margin-left: 10%;
 }
