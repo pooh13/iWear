@@ -13,26 +13,33 @@
 			}
 		});
 	</script>
+	<script type="text/javascript">
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              $('#blah').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+    </script>
     <!-- ##### Single Blog Area Start ##### -->
-    <div class="container">	
+    <div class="container-detail">	
 		<form action = "."  method = "post" enctype="multipart/form-data">	
-			<div class="header">
-				<div class="btnShare">
-					<a href="{% url 'iwear:homepage' %}"><button type="submit" class="btnShare">Share</button></a>
-				</div> 				
+			<img id="fake_icon" src="{% static 'img/choosePic.jpg' %}">
+        	<input type='file' value="Choose Pic" name="photo" id="photo" onchange="readURL(this)" class="chosePic"/> 
+			
+			<div class="article" >
+				<div class="articleAdd">
+					{% csrf_token %}
+					<img alt="Bootstrap Image Preview" src="{% static 'images/logo.png' %}" class="articleAdd" />   
+				</div>
+				<div class="context">
+					<textarea id="word" name="word" placeholder="說些什麼吧~" style="font-size: 20px;"></textarea>
+				</div>  
 			</div>
 
-			<div class="article">
-				{% csrf_token %}
-				<div class="articleAdd">
-				<img src="{% static 'images/logo.png' %}" alt="" id="photo_show" style="width:20%" class="articleAdd">
-				</div>
-				<input id="photo" type="file" name="photo">
-				
-				<div class="context">
-					<textarea id="word" name="word" placeholder="Write something" style="width: 50%" style="font-size: 20px"></textarea>
-				</div>
-			</div>
 			<div class="selectOption">
 				<label>風格</label>
 				<select class="styleList" id="styleno" name="styleno">
@@ -135,6 +142,7 @@
 					<option value="SH12">其他</option>
 				</select>
 			</div>
+			<a href="{% url 'iwear:homepage' %}"><button type="submit" class="sureInDetail">確定</button></a>
 		</form>
     </div>
 	<!-- ##### Single Blog Area End ##### -->

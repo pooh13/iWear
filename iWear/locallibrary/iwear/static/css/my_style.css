@@ -153,7 +153,10 @@ div.InOrOut{
 			}
 
 		}
-
+img.img-circle{
+	width: 50px;
+	height: 50px;
+}
 .button-style{
 	display: inline-block;
 	background-color: #FC6103;
@@ -197,9 +200,9 @@ ul.tags{
 input[type=file]{
 	width: 100px;
 	height: 60px;
-	position: absolute;
-	top: 20%;
-	left: 10%;
+	position: relative;
+	/*top: 20%;*/
+	left: -27%;
 	z-index: 2;
 	opacity: 0;
 }
@@ -207,19 +210,19 @@ img#fake_icon{
 	width: 100px;
 	height: 50px;
 	/*float: left;*/
-	position: absolute;
-	top: 20%;
-	left: 10%;
+	position: relative;
+	/*top: 20%;*/
+	/*left: 19%;*/
 	margin-right: 15%;
 	z-index: 1;
 }
 div#showPic{
 	width: 20em;
 	height: 20em;
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 	/*float: left;*/
 	position: fixed;
-	top: 20%;
+	top: 19%;
 	left: 30%;
 	/*z-index: 1;*/
 	/*background-color: red;*/
@@ -235,7 +238,7 @@ button#sure{
 	position: fixed;
 	left: 80%;
 	top: 16em;
-	/*opacity: 0.3;*/
+	opacity: 0.5;
 	/*display: none;*/  /*這裡先不要顯示，等一珊把圖片show出來在顯示*/
 }
 button.sureInDetail{
@@ -267,6 +270,7 @@ button.sureInDetail{
 	height: 220px;
 	/*background-color: red;	 */
 	margin-bottom: 15px;
+	/*margin-top: 10%;*/
 }
 .articleAdd{
 	float: left;
@@ -330,7 +334,7 @@ img.articleAdd{
 /*RWD*/
 @media screen and (max-width: 515px) {
 	body{
-		/*background-color:green;	*/
+		background-color:green;	
 	}
 	div.sidebar-widget-area{
 	position: relative;
@@ -340,7 +344,7 @@ img.articleAdd{
 }
 @media screen and (min-width: 515px) and (max-width: 550px) {
 	body{
-		/*background-color:pink;	*/
+		background-color:pink;	
 	}
 	div.sidebar-widget-area{
 	position: relative;
@@ -350,7 +354,7 @@ img.articleAdd{
 }
 @media screen and (min-width: 500px) and (max-width: 550px) {
 	body{
-		/*background-color:lightgreen;	*/
+		background-color:lightgreen;	
 	}
 	div.sidebar-widget-area{
 	position: relative;
@@ -368,6 +372,9 @@ img.articleAdd{
 	.article{
 		height: 110px;
 	}
+	input[type=file]{
+		left: -36%;
+	}
 	button#sure{	
 	width: 80px;
 	height: 40px;
@@ -382,7 +389,7 @@ img.articleAdd{
 }
 @media screen and (min-width: 550px) and (max-width: 575px) {
 	body{
-		/*background-color:gray;	*/
+		background-color:gray;	
 	}
 	div#showPic{
 	width: 18em;
@@ -393,6 +400,9 @@ img.articleAdd{
 	}
 	.article{
 		height: 110px;
+	}
+	input[type=file]{
+		left: -36%;
 	}
 	button#sure{	
 	width: 80px;
@@ -408,7 +418,7 @@ img.articleAdd{
 }
 @media screen and (min-width: 575px) and (max-width: 600px) {
 	body{
-		/*background-color:red;	*/
+		background-color:red;	
 	}
 	div#showPic{
 	width: 18em;
@@ -419,6 +429,9 @@ img.articleAdd{
 	}
 	.article{
 		height: 130px;
+	}
+	input[type=file]{
+		left: -34%;
 	}
 	button#sure{	
 	width: 80px;
@@ -434,7 +447,7 @@ img.articleAdd{
 }
 @media screen and (min-width: 600px) and (max-width: 700px) {
 	body{
-		/*background-color: yellow;*/
+		background-color: yellow;
 	}
 	div#showPic{
 	width: 18em;
@@ -445,6 +458,9 @@ img.articleAdd{
 	}	
 	.article{
 		height: 155px;
+	}
+	input[type=file]{
+		left: -31%;
 	}
 	button#sure{	
 	width: 80px;
@@ -460,7 +476,7 @@ img.articleAdd{
 }
 @media screen and (min-width: 700px) and (max-width: 800px) {
 	body{
-		/*background-color: brown;*/
+		background-color: brown;
 	}
 	div.sidebar-widget-area{
 	position: relative;
@@ -479,6 +495,9 @@ img.articleAdd{
 	div.article{
 		height: 180px;
 	}
+	input[type=file]{
+		left: -29%;
+	}
 	button#sure{	
 	width: 80px;
 	height: 40px;
@@ -492,7 +511,7 @@ img.articleAdd{
 }
 @media screen and (min-width: 800px) and (max-width: 1000px){
 	body{
-		/*background-color: purple;*/
+		background-color: purple;
 	}
 	img.nav-logo{
 		height: 50px;
@@ -515,7 +534,7 @@ img.articleAdd{
 }
 @media screen and (min-width: 1000px) {
 	body{
-		/*background-color: blue;*/
+		background-color: blue;
 	}
 }
 
@@ -619,4 +638,5 @@ div.list{
 	width: 20%; 
 	height: 100px;
 	border: 5px solid black;
+	margin-left: 10%;
 }
