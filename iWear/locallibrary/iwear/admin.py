@@ -9,7 +9,7 @@ admin.site.register(Clothes)
 admin.site.register(Coat)
 admin.site.register(Pants)
 admin.site.register(Shoes)
-admin.site.register(Postanalysisview)
+# admin.site.register(Postanalysisview)
 
 
 @admin.register(Meminform)
@@ -27,3 +27,7 @@ class Follow(admin.ModelAdmin):
 @admin.register(Friends)
 class Friends(admin.ModelAdmin):
     list_display = ('memno', 'memfrno')
+
+@admin.register(Postanalysisview)
+class Meminform(admin.ModelAdmin):
+    list_display = ('userid', 'photo')

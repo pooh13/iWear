@@ -9,7 +9,7 @@
 			var reader = new FileReader();
 			reader.readAsDataURL(file);
 			reader.onload = function () {
-				$('#photo_show')[0].src = this.result
+				$('#photo')[0].src = this.result
 			}
 		});
 	</script>
@@ -18,7 +18,7 @@
           if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-              $('#blah').attr('src', e.target.result);
+              $('#photo').attr('src', e.target.result);
             }
             reader.readAsDataURL(input.files[0]);
           }
@@ -33,7 +33,7 @@
 			<div class="article" >
 				<div class="articleAdd">
 					{% csrf_token %}
-					<img alt="Bootstrap Image Preview" src="{% static 'images/logo.png' %}" class="articleAdd" />   
+					<img alt="Bootstrap Image Preview" name="photo" id="photo" src="{% static 'images/logo.png' %}" class="articleAdd" />   
 				</div>
 				<div class="context">
 					<textarea id="word" name="word" placeholder="說些什麼吧~" style="font-size: 20px;"></textarea>

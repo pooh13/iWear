@@ -23,11 +23,15 @@ def homepage(request):
   own_posts = Post.objects.filter(userid = request.user)
   post = Post.objects.all()
   sql = """
-  select post.userid, post.photo, post.time from follow, post where follow.memFoid = post.userid order by post.time desc
+  select post.userid, post.photo, style.style, post.word, post.time
+  from follow, post, style
+  where follow.memFoid = post.userid and post.styleNo = style.styleNo
+  group by post.userid, post.photo, style.style, post.word, post.time
+  order by post.time desc
   """
  
   if request.user: #追蹤好友貼文
-    follow_posts = SelectAllSqlByColumns(sql, ['userid', 'photo', 'time'])
+    follow_posts = SelectAllSqlByColumns(sql, ['userid', 'photo', 'style', 'word', 'time'])
     posts = list(follow_posts) #按時間順序排(越新越上面)
   return render(request, 'iwear/home.html', locals())
 

@@ -42,3 +42,38 @@
 			}
 		}
 	</script>
+
+
+
+#Login
+<div  class="container" > 
+    <div class="title">
+        <h3>登入</h3>
+    </div>
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <form  action = ""  method = 'POST' enctype="multipart/form-data">
+        {% csrf_token %}
+            <table>
+                <tr>
+                    <td>使用者名稱：</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+
+                    <tr>
+                        <td>密碼：</td>
+                        <td>{{ form.password }}</td>
+                    </tr>
+            </table>
+            <button  type = "submit"  class = "button button--moema button--text-thick button--text-upper button--size-s myownbutton">登入</button > 
+            <input type="hidden" name="next" value="{{ next }}" />
+    </form >
+            <div class="down">
+                <a href = "{% url 'iwear:register' %}" style="margin-right: 10px;" >立即註冊</a >
+                <a href = "{% url 'password_reset' %}" >忘記密碼？</a >
+            </div > 
+</div >
