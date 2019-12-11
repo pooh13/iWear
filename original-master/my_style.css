@@ -354,16 +354,28 @@ div.commentPage-pic img{
 div.commentPage-message{
 	width:50%;
 	height: 80%;
-	/*background-color: white;*/
+	/*background-color: yellow;*/
 	float: right;
 	overflow: auto;
+}
+div.commentPage-message ul.top{
+	position: absolute;
+	z-index: 1;
+	background-color: #F7F4F4;
 }
 div.commentPage-message li{
 	margin-left: 5%;
 	list-style: none;
+	/*background-color: red;*/
 }
-div.commentPage-message li:nth-child(1){
-	margin-top: 5%;
+div.commentPage-message li button{
+	width: 20%;
+	background-color: #484242;
+	color: white;
+	font-size: 15px;
+}
+div.commentPage-message ul.bottom li:nth-child(1){
+	margin-top: 10%;
 }
 div.commentPage-message img{
 	width: 10%;
@@ -374,20 +386,26 @@ div.commentPage-message p{
 }
 
 div.commentPage-comment{
+	/*background-color: lightgreen;*/
 	width:50%;
 	height: 20%;
-	/*background-color: lightgreen;*/
 	float: right;
+}
+div.commentPage-comment ul li i{
+	float: left;
+	margin-top: 5%;
+	margin-left: 5%;
+	font-size: 30px;
 }
 #input{
 	width: 70%;
 	float: left;
-	margin: 10% 3%;
+	margin: 5% 0 0 5%;
 }
 #check{
 	width:20%;
 	float: left;
-	margin: 10% 0;
+	margin: 5% 0 0 5%;
 }
 
 
