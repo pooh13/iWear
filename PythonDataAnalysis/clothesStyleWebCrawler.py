@@ -2,6 +2,9 @@ import requests, iWearFunction
 
 from bs4 import BeautifulSoup
 
+cleanSQLDB = ("DELETE webSentence Where webSentenceNo In (Select Max(webSentenceNo) From webSentence Group By web)")
+iWearFunction.cursorGInsert(cleanSQLDB)
+
 def clothesStyleWebCrawlerGoogleSearch():
     # Google 搜尋 URL
     google_url = 'https://www.google.com.tw/search'
@@ -25,9 +28,10 @@ def clothesStyleWebCrawlerGoogleSearch():
         # 網址
         print("網址：" + i.get('href'))
 
-clothesStyleWebCrawlerGoogleSearch()
+# clothesStyleWebCrawlerGoogleSearch()
 
 def clothesStyleWebCrawlerDcard():
+
     dcard_url = 'https://www.dcard.tw'
     r = requests.get(dcard_url+"/f/dressup")
 
@@ -49,23 +53,36 @@ def clothesStyleWebCrawlerDcard():
 
         for urlString in arr:
             completeUrl = dcard_url+urlString
-            print(completeUrl)
+
             soup = BeautifulSoup(requests.get(completeUrl).text, 'lxml')
             title = soup.select('div.Post_wrapper_2rR09w > div.Post_meta_MVFsOq > h1')
             topic = soup.select('div.Post_wrapper_2rR09w > div.Post_content_NKEl9d > div.Post_topicList_2U8B7- > div.TopicList_root_17gqVK > ul > li')
 
             for clean in title:
-                print(clean.text+"\n"+"-"*50)
+                title = clean.text
+
+            topicList = []
 
             for clean in topic:
-                print(clean.text)
+                topics = clean.text
+                topicList.append(topics)
 
-            print("\n"+"="*60)
+            topicList = '/'.join(topicList)
+
+            result = "'"+completeUrl+"'"+","+"'"+title+"'"+","+"'"+topicList+"'"
+            # print("\n"+result)
+
+            print("\n"+"-"*50)
+            insertSQLCmd = ("INSERT INTO webSentence VALUES("+result+") SET ANSI_WARNINGS OFF ;")
+
+            print(insertSQLCmd)
+            iWearFunction.cursorGInsert(insertSQLCmd)
 
 clothesStyleWebCrawlerDcard()
 
 
 def clothesStyleWebCrawlerETtoday():
+
     etToday_url = 'https://www.ettoday.net/news'
     r = requests.get(etToday_url+"/focus/%E6%99%82%E5%B0%9A/%E6%BD%AE%E6%B5%81%E7%A9%BF%E6%90%AD/")
 
@@ -86,20 +103,30 @@ def clothesStyleWebCrawlerETtoday():
 
         for urlString in arr:
             completeUrl = etToday_url+urlString
-            print(completeUrl)
             soup = BeautifulSoup(requests.get(completeUrl).text, 'lxml')
             title = soup.select('h1')
             topic = soup.select('div.part_keyword > a')
 
             for clean in title:
-                print(clean.text+"\n"+"-"*50)
+                title = clean.text
+
+            topicList = []
 
             for clean in topic:
-                print(clean.text)
+                topics = clean.text
+                topicList.append(topics)
 
-            # context = soup.find("div",attrs={class":"/news/20190917/1536808.htm"}).text
-            # print(iWearFunction.MyJieba_hant(context))
-            print("\n"+"="*60)
+            topicList = '/'.join(topicList)
+
+            result = "'"+completeUrl+"'"+","+"'"+title+"'"+","+"'"+topicList+"'"
+
+            # print("\n"+result)
+
+            print("\n"+"-"*50)
+            insertSQLCmd = ("INSERT INTO webSentence VALUES("+result+") SET ANSI_WARNINGS OFF ;")
+
+            print(insertSQLCmd)
+            iWearFunction.cursorGInsert(insertSQLCmd)
 
 clothesStyleWebCrawlerETtoday()
 
@@ -141,7 +168,7 @@ def clothesStyleWebCrawlerGamme():
             # print(iWearFunction.MyJieba_hant(context))
             print("\n"+"="*60)
 
-clothesStyleWebCrawlerGamme()
+# clothesStyleWebCrawlerGamme()
 
 
 def clothesStyleWebCrawlerMeteor():
@@ -172,7 +199,7 @@ def clothesStyleWebCrawlerMeteor():
             context = soup.find("div",attrs={"class":"article_content"}).text
             print(iWearFunction.MyJieba_hant(context))
 
-clothesStyleWebCrawlerMeteor()
+# clothesStyleWebCrawlerMeteor()
 
 
 def clothesStyleWebCrawlerMobile01():
@@ -202,6 +229,6 @@ def clothesStyleWebCrawlerMobile01():
         # context = soup.find("div",attrs={"id":"ct72381770"})
         # print(iWearFunction.MyJieba_hant(context))
 
-clothesStyleWebCrawlerMobile01()
+# clothesStyleWebCrawlerMobile01()
 
 

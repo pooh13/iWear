@@ -1,5 +1,13 @@
-import os, csv, iWearFunction, analysisSQL
+import os, csv, iWearFunction, analysisSQL, testOnly.test01
 from datetime import datetime
+
+class MyException(Exception):
+  def __init__(self, value):
+    self.value = value
+
+account = str(iWearFunction.socketLoginChecker())
+account = account.strip("b").strip("'")
+print(account)
 
 listPercent=[0.3,0.1,0.15,0.15,0.15,0.15]
 
@@ -152,7 +160,10 @@ def getPossible(cusNo):
 
     # ---開始此使用者貼文與其他使用者貼文分析和此使用者相同或相似貼文---
 
-    insertAnalysisRequest = iWearFunction.cursorGFetch(analysisSQL.allSearchSQLCmd+"AND account!="+cusNo+";")
+    delCusNoSQLCmd = "DELETE FROM postAnalysisView WHERE id != "+cusNo+""
+    iWearFunction.cursorGInsert(delCusNoSQLCmd)
+
+    insertAnalysisRequest = iWearFunction.cursorGFetch(analysisSQL.allSearchSQLCmd+"AND account!="+cusNo+";" + analysisSQL.orACSearchSQLCmd+"AND account!="+cusNo+";" + analysisSQL.orCOSearchSQLCmd+"AND account!="+cusNo+";" + analysisSQL.orSHSearchSQLCmd+"AND account!="+cusNo+";" + analysisSQL.orPASearchSQLCmd+"AND account!="+cusNo+";" + analysisSQL.orACCOSearchSQLCmd+"AND account!="+cusNo+";" + analysisSQL.orACCOSHSearchSQLCmd+"AND account!="+cusNo+";" + analysisSQL.orACCOSHPASearchSQLCmd + "AND account!="+cusNo+";")
     print(insertAnalysisRequest)
 
     print("\n"+"---getPossible/已完成此使用者貼文與其他使用者貼文分析和此使用者相同或相似貼文---"+"\n"+"-"*30+"\n")
@@ -180,10 +191,8 @@ def getPossible(cusNo):
     print("\n"+"---getPossibleInsertAnalysisFinish---"+"\n"+"-"*50+"\n")
     print("\n"+"===getPossibleFinish==="+"\n"+"="*80+"\n")
 
-# getPossible(socketLoginChecker.socketLoginChecker())
-getPossible("109")
-
 print("\\"*100+"\ngetPossibleEND\n"+"/"*100+"\n"*3)
+
 
 def getCusNoOwnPostJieba(cusNo):
 
@@ -262,18 +271,50 @@ def getCusNoOwnPostJieba(cusNo):
     print("\n"+"---getCusNoOwnPostJieba/已完成將使用者貼文分析結果寫入資料庫---"+"\n"+"-"*30+"\n")
     print("\n"+"===getCusNoOwnPostJiebaInsertDB==="+"\n"+"-"*50+"\n")
 
-    # for column in testOnly.test01.clothesStyleWebCrawlerDcard():
-    #     insertSQLCmd = ("INSERT INTO userSentenceCount VALUES(")
-    #     column=list(column)
+    # ---開始此使用者貼文與其他使用者貼文分析和此使用者有關聯文章---
 
-#         for addCusNo in column:
-#             insertSQLCmd+="'"+addCusNo+"',"
-#         insertSQLCmd = insertSQLCmd[:len(insertSQLCmd)-1]+');'
+    delCusNoSQLCmd = "DELETE FROM webAndUserSentenceAnalysis WHERE ownAccount != "+cusNo+""
+    iWearFunction.cursorGInsert(delCusNoSQLCmd)
+
+    insertAnalysisRequest = iWearFunction.cursorGFetch(analysisSQL.sentenceAnalysisSQLCmd)
+    print(insertAnalysisRequest)
+
+    print("\n"+"---getCusNoOwnPostJieba/已完成此使用者貼文與其他使用者貼文分析和此使用者有關聯文章---"+"\n"+"-"*30+"\n")
+
+    # # ---將此使用者分析結果寫回資料庫---
+    #
+    for row in insertAnalysisRequest:
+        insertAnalysisRequestSQLCmd = ("INSERT INTO webAndUserSentenceAnalysis VALUES(")
+
+        row=list(row)
+        row.append(cusNo)
+
+        for toString in row:
+            toString=str(toString)
+            insertAnalysisRequestSQLCmd+="'"+toString+"',"
+        insertAnalysisRequestSQLCmd = insertAnalysisRequestSQLCmd[:len(insertAnalysisRequestSQLCmd)-1]+");"
+        print("insertAnalysisRequestSQLCmd: "+insertAnalysisRequestSQLCmd)
+
+        iWearFunction.cursorGInsert(insertAnalysisRequestSQLCmd)
+
+    print("\n"+"---getCusNoOwnPostJieba/已完成此使用者分析結果寫回資料庫---"+"\n"+"-"*30+"\n")
+    print("\n"+"---getCusNoOwnPostJieba---"+"\n"+"-"*50+"\n")
+    print("\n"+"===getCusNoOwnPostJiebaFinish==="+"\n"+"="*80+"\n")
+
+# while True:
+#     try:
+#         getPossible(account)
+#         # getPossible("109")
+#         getCusNoOwnPostJieba(account)
+#         # getCusNoOwnPostJieba("109")
 #
-#         print(insertSQLCmd)
-#         iWearFunction.cursorGInsert(insertSQLCmd)
+#         break
+#
+#     except MyException as e:
+#         if e.value == "restart":
+#             continue
 
-
-getCusNoOwnPostJieba("109")
-
-
+getPossible(account)
+# getPossible("109")
+getCusNoOwnPostJieba(account)
+# getCusNoOwnPostJieba("109")

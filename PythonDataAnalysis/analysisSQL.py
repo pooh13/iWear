@@ -75,3 +75,4 @@ orACCOSHPASearchSQLCmd = ("SELECT * FROM post"+" "+
 
 # ---分析貼文內容用SQL---
 
+sentenceAnalysisSQLCmd = ("SELECT webSentence.* FROM webSentence, userSentenceCount WHERE webSentence.sentence LIKE '%' + userSentenceCount.userSentence + '%'")
