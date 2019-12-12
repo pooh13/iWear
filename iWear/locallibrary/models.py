@@ -158,7 +158,7 @@ class DjangoSession(models.Model):
 
 class Follow(models.Model):
     fono = models.AutoField(db_column='FoNo', primary_key=True)  # Field name made lowercase.
-    userid = models.CharField(max_length=12, blank=True, null=True)
+    userid = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='userid', blank=True, null=True)
     memfoid = models.ForeignKey('Meminform', models.DO_NOTHING, db_column='memFoid')  # Field name made lowercase.
 
     class Meta:
@@ -351,6 +351,18 @@ class Usersentencecount(models.Model):
     class Meta:
         managed = False
         db_table = 'userSentenceCount'
+
+
+class Webandusersentenceanalysis(models.Model):
+    websentenceno = models.IntegerField(db_column='webSentenceNo')  # Field name made lowercase.
+    web = models.CharField(max_length=100, blank=True, null=True)
+    webtitle = models.CharField(db_column='webTitle', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    sentence = models.CharField(max_length=100, blank=True, null=True)
+    ownaccount = models.CharField(db_column='ownAccount', max_length=255, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'webAndUserSentenceAnalysis'
 
 
 class Websentence(models.Model):

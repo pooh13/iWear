@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    {% load static %}
+    <!-- Search Form  -->
+    <!-- <div class="container" style="margin: 0px 120px 50px auto;">
+        <form action="/profile_user/"  method="post" enctype="multipart/form-data">
+            <div class="col-lg-6">
+                <div class="input-group" style="position: absolute;">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn-default" style="margin-left: 20px;" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div> -->
+
+    <!-- CSS -->
+    <style type="text/css">
+    　　* {margin:0;padding:0;}
+    　　#wrapper {height:1000px;}
+    　　#box {display:none;position:absolute;width:520px;height:300px;border:#f60 solid 2px;z-index:200;background:#fff;}
+    　　#closeBtn {position:absolute;right:10px;top:10px;cursor:pointer;}
+    　　#greybackground {background:#000;display:block;z-index:100;width:100%;position:absolute;top:0;left:0;}
+    </style>
+
+    <!-- ##### Hero Area Start ##### -->
+        <!-- Hero Slides Area -->
+        <div class="container-fluid">
+            <div class="InOrOut">更多穿搭推薦</div>
+                    {% for recommend in recommends %}
+                    {% cycle "<div class='row'> <div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" %}
+                        {% if recommend.photo %}
+                            <a href="{% url 'iwear:post_show' recommend.id %}"><img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ recommend.photo }}"></a>
+                        {% else %}
+                            <img alt="Bootstrap Image Preview" src="{% static 'images/logo.jpg' %}">
+                        {% endif %}
+                        <a href="{% url 'iwear:profile_user' recommend.userid %}"><h3  width="300" style="margin:0 45%;">{{ recommend.userid }}</h3></a>
+                    {% cycle "</div> </div> </div>" "</div> </div> </div>" "</div></div></div></div>" %}
+                    {% endfor %}
+            </div>
+            <div class="InOrOut" style="margin-buttom: 2%;">更多穿搭技巧</div>
+                <div class="col-md-12" style="margin-left: 10%;">
+                    {% for web in webs %}
+                    {% cycle "<div class='row'> <div class='col-md-6'>" "<div class='col-md-6'>" %}
+                        <p><a style="font-size: medium;" href="{{web.web}}" target="_blank">{{ web.webtitle }}</a></p>
+                    {% cycle "</div>" "</div> </div>" %}
+                    {% endfor %}
+                </div>
+            
+        </div>
+        
+        <!-- <div id="wrapper">
+　　        <a href="{% static 'images/logo.jpg' %}" id="popup">點選彈出div視窗</a>
+            <div id="box">
+        　      <span id="closeBtn">關閉</span>
+        　  </div>
+　      </div> -->
+
+    <!-- ##### Hero Area End ##### -->
+
+
+    <!-- ##### Hero Area Start ##### -->
+    <!-- ##### Hero Area End ##### -->
+
+	
+
+{% endblock %}
+
+<!-- <script>
+$(function(){
+　　var screenwidth,screenheight,mytop,getPosLeft,getPosTop
+　　screenwidth = $(window).width();
+　　screenheight = $(window).height();
+　　//獲取滾動條距頂部的偏移
+　　mytop = $(document).scrollTop();
+　　//計算彈出層的left
+　　getPosLeft = screenwidth/2 - 260;
+　　//計算彈出層的top
+　　getPosTop = screenheight/2 - 150;
+　　//css定位彈出層
+　　$("#box").css({"left":getPosLeft,"top":getPosTop});
+　　//當瀏覽器視窗大小改變時...
+　　$(window).resize(function(){
+　　screenwidth = $(window).width();
+　　screenheight = $(window).height();
+　　mytop = $(document).scrollTop();
+　　getPosLeft = screenwidth/2 - 260;
+　　getPosTop = screenheight/2 - 150;
+　　$("#box").css({"left":getPosLeft,"top":getPosTop+mytop});
+　　});
+
+　　//當拉動滾動條時...
+　　$(window).scroll(function(){
+　　screenwidth = $(window).width();
+　　screenheight = $(window).height();
+　　mytop = $(document).scrollTop();
+　　getPosLeft = screenwidth/2 - 260;
+　　getPosTop = screenheight/2 - 150;
+　　$("#box").css({"left":getPosLeft,"top":getPosTop+mytop});
+　　});
+
+　　//點選連結彈出視窗
+　　$("#popup").click(function(){
+　　$("#box").fadeIn("fast");
+　　//獲取頁面文件的高度
+　　var docheight = $(document).height();
+　　//追加一個層，使背景變灰
+　　$("body").append("<div id='greybackground'></div>");
+　　$("#greybackground").css({"opacity":"0.5","height":docheight});
+　　return false;
+　　});
+
+　　//點選關閉按鈕
+　　$("#closeBtn").click(function() {
+　　$("#box").hide();
+　　//刪除變灰的層
+　　$("#greybackground").remove();
+　　return false;
+　　});
+});
+</script> -->

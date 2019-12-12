@@ -42,7 +42,7 @@
                         <!-- Classy Menu -->
                         <nav class="classy-navbar justify-content-between">
                         <!-- Breaking News Area -->
-                        <img class="nav-logo" style="width: 4.7%;" src="{% static 'images/logo.png' %}">  
+                        <a href="{% url 'iwear:homepage' %}"><img class="nav-logo" src="{% static 'images/logo.png' %}"></a>  
                             <!-- Subscribe btn -->
                             <div class="subscribe-btn">
                                 <a href="{% url 'logout'%}" class="btn subscribe-btn" type="sumbit">LOGOUT</a>
@@ -64,7 +64,8 @@
                                 <div class="classynav">
                                     <ul>
                                         <li><a href="{% url 'iwear:homepage' %}">首頁</a></li>
-                                        <li><a href="{% url 'iwear:search' %}">推薦</a></li>
+                                        <li><a href="{% url 'iwear:search' %}">搜尋</a></li>
+                                        <li><a href="{% url 'iwear:recommend' %}">推薦</a></li>
                                         <li><a href="{% url 'iwear:add_post' %}">新增貼文</a></li>
                                         <li><a href="{% url 'iwear:group' %}">群組</a></li>
                                         <li><a href="{% url 'iwear:record' %}">紀錄</a> </li>

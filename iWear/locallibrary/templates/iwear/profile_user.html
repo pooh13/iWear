@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% load static %}
+		<!-- ##### Breadcumb Area Start ##### -->
+		<div class="breadcumb-area bg-img" style="background-image: url({% static 'img/bg-img/b1.jpg' %});">
+			<div class="container h-100">
+				<div class="row h-100 align-items-center">
+					<div class="col-12">
+						<div class="breadcumb-content text-center">
+							<!-- <h2>about me</h2> -->
+							<h2>{{ mems.userid }}</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ##### Cool Facts Area Start ##### -->
+			{% if memimg.mempic %}
+			<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({{MEDIA_URL}}{{ memimg.mempic }})">
+			{% else %}
+			<div class="cool-facts-area section-padding-100-0 bg-img background-overlay" style="background-image: url({% static 'images/logo.jpg' %})">
+			{% endif %}
+
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="single-blog-area blog-style-2 text-center mb-100">
+						</div>
+					</div>
+				</div>
+	
+				<div class="row">
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-xs-6 col-md-4">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h2><span class="counter">{{ times }}</span></h2>
+							<p>貼文</p>
+						</div>
+					</div>
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-xs-6 col-md-4">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h2><span class="counter">0</span>K</h2>
+							<p>粉絲</p>
+						</div>
+					</div>
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-xs-6 col-md-4">
+						<div class="single-cool-facts-area text-center mb-100">
+							<!-- <h2><span class="counter">{{ follows }}</span></h2> -->
+							<h2><span class="counter"></span></h2>
+							<p>追蹤中</p>
+						</div>
+					</div>
+					<!-- Single Cool Facts Area -->
+					<div class="col-12 col-sm-6 col-lg-6">
+						<div class="single-cool-facts-area text-center mb-100">
+							<h3>iwear</h3>
+						</div>
+					</div>
+					<!-- 追蹤與退追 -->
+						<!-- Single Cool Facts Area -->
+						<div class="col-12 col-sm-6 col-lg-6">
+							<div class="single-cool-facts-area text-center mb-100">
+								<form method="POST">
+									{% csrf_token %}
+										{%if follows %} <!-- 是追蹤好友 -->
+											<button id="btn_del" class="btn-primary btn-lg">追蹤中</button>
+										{% elif unfollows %}
+											<button id="btn_add" class="btn-primary btn-lg">追蹤</button>
+										{% endif %}
+									<!-- <input id='btn' class="btn-primary btn-lg" type="button" onclick="follow()" value="已追蹤"> -->
+								</form>
+
+							</div>
+						</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- ##### Cool Facts Area End ##### -->
+
+		<!-- ##### Blog Wrapper Start ##### -->
+		<div class="blog-wrapper section-padding-100-0 clearfix">
+			<div class="container">
+				{% for img in posts %}
+						{% cycle "<div class='row'> <div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" "<div class='col-12 col-md-6 col-lg-4'> <div class='single-blog-area blog-style-2 mb-100'> <div class='single-blog-thumbnail'>" %}
+							{% if img.photo %}
+								<img alt="Bootstrap Image Preview" src="{{ MEDIA_URL }}{{ img.photo }}">
+							{% else %}
+								<img alt="Bootstrap Image Preview" src="{% static 'images/logo.jpg' %}">
+							{% endif %}
+						</div>
+						{% cycle "</div> </div>" "</div> </div>" "</div> </div>" %}
+				{% endfor %}
+			</div>
+		</div>
+		<!-- ##### Blog Wrapper End ##### -->
+
+	<!-- Script -->
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-boxSlider.js' %}"></script>
+
+	<!-- <script type="text/javascript">
+		var flag=0
+		function follow(){
+			if(flag==0){
+				document.getElementById('btn').value='已追蹤';			
+				document.getElementById('btn').className='btn btn-primary btn-lg';
+				flag+=1;
+			}
+			else if(flag==1){
+				document.getElementById('btn').value='追蹤';			
+				document.getElementById('btn').className='btn btn-primary btn-lg';
+				flag=0;	
+			}
+		}
+	</script> -->
+
+	<script>
+		$(document).ready(function(){
+			var follow=0
+			$("#btn_add").click(function(){
+				if(follow==0){
+					$(this).html('追蹤中');
+					follow+=1;
+				}else{
+					$(this).html('追蹤');
+					follow=0;
+				}
+			});
+		});
+	</script>
+
+{% endblock %}

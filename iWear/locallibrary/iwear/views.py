@@ -16,25 +16,24 @@ from operator import attrgetter
 # from django.views import generic
 
 from .forms import UserForm, MemInfoForm, PostForm, FollowForm
-from .models import Accessories, Meminform, Style, Post, Follow, AuthUser, Friends, Postanalysisview
+from .models import Accessories, Meminform, Style, Post, Follow, AuthUser, Friends, Postanalysisview, Webandusersentenceanalysis
 
 # Create your views here.
 def homepage(request):
   own_posts = Post.objects.filter(userid = request.user)
   post = Post.objects.all()
   sql = """
-  select post.userid, post.photo, style.style, post.word, post.time
+  select post.id, post.userid, post.photo, style.style, post.word, post.time
   from follow, post, style
   where follow.memFoid = post.userid and post.styleNo = style.styleNo
-  group by post.userid, post.photo, style.style, post.word, post.time
+  group by post.id, post.userid, post.photo, style.style, post.word, post.time
   order by post.time desc
   """
  
   if request.user: #追蹤好友貼文
-    follow_posts = SelectAllSqlByColumns(sql, ['userid', 'photo', 'style', 'word', 'time'])
+    follow_posts = SelectAllSqlByColumns(sql, ['id', 'userid', 'photo', 'style', 'word', 'time'])
     posts = list(follow_posts) #按時間順序排(越新越上面)
   return render(request, 'iwear/home.html', locals())
-
 
 #setting.html
 @login_required
@@ -47,8 +46,18 @@ def profile(request):
     fans = Follow.objects.filter(memfoid=user).count() #被追蹤數
     return render(request, 'iwear/profile.html', locals())
 
+#post_show
+@login_required
+def post_show(request, pk): #pk=發文ID
+  if Postanalysisview.objects.filter(id=pk):
+    posts = Postanalysisview.objects.get(id=pk)
+
+  if Post.objects.filter(id=pk):
+    posts = Post.objects.get(id=pk)
+  return render(request, 'iwear/post_show.html', locals())
+
 #Follows_profile
-def profile_test(request, pk): #pk=memfoid
+def profile_user(request, pk): #pk=memfoid
     mems = Meminform.objects.get(userid=pk)
     meminfos = Meminform.objects.filter(userid=pk).all()
     times = Post.objects.filter(userid=pk).count() #發文數
@@ -90,10 +99,10 @@ def profile_test(request, pk): #pk=memfoid
     else:
       unfollows = Meminform.objects.all()
 
-    return render(request, 'iwear/profile_test.html', locals())
+    return render(request, 'iwear/profile_user.html', locals())
     ##
 
-    #搜尋
+    # 搜尋
     # if 'search' in request.GET and request.GET['search']!='': #表單是否被提交
     #   pk = request.GET['search']
 
@@ -148,11 +157,27 @@ def record(request):
     html = template.render(locals())
     return HttpResponse(html)
 
-#SEARCH
+#Search
 @login_required
 def search(request):
+    template = get_template('iwear/search.html')
+    html = template.render(locals())
+    return HttpResponse(html)
+
+#Recommend
+@login_required
+def recommend(request):
     recommends = Postanalysisview.objects.filter(ownaccount=request.user.id)
-    return render(request, 'iwear/search.html', locals())
+    webs = Webandusersentenceanalysis.objects.filter(ownaccount=request.user.id).all()
+
+    # sql="""
+    # select webTitle, web
+    # from webAndUserSentenceAnalysis
+    # group by webTitle, web
+    # """
+    # if Webandusersentenceanalysis.objects.filter(ownaccount=request.user.id):
+    #   webs = SelectAllSqlByColumns(sql, ['webTitle', 'web'])
+    return render(request, 'iwear/recommend.html', locals())
 
 #REGISTER
 def register(request):

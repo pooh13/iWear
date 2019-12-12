@@ -272,3 +272,15 @@ class Sysdiagrams(models.Model):
         managed = False
         db_table = 'sysdiagrams'
         unique_together = (('principal_id', 'name'),)
+
+
+class Webandusersentenceanalysis(models.Model):
+    websentenceno = models.IntegerField(db_column='webSentenceNo')  # Field name made lowercase.
+    web = models.CharField(max_length=100, blank=True, null=True)
+    webtitle = models.CharField(db_column='webTitle', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    sentence = models.CharField(max_length=100, blank=True, null=True)
+    ownaccount = models.CharField(db_column='ownAccount', max_length=255, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'webAndUserSentenceAnalysis'

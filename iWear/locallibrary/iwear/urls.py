@@ -27,11 +27,13 @@ urlpatterns = [
     # path('index/', views.)
     path('profile/', views.profile, name='profile'),
     # path('un_profile/<pk>', views.un_profile, name='un_profile'),
-    path('profile_test/<pk>', views.profile_test, name='profile_test'),
+    path('profile_user/<pk>', views.profile_user, name='profile_user'),
+    path('post_show/<pk>', views.post_show, name='post_show'),
     path('group/', views.group, name='group'),
     path('follow/', views.follow, name='follow'),
     path('fan/', views.fan, name='fan'),
     path('addPost/', views.post_create, name='add_post'),
     path('record/', views.record, name='record'),
     path('search/', views.search, name='search'),
+    path('recommend/', views.recommend, name='recommend'),
 ]

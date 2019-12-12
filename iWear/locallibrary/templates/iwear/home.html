@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,7 +41,7 @@
                         <!-- Classy Menu -->
                         <nav class="classy-navbar justify-content-between">
                         <!-- Breaking News Area -->
-                        <img class="nav-logo" style="width: 4.7%;" src="{% static 'images/logo.png' %}">  
+                        <a href="{% url 'iwear:homepage' %}"><img class="nav-logo" src="{% static 'images/logo.png' %}"></a>  
                             <!-- Subscribe btn -->
                             <div class="subscribe-btn">
                                 <a href="{% url 'logout'%}" class="btn subscribe-btn" type="sumbit">LOGOUT</a>
@@ -64,7 +63,8 @@
                                 <div class="classynav">
                                     <ul>
                                         <li><a href="{% url 'iwear:homepage' %}">首頁</a></li>
-                                        <li><a href="{% url 'iwear:search' %}">推薦</a></li>
+                                        <li><a href="{% url 'iwear:search' %}">搜尋</a></li>
+                                        <li><a href="{% url 'iwear:recommend' %}">推薦</a></li>
                                         <li><a href="{% url 'iwear:add_post' %}">新增貼文</a></li>
                                         <li><a href="{% url 'iwear:group' %}">群組</a></li>
                                         <li><a href="{% url 'iwear:record' %}">紀錄</a> </li>
@@ -107,13 +107,13 @@
                                         {% if post.photo %}
                                         <div class="col-12 col-md-6">    
                                             <div class="single-blog-thumbnail">
-                                                    <img style="width: 250px;" src="{{ MEDIA_URL }}{{ post.photo }}" alt="">                                                
+                                                <a href="{% url 'iwear:post_show' post.id %}"><img src="{{ MEDIA_URL }}{{ post.photo }}" alt=""></a>                                                  
                                             </div>
                                         </div>
                                         {% else %}
                                         <div class="col-12 col-md-6">    
                                             <div class="single-blog-thumbnail">
-                                                <img style="width: 250px;" src="{% static 'images/logo.jpg' %}"  alt="">
+                                                <a href="{% url 'iwear:post_show' post.id %}"><img src="{% static 'images/hh.jpg' %}"  alt=""></a>
                                             </div>
                                         </div>
                                         {% endif %}
@@ -124,7 +124,7 @@
                                                 <a href="#" class="post-tag">{{ post.style }}</a>                             
                                                 <p class="article">{{ post.word }}</p>
                                                 <div class="post-meta">
-                                                    <p>By<a href="{% url 'iwear:profile_test' post.userid %}"> {{ post.userid }}</a></p>
+                                                    <p>By<a href="{% url 'iwear:profile_user' post.userid %}"> {{ post.userid }}</a></p>
                                                     <p>0 comments</p>
                                                 </div>
                                             </div>

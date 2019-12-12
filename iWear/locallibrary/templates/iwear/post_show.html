@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% load static %}
+    
+    <!-- ##### Single Blog Area Start ##### -->
+    <div class="commentPage-wrapper">
+        <div class="commentPage-pic">
+            {% if posts.photo %}
+            <!-- post 貼文照片 -->
+                <img src="{{ MEDIA_URL }}{{ posts.photo }}">
+            {% else %}
+                <img src="{% static 'img/logo.jpg' %}">
+            {% endif %}
+        </div>
+
+        <div class="commentPage-message">
+            <ul class="top">
+                <li>
+                    <!-- 貼文者頭貼+ID -->
+                    <a href="#"><img src="{% static 'img/logo.jpg' %}">{{ posts.userid }}</a>
+                    <button type="button">追蹤</button>
+                </li>
+            </ul>
+            <hr>
+            <ul class="bottom">
+                <li>
+                    <!-- 貼文內容 -->
+                    <p>{{ posts.word}}</p></br>
+                    <p>#{{ posts.styleno }} #{{ posts.accessoriesno }} #{{ posts.clothesno }} #{{ posts.coatno }} #{{ posts.pantsno }} #{{ posts.shoesno }}</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                <li>
+                    <a href="#"><img src="{% static 'img/logo.jpg' %}"> userID</a>
+                    <p>This one is god damn good bro~</p>
+                </li>
+                
+            </ul>
+        </div>
+
+        <div class="commentPage-comment">
+            <ul class="functionLine">
+                <a href="#"><li id="like" onclick="likeOrdislike()" value="no"><i class="far fa fa-heart"></i></li></a>
+                <a href="#"><li><i class="fas fa fa-comment"></i></li></a>
+                <a href="#"><li><i class="fas fa fa-share"></i></li></a>
+            </ul>
+            <input id="input" type="text-center" placeholder="Add a comment...">
+            <input id="check" type="button" value="送出" >
+        </div>
+    </div>
+    <!-- ##### Single Blog Area End ##### -->
+
+    <!-- <div class="row">
+        <div class="col-md-12" style="margin-top: 2%;">
+            {% for posts in show_posts %}
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                    {% if posts.photo %}
+                    <img alt="Bootstrap Image Preview" width="300" style="margin:0 25%" src="{{ MEDIA_URL }}{{ posts.photo }}">
+                    {% endif %}
+                    <p>#{{ posts.style }}</p>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> -->
+
+    <script type="text/javascript">
+        var flag=1
+        function likeOrdislike(){
+            if(flag==1){
+                document.getElementById('like').style.color='red';
+            }
+            if(flag==2){
+                document.getElementById('like').style.color='#4F4F4F';          
+                flag=0;
+            }
+            flag++;
+        }
+    </script>
+{% endblock %}
