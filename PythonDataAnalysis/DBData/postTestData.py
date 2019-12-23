@@ -1,6 +1,6 @@
 import random
 cnt=0
-with open('../SQLTest/postTestData.sql',"a",encoding='UTF-8') as ff:
+with open('C:/Users/USER/Desktop/iWear/SQLTest/postTestData.sql',"a",encoding='UTF-8') as ff:
     for a in range(1):
         a=a+1
         a = "%02d" % a
@@ -19,6 +19,6 @@ with open('../SQLTest/postTestData.sql',"a",encoding='UTF-8') as ff:
         #                 for f in range(12):
         #                     f=f+1
         #                     f = "%02d" % f
-        s="insert into post (account,time,word,styleNo,accessoriesNo,clothesNo,coatNo,pantsNo,shoesNo) values ('64','2018-01-01 00:00:00.000','這是一場騙局','ST%s','AC%s','CL01','CO02','PA03','SH02');" %(str(a),str(b))
+        s="insert into post (account, userid, time, word, styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo) values ('62', 'fangTest', '2018-01-01 00:00:00.000','今天天氣真好 適合穿搭','ST%s','AC%s','CL01','CO02','PA03','SH02');" %(str(a),str(b))
         ff.write(s+"\n")
         print(s)

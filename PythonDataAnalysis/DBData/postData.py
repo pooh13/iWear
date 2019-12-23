@@ -1,5 +1,5 @@
 cnt=0
-with open('../SQLTest/postData.sql',"a",encoding='UTF-8') as ff:
+with open('C:/Users/USER/Desktop/iWear/SQLTest/postData1118.sql',"w",encoding='UTF-8') as ff:
     for a in range(6):
         a=a+1
         a = "%02d" % a
@@ -18,6 +18,6 @@ with open('../SQLTest/postData.sql',"a",encoding='UTF-8') as ff:
                         for f in range(12):
                             f=f+1
                             f = "%02d" % f
-                            s="insert into post (account,time,word,styleNo,accessoriesNo,clothesNo,coatNo,pantsNo,shoesNo) values ('64','2018-01-01 00:00:00.000','這是一場騙局','ST%s','AC%s','CL%s','CO%s','PA%s','SH%s');" %(str(a),str(b),str(c),str(d),str(e),str(f))
+                            s="insert into post (account, userid, photo, time, word, styleNo, accessoriesNo, clothesNo, coatNo, pantsNo, shoesNo) values ('110', 'tata95', 'photos/logo.jpg','2018-01-01 00:00:00.000','今天天氣真好 適合穿搭','ST%s','AC%s','CL%s','CO%s','PA%s','SH%s');" %(str(a),str(b),str(c),str(d),str(e),str(f))
                             ff.write(s+"\n")
                             print(s)
